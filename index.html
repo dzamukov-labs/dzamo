@@ -102,7 +102,6 @@
  margin-bottom: 4rem;
  letter-spacing: 0.02em;
  }
- 
  /* ===== БЛОК ПРОБЛЕМЫ ===== */
  .problem-section {
  margin: 3rem 0;
@@ -315,15 +314,6 @@
  background: rgba(239, 68, 68, 0.2);
  }
  
- @keyframes shimmer {
- 0% {
- transform: translateX(-100%);
- }
- 100% {
- transform: translateX(100%);
- }
- }
- 
  .problem-items {
  display: flex;
  flex-direction: column;
@@ -340,26 +330,6 @@
  gap: 1.5rem;
  opacity: 0;
  animation: fadeInUp 0.6s ease-out forwards;
- }
- 
- .problem-item:nth-child(1) { animation-delay: 0.1s; }
- .problem-item:nth-child(2) { animation-delay: 0.2s; }
- .problem-item:nth-child(3) { animation-delay: 0.3s; }
- 
- .problem-icon {
- width: 24px;
- height: 24px;
- min-width: 24px;
- stroke: #ef4444;
- stroke-width: 1.5;
- margin-top: 2px;
- }
- 
- .problem-text {
- font-size: 1.1rem;
- color: #e2e8f0;
- line-height: 1.6;
- letter-spacing: 0.01em;
  }
  
  /* ===== БЛОК РЕШЕНИЯ ===== */
@@ -652,10 +622,6 @@
  font-size: 1.2rem;
  }
  
- .deal-won:nth-child(1) { animation-delay: 0.5s; }
- .deal-won:nth-child(2) { animation-delay: 1.5s; }
- .deal-won:nth-child(3) { animation-delay: 2.5s; }
- 
  @keyframes wonDeal {
  0% {
  opacity: 0;
@@ -671,31 +637,7 @@
  }
  }
  
- /* Разделитель молния */
- .divider-lightning {
- display: flex;
- align-items: center;
- justify-content: center;
- width: 60px;
- }
- 
- .divider-lightning svg {
- width: 100%;
- height: 100%;
- filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
- animation: lightning 2s ease-in-out infinite;
- }
- 
- @keyframes lightning {
- 0%, 100% {
- opacity: 0.3;
- }
- 50% {
- opacity: 1;
- }
- }
- 
- /* ===== МЕТРИКИ ТРАНСФОРМАЦИИ ===== */
+ /* ===== ВЫДЕЛЕННЫЙ БЛОК ===== */
  .transformation-metrics {
  display: grid;
  grid-template-columns: repeat(3, 1fr);
