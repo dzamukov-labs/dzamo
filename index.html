@@ -1,9 +1,13 @@
-<style>
- /* ===== ИМПОРТ ШРИФТОВ ===== */
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>ИИ-продавец для агентств недвижимости</title>
+ <style>
  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
  
- /* ===== БАЗОВЫЕ СТИЛИ ===== */
  * {
  margin: 0;
  padding: 0;
@@ -32,7 +36,6 @@
  z-index: 1;
  }
  
- /* ===== КОНТЕЙНЕР ПРЕЗЕНТАЦИИ ===== */
  .presentation-container {
  width: 100%;
  max-width: 1200px;
@@ -41,7 +44,6 @@
  z-index: 2;
  }
  
- /* ===== ОБЩИЕ СТИЛИ СЛАЙДОВ ===== */
  .slide {
  min-height: 100vh;
  display: flex;
@@ -65,7 +67,6 @@
  text-align: center;
  }
  
- /* ===== ТИПОГРАФИКА ===== */
  h1 {
  font-size: 3.5rem;
  font-weight: 600;
@@ -102,23 +103,13 @@
  margin-bottom: 4rem;
  letter-spacing: 0.02em;
  }
- /* ===== БЛОК ПРОБЛЕМЫ ===== */
+ 
  .problem-section {
  margin: 3rem 0;
  position: relative;
  padding: 2rem 0;
  }
  
- .problem-title {
- font-size: 1.4rem;
- font-weight: 500;
- color: #ef4444;
- margin-bottom: 2rem;
- text-transform: uppercase;
- letter-spacing: 0.1em;
- }
- 
- /* Анимированные сообщения */
  .messages-flow {
  position: relative;
  height: 400px;
@@ -216,7 +207,6 @@
  font-family: 'JetBrains Mono', monospace;
  }
  
- /* Статистика проблем */
  .problem-stats {
  display: flex;
  justify-content: center;
@@ -314,6 +304,24 @@
  background: rgba(239, 68, 68, 0.2);
  }
  
+ @keyframes shimmer {
+ 0% {
+ transform: translateX(-100%);
+ }
+ 100% {
+ transform: translateX(100%);
+ }
+ }
+ 
+ .problem-title {
+ font-size: 1.4rem;
+ font-weight: 500;
+ color: #ef4444;
+ margin-bottom: 2rem;
+ text-transform: uppercase;
+ letter-spacing: 0.1em;
+ }
+ 
  .problem-items {
  display: flex;
  flex-direction: column;
@@ -332,7 +340,26 @@
  animation: fadeInUp 0.6s ease-out forwards;
  }
  
- /* ===== БЛОК РЕШЕНИЯ ===== */
+ .problem-item:nth-child(1) { animation-delay: 0.1s; }
+ .problem-item:nth-child(2) { animation-delay: 0.2s; }
+ .problem-item:nth-child(3) { animation-delay: 0.3s; }
+ 
+ .problem-icon {
+ width: 24px;
+ height: 24px;
+ min-width: 24px;
+ stroke: #ef4444;
+ stroke-width: 1.5;
+ margin-top: 2px;
+ }
+ 
+ .problem-text {
+ font-size: 1.1rem;
+ color: #e2e8f0;
+ line-height: 1.6;
+ letter-spacing: 0.01em;
+ }
+ 
  .solution-section {
  margin: 4rem 0;
  text-align: left;
@@ -348,15 +375,7 @@
  text-align: center;
  }
  
- .solution-text {
- font-size: 1.2rem;
- line-height: 1.8;
- color: #e2e8f0;
- margin-bottom: 2rem;
- letter-spacing: 0.01em;
- }
- 
- /* ===== ДО/ПОСЛЕ БЛОК ===== */
+ /* Before/After Container */
  .before-after-container {
  display: grid;
  grid-template-columns: 1fr auto 1fr;
@@ -398,16 +417,7 @@
  color: #0EA5E9;
  }
  
- .ba-subtitle {
- text-align: center;
- color: #94a3b8;
- font-size: 0.85rem;
- margin-top: -0.8rem;
- margin-bottom: 1.5rem;
- font-style: italic;
- }
- 
- /* Анимация хаоса (левая сторона) */
+ /* Chaos Animation */
  .chaos-animation {
  position: relative;
  height: 300px;
@@ -535,10 +545,19 @@
  }
  }
  
- /* Анимация порядка (правая сторона) */
+ /* Order Animation - Timeline Layout */
  .order-animation {
  position: relative;
  padding: 0.5rem;
+ }
+ 
+ .ba-subtitle {
+ text-align: center;
+ color: #94a3b8;
+ font-size: 0.85rem;
+ margin-top: -0.8rem;
+ margin-bottom: 1.5rem;
+ font-style: italic;
  }
  
  .timeline-flow {
@@ -573,7 +592,7 @@
  }
  }
  
- /* Чат сообщения */
+ /* Chat messages */
  .chat-item .chat-bubble {
  background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(14, 165, 233, 0.05));
  border: 1px solid rgba(14, 165, 233, 0.2);
@@ -596,7 +615,7 @@
  text-align: right;
  }
  
- /* Денежные элементы */
+ /* Money items */
  .money-item {
  display: flex;
  align-items: center;
@@ -622,6 +641,10 @@
  font-size: 1.2rem;
  }
  
+ .deal-won:nth-child(1) { animation-delay: 0.5s; }
+ .deal-won:nth-child(2) { animation-delay: 1.5s; }
+ .deal-won:nth-child(3) { animation-delay: 2.5s; }
+ 
  @keyframes wonDeal {
  0% {
  opacity: 0;
@@ -637,7 +660,31 @@
  }
  }
  
- /* ===== ВЫДЕЛЕННЫЙ БЛОК ===== */
+ /* Lightning Divider */
+ .divider-lightning {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ width: 60px;
+ }
+ 
+ .divider-lightning svg {
+ width: 100%;
+ height: 100%;
+ filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
+ animation: lightning 2s ease-in-out infinite;
+ }
+ 
+ @keyframes lightning {
+ 0%, 100% {
+ opacity: 0.3;
+ }
+ 50% {
+ opacity: 1;
+ }
+ }
+ 
+ /* Transformation Metrics */
  .transformation-metrics {
  display: grid;
  grid-template-columns: repeat(3, 1fr);
@@ -685,7 +732,14 @@
  font-size: 1.4rem;
  }
  
- /* ===== ВЫДЕЛЕННЫЙ БЛОК ===== */
+ .solution-text {
+ font-size: 1.2rem;
+ line-height: 1.8;
+ color: #e2e8f0;
+ margin-bottom: 2rem;
+ letter-spacing: 0.01em;
+ }
+ 
  .highlight-box {
  background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(14, 165, 233, 0.05) 100%);
  border: 1px solid rgba(14, 165, 233, 0.3);
@@ -712,7 +766,59 @@
  font-size: 2rem;
  }
  
- /* ===== КНОПКА ДЕМО ===== */
+ /* Solution Columns */
+ .solution-columns {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 2rem;
+ margin: 3rem 0;
+ padding: 2.5rem;
+ background: rgba(255, 255, 255, 0.02);
+ border: 1px solid rgba(14, 165, 233, 0.1);
+ border-radius: 24px;
+ backdrop-filter: blur(10px);
+ }
+ 
+ .solution-column {
+ text-align: left;
+ }
+ 
+ .column-title {
+ font-size: 0.9rem;
+ font-weight: 600;
+ color: #0EA5E9;
+ margin-bottom: 1.5rem;
+ letter-spacing: 0.1em;
+ text-transform: uppercase;
+ }
+ 
+ .column-item {
+ display: flex;
+ align-items: flex-start;
+ gap: 0.75rem;
+ margin-bottom: 1rem;
+ }
+ 
+ .check-mark {
+ flex-shrink: 0;
+ margin-top: 2px;
+ stroke: #10b981;
+ }
+ 
+ .column-item span {
+ color: #e2e8f0;
+ font-size: 0.95rem;
+ line-height: 1.4;
+ }
+ 
+ @media (max-width: 768px) {
+ .solution-columns {
+ grid-template-columns: 1fr;
+ gap: 2rem;
+ padding: 1.5rem;
+ }
+ }
+ 
  .demo-button {
  display: inline-flex;
  align-items: center;
@@ -769,7 +875,7 @@
  50% { transform: scale(1.2); }
  }
  
- /* ===== БЛОК ВОЗМОЖНОСТЕЙ (СЛАЙД 2) ===== */
+ /* Вариант 1: Иерархия */
  .features-hierarchy {
  margin: 2rem 0;
  }
@@ -828,172 +934,6 @@
  font-size: 0.9rem;
  }
  
- /* ===== ЦЕНООБРАЗОВАНИЕ (СЛАЙД 3) ===== */
- .setup-info {
- margin: 1rem 0 2rem 0;
- text-align: left;
- }
- 
- .setup-title {
- font-size: 1.3rem;
- font-weight: 500;
- margin-bottom: 2rem;
- color: #ffffff;
- letter-spacing: 0.05em;
- text-align: center;
- }
- 
- /* Таймлайн подключения */
- .timeline-container {
- position: relative;
- padding: 3rem 0;
- overflow: hidden;
- }
- 
- .timeline-line {
- position: absolute;
- top: 80px;
- left: 10%;
- right: 10%;
- height: 2px;
- background: rgba(14, 165, 233, 0.1);
- z-index: 1;
- }
- 
- .timeline-progress {
- position: absolute;
- top: 0;
- left: 0;
- height: 100%;
- width: 0%;
- background: linear-gradient(90deg, transparent, #0EA5E9, transparent);
- animation: progressFill 12s ease-out infinite;
- }
- 
- @keyframes progressFill {
- 0% { width: 0%; }
- 25% { width: 25%; }
- 50% { width: 50%; }
- 75% { width: 75%; }
- 100% { width: 100%; }
- }
- 
- .timeline-points {
- display: grid;
- grid-template-columns: repeat(4, 1fr);
- gap: 2rem;
- position: relative;
- z-index: 2;
- }
- 
- .timeline-point {
- text-align: center;
- opacity: 0;
- animation: fadeInUp 0.6s ease-out forwards;
- }
- 
- .tp-1 { animation-delay: 0.2s; }
- .tp-2 { animation-delay: 0.4s; }
- .tp-3 { animation-delay: 0.6s; }
- .tp-4 { animation-delay: 0.8s; }
- 
- .point-circle {
- width: 60px;
- height: 60px;
- margin: 0 auto 1rem;
- background: #191A2E;
- border: 2px solid rgba(14, 165, 233, 0.3);
- border-radius: 50%;
- display: flex;
- align-items: center;
- justify-content: center;
- position: relative;
- transition: all 0.3s ease;
- }
- 
- .timeline-point:hover .point-circle {
- transform: scale(1.1);
- border-color: #0EA5E9;
- box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
- }
- 
- .point-icon {
- font-size: 1.5rem;
- animation: bounce 3s ease-in-out infinite;
- }
- 
- .tp-1 .point-icon { animation-delay: 0s; }
- .tp-2 .point-icon { animation-delay: 0.5s; }
- .tp-3 .point-icon { animation-delay: 1s; }
- .tp-4 .point-icon { animation-delay: 1.5s; }
- 
- @keyframes bounce {
- 0%, 100% { transform: translateY(0); }
- 50% { transform: translateY(-5px); }
- }
- 
- .point-content {
- max-width: 200px;
- margin: 0 auto;
- }
- 
- .point-day {
- font-family: 'JetBrains Mono', monospace;
- font-size: 0.9rem;
- color: #0EA5E9;
- margin-bottom: 0.5rem;
- font-weight: 600;
- }
- 
- .point-desc {
- font-size: 0.9rem;
- color: #e2e8f0;
- line-height: 1.4;
- }
- 
- /* Блок разового подключения */
- .price-box {
- background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(14, 165, 233, 0.05) 100%);
- border: 1px solid rgba(14, 165, 233, 0.3);
- border-radius: 24px;
- padding: 2.5rem;
- margin: 2rem 0;
- text-align: center;
- backdrop-filter: blur(20px);
- position: relative;
- overflow: hidden;
- transition: all 0.3s ease;
- }
- 
- .price-box:hover {
- transform: translateY(-2px);
- box-shadow: 0 8px 24px rgba(14, 165, 233, 0.2);
- }
- 
- .price-label {
- color: #94a3b8;
- margin-bottom: 0.5rem;
- letter-spacing: 0.05em;
- text-transform: uppercase;
- font-size: 0.9rem;
- }
- 
- .price-value {
- font-size: 3rem;
- font-weight: 600;
- color: #0EA5E9;
- font-family: 'JetBrains Mono', monospace;
- margin: 0.5rem 0;
- text-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
- }
- 
- .price-description {
- color: #e2e8f0;
- margin-top: 0.5rem;
- letter-spacing: 0.02em;
- }
- 
- /* Таблица тарифов */
  .pricing-table {
  background: rgba(255, 255, 255, 0.02);
  border: 1px solid rgba(14, 165, 233, 0.2);
@@ -1064,7 +1004,6 @@
  font-size: 1.1rem;
  }
  
- /* ===== ОТЗЫВ ===== */
  .testimonial {
  background: rgba(255, 255, 255, 0.02);
  border-left: 4px solid #0EA5E9;
@@ -1096,7 +1035,6 @@
  letter-spacing: 0.05em;
  }
  
- /* ===== КОНТАКТЫ (ВИЗИТНАЯ КАРТОЧКА) ===== */
  .contact-section {
  margin-top: 4rem;
  padding: 0;
@@ -1320,7 +1258,269 @@
  display: inline-block;
  }
  
- /* ===== УВЕДОМЛЕНИЕ О КОПИРОВАНИИ ===== */
+ .contact-title {
+ font-size: 1.4rem;
+ font-weight: 500;
+ margin-bottom: 1.5rem;
+ letter-spacing: 0.05em;
+ }
+ 
+ .contact-info {
+ display: flex;
+ flex-direction: column;
+ gap: 1rem;
+ align-items: center;
+ }
+ 
+ .contact-item {
+ display: flex;
+ align-items: center;
+ gap: 0.8rem;
+ color: #94a3b8;
+ text-decoration: none;
+ transition: all 0.3s ease;
+ padding: 0.5rem 1rem;
+ border-radius: 12px;
+ letter-spacing: 0.01em;
+ }
+ 
+ .contact-item:hover {
+ color: #0EA5E9;
+ background: rgba(14, 165, 233, 0.1);
+ transform: translateY(-2px);
+ }
+ 
+ .contact-item svg {
+ transition: transform 0.3s ease;
+ }
+ 
+ .contact-item:hover svg {
+ transform: scale(1.1);
+ }
+ 
+ .setup-info {
+ margin: 1rem 0 2rem 0;
+ text-align: left;
+ }
+ 
+ .setup-title {
+ font-size: 1.3rem;
+ font-weight: 500;
+ margin-bottom: 2rem;
+ color: #ffffff;
+ letter-spacing: 0.05em;
+ text-align: center;
+ }
+ 
+ /* Timeline Styles */
+ .timeline-container {
+ position: relative;
+ padding: 3rem 0;
+ overflow: hidden;
+ }
+ 
+ .timeline-line {
+ position: absolute;
+ top: 80px;
+ left: 10%;
+ right: 10%;
+ height: 2px;
+ background: rgba(14, 165, 233, 0.1);
+ z-index: 1;
+ }
+ 
+ .timeline-progress {
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 0%;
+ background: linear-gradient(90deg, transparent, #0EA5E9, transparent);
+ animation: progressFill 12s ease-out infinite;
+ }
+ 
+ @keyframes progressFill {
+ 0% { width: 0%; }
+ 25% { width: 25%; }
+ 50% { width: 50%; }
+ 75% { width: 75%; }
+ 100% { width: 100%; }
+ }
+ 
+ .timeline-points {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 2rem;
+ position: relative;
+ z-index: 2;
+ }
+ 
+ .timeline-point {
+ text-align: center;
+ opacity: 0;
+ animation: fadeInUp 0.6s ease-out forwards;
+ }
+ 
+ .tp-1 { animation-delay: 0.2s; }
+ .tp-2 { animation-delay: 0.4s; }
+ .tp-3 { animation-delay: 0.6s; }
+ .tp-4 { animation-delay: 0.8s; }
+ 
+ .point-circle {
+ width: 60px;
+ height: 60px;
+ margin: 0 auto 1rem;
+ background: #191A2E;
+ border: 2px solid rgba(14, 165, 233, 0.3);
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ position: relative;
+ transition: all 0.3s ease;
+ }
+ 
+ .timeline-point:hover .point-circle {
+ transform: scale(1.1);
+ border-color: #0EA5E9;
+ box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+ }
+ 
+ .point-icon {
+ font-size: 1.5rem;
+ animation: bounce 3s ease-in-out infinite;
+ }
+ 
+ .tp-1 .point-icon { animation-delay: 0s; }
+ .tp-2 .point-icon { animation-delay: 0.5s; }
+ .tp-3 .point-icon { animation-delay: 1s; }
+ .tp-4 .point-icon { animation-delay: 1.5s; }
+ 
+ @keyframes bounce {
+ 0%, 100% { transform: translateY(0); }
+ 50% { transform: translateY(-5px); }
+ }
+ 
+ .point-content {
+ max-width: 200px;
+ margin: 0 auto;
+ }
+ 
+ .point-day {
+ font-family: 'JetBrains Mono', monospace;
+ font-size: 0.9rem;
+ color: #0EA5E9;
+ margin-bottom: 0.5rem;
+ font-weight: 600;
+ }
+ 
+ .point-desc {
+ font-size: 0.9rem;
+ color: #e2e8f0;
+ line-height: 1.4;
+ }
+ 
+ /* Mobile responsiveness */
+ @media (max-width: 768px) {
+ .timeline-points {
+ grid-template-columns: 1fr;
+ gap: 2rem;
+ }
+ 
+ .timeline-line {
+ top: 0;
+ left: 50px;
+ right: auto;
+ width: 2px;
+ height: 90%;
+ }
+ 
+ .timeline-progress {
+ width: 100%;
+ height: 0%;
+ animation: progressFillVertical 12s ease-out infinite;
+ }
+ 
+ @keyframes progressFillVertical {
+ 0% { height: 0%; }
+ 100% { height: 100%; }
+ }
+ 
+ .timeline-point {
+ text-align: left;
+ padding-left: 80px;
+ position: relative;
+ }
+ 
+ .point-circle {
+ position: absolute;
+ left: 20px;
+ top: 0;
+ width: 50px;
+ height: 50px;
+ }
+ 
+ .point-icon {
+ font-size: 1.2rem;
+ }
+ 
+ .point-content {
+ max-width: none;
+ }
+ }
+ 
+ .price-box {
+ background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(14, 165, 233, 0.05) 100%);
+ border: 1px solid rgba(14, 165, 233, 0.3);
+ border-radius: 24px;
+ padding: 2.5rem;
+ margin: 2rem 0;
+ text-align: center;
+ backdrop-filter: blur(20px);
+ position: relative;
+ overflow: hidden;
+ transition: all 0.3s ease;
+ }
+ 
+ .price-box:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 8px 24px rgba(14, 165, 233, 0.2);
+ }
+ 
+ .price-label {
+ color: #94a3b8;
+ margin-bottom: 0.5rem;
+ letter-spacing: 0.05em;
+ text-transform: uppercase;
+ font-size: 0.9rem;
+ }
+ 
+ .price-value {
+ font-size: 3rem;
+ font-weight: 600;
+ color: #0EA5E9;
+ font-family: 'JetBrains Mono', monospace;
+ margin: 0.5rem 0;
+ text-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+ }
+ 
+ .price-description {
+ color: #e2e8f0;
+ margin-top: 0.5rem;
+ letter-spacing: 0.02em;
+ }
+ 
+ @keyframes fadeInUp {
+ from {
+ opacity: 0;
+ transform: translateY(20px);
+ }
+ to {
+ opacity: 1;
+ transform: translateY(0);
+ }
+ }
+ 
  .copy-notification {
  position: fixed;
  bottom: 30px;
@@ -1350,7 +1550,6 @@
  stroke-width: 3;
  }
  
- /* ===== МОБИЛЬНАЯ АДАПТАЦИЯ ===== */
  @media (max-width: 768px) {
  h1 {
  font-size: 2rem;
@@ -1480,53 +1679,6 @@
  .cta-text {
  flex-direction: column;
  gap: 0.5rem;
- }
- 
- /* Timeline mobile */
- .timeline-points {
- grid-template-columns: 1fr;
- gap: 2rem;
- }
- 
- .timeline-line {
- top: 0;
- left: 50px;
- right: auto;
- width: 2px;
- height: 90%;
- }
- 
- .timeline-progress {
- width: 100%;
- height: 0%;
- animation: progressFillVertical 12s ease-out infinite;
- }
- 
- @keyframes progressFillVertical {
- 0% { height: 0%; }
- 100% { height: 100%; }
- }
- 
- .timeline-point {
- text-align: left;
- padding-left: 80px;
- position: relative;
- }
- 
- .point-circle {
- position: absolute;
- left: 20px;
- top: 0;
- width: 50px;
- height: 50px;
- }
- 
- .point-icon {
- font-size: 1.2rem;
- }
- 
- .point-content {
- max-width: none;
  }
  }
  </style>
@@ -1889,49 +2041,28 @@
  </div>
  
  <div class="contact-section">
-        <div class="business-card">
-            <div class="contact-methods">
-                <a href="https://t.me/dzamukov" class="contact-method primary">
-                    <div class="method-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.56c-.21 2.27-1.13 7.78-1.6 10.32-.2 1.08-.59 1.44-.97 1.47-.82.07-1.45-.54-2.24-1.06-1.24-.82-1.94-1.33-3.14-2.13-1.39-.93-.49-1.44.3-2.27.21-.22 3.82-3.5 3.89-3.8.01-.04.01-.19-.07-.27-.08-.08-.2-.05-.28-.03-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.42-.48 1.16-.74 4.54-1.98 7.57-3.28 9.08-3.91 4.32-1.79 5.22-2.1 5.81-2.11.13 0 .41.03.59.18.15.12.19.28.21.44-.01.06.01.24 0 .38z"/>
-                        </svg>
-                    </div>
-                    <div class="method-content">
-                        <div class="method-title">Георгий Дзамуков</div>
-                        <div class="method-subtitle">Личный контакт основателя</div>
-                        <div class="method-link">@dzamukov</div>
-                    </div>
-                    <div class="method-status">
-                        <span class="status-dot"></span>
-                        <span>Онлайн</span>
-                    </div>
-                </a>
-                
-                <a href="mailto:georgij.dzamukov@gmail.com" class="contact-method secondary" onclick="copyEmail(event)">
-                    <div class="method-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                    </div>
-                    <div class="method-content">
-                        <div class="method-title">Email</div>
-                        <div class="method-link" id="email-text">georgij.dzamukov@gmail.com</div>
-                    </div>
-                </a>
-            </div>
-            
-            <div class="contact-cta">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScI0-lDe8KpPlyWzr9QsgbuhIJYN8rYDOH0ZXvCA3znEE4rqg/viewform?usp=header" class="cta-button" target="_blank">
-                    <span class="cta-icon">📋</span>
-                    <span>Обсудить внедрение</span>
-                </a>
-                <p class="cta-description">Расскажите о своем агентстве — свяжусь и всё объясню</p>
-            </div>
-        </div>
-    </div>
-
+ <div class="contact-title">Контакты:</div>
+ <div class="contact-info">
+ <div class="contact-item">
+ <span>👤</span>
+ <span>Георгий Дзамуков</span>
+ </div>
+ <a href="https://t.me/dzamukov" class="contact-item">
+ <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+ <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.56c-.21 2.27-1.13 7.78-1.6 10.32-.2 1.08-.59 1.44-.97 1.47-.82.07-1.45-.54-2.24-1.06-1.24-.82-1.94-1.33-3.14-2.13-1.39-.93-.49-1.44.3-2.27.21-.22 3.82-3.5 3.89-3.8.01-.04.01-.19-.07-.27-.08-.08-.2-.05-.28-.03-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.42-.48 1.16-.74 4.54-1.98 7.57-3.28 9.08-3.91 4.32-1.79 5.22-2.1 5.81-2.11.13 0 .41.03.59.18.15.12.19.28.21.44-.01.06.01.24 0 .38z"/>
+ </svg>
+ <span>t.me/dzamukov</span>
+ </a>
+ <a href="mailto:georgij.dzamukov@gmail.com" class="contact-item" onclick="copyEmail(event)">
+ <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+ <polyline points="22,6 12,13 2,6"/>
+ </svg>
+ <span id="email-text">georgij.dzamukov@gmail.com</span>
+ </a>
+ </div>
+ </div>
+ </div>
  </div>
  </div>
  
