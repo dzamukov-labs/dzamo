@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ассистент для Instagram Direct: ответ до 60 сек → бронь/оплата</title>
+  <meta name="description" content="Умный ассистент для Instagram Direct: отвечает в вашем стиле, задаёт 2–3 вопроса и сразу даёт ссылку на ваш лендинг или оплату. Старт 7 дней — $99." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://dzamukov.com/ai-systems/ai-instagram-assistant" />
+  <meta name="theme-color" content="#833AB4" />
+  <meta property="og:title" content="Ассистент для Instagram Direct: ответ до 60 сек → бронь/оплата" />
+  <meta property="og:description" content="Умный ассистент для Instagram Direct: отвечает в вашем стиле, задаёт 2–3 вопроса и даёт ссылку на ваш лендинг или оплату. Старт 7 дней — $99." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dzamukov.com/ai-systems/ai-instagram-assistant" />
+  <meta name="keywords" content="Instagram Direct ассистент, автоответ инстаграм, AI для онлайн-школ, умный ответ Direct, запись на консультацию, бронь слота, оплата из Direct" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #262626;
+      background: #fafafa;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, 
+        rgba(131, 58, 180, 0.06) 0%, 
+        rgba(253, 29, 29, 0.04) 20%, 
+        rgba(252, 176, 69, 0.03) 40%,
+        rgba(255, 255, 255, 0) 60%,
+        rgba(255, 255, 255, 0) 100%);
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Instagram Gradient */
+    .instagram-gradient {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    }
+    
+    .instagram-gradient-text {
+      background: linear-gradient(45deg, #833AB4, #C13584, #E1306C, #FD1D1D, #F77737, #FCAF45);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Navigation */
+    header.nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(219, 219, 219, 0.6);
+      z-index: 100;
+      padding: 16px 0;
+    }
+    
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(45deg, #833AB4, #C13584, #E1306C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .navlinks {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    
+    .pill {
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #8e8e8e;
+      text-decoration: none;
+      border-radius: 20px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    
+    .pill:hover {
+      background: rgba(0, 0, 0, 0.04);
+      color: #262626;
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 60px 0 80px;
+    }
+    
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 60px;
+      align-items: center;
+    }
+    
+    h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+      color: #262626;
+    }
+    
+    h1 strong {
+      background: linear-gradient(45deg, #833AB4, #C13584, #E1306C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .lead {
+      font-size: 19px;
+      line-height: 1.5;
+      color: #8e8e8e;
+      margin-bottom: 28px;
+      font-weight: 400;
+    }
+    
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #262626;
+      background: white;
+      border: 1px solid #dbdbdb;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    
+    .actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 24px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      letter-spacing: -0.3px;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(45deg, #833AB4, #C13584, #E1306C, #FD1D1D);
+      color: white;
+      box-shadow: 0 4px 20px rgba(225, 48, 108, 0.25);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(225, 48, 108, 0.35);
+    }
+    
+    .btn-ghost {
+      background: white;
+      color: #262626;
+      border: 1px solid #dbdbdb;
+    }
+    
+    .btn-ghost:hover {
+      background: #f8f8f8;
+      border-color: #c7c7c7;
+    }
+    
+    /* Status Banner */
+    .status-banner {
+      text-align: center;
+      padding: 10px 20px;
+      background: white;
+      border: 1px solid #dbdbdb;
+      border-radius: 24px;
+      margin-bottom: 32px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+      width: 100%;
+    }
+    
+    .status-banner .live {
+      color: #00d424;
+      font-weight: 600;
+    }
+    
+    .status-banner .counter {
+      color: #8e8e8e;
+    }
+    
+    .status-banner .counter strong {
+      color: #262626;
+      font-weight: 700;
+    }
+    
+    /* Video Card */
+    .hero-video {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    
+    .card {
+      background: white;
+      border: 1px solid #dbdbdb;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+    }
+    
+    .vid {
+      aspect-ratio: 9/16;
+      width: 100%;
+      max-width: 360px;
+      margin: 20px auto;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      background: #f3f4f6;
+      border: 1px solid #dbdbdb;
+    }
+    
+    /* Stories Style Elements */
+    .stories-container {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .story {
+      flex-shrink: 0;
+      width: 80px;
+      text-align: center;
+    }
+    
+    .story-ring {
+      width: 80px;
+      height: 80px;
+      padding: 3px;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      border-radius: 50%;
+      margin-bottom: 8px;
+    }
+    
+    .story-img {
+      width: 100%;
+      height: 100%;
+      background: white;
+      border-radius: 50%;
+      border: 3px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    
+    .story-name {
+      font-size: 12px;
+      color: #262626;
+    }
+    
+    /* Sections */
+    .section {
+      padding: 80px 0;
+    }
+    
+    h2 {
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 48px;
+      color: #262626;
+    }
+    
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+    
+    .g2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .g3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .g4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .benefit {
+      background: white;
+      border: 1px solid #dbdbdb;
+      border-radius: 20px;
+      padding: 24px;
+      transition: all 0.2s ease;
+    }
+    
+    .benefit:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      border-color: #c7c7c7;
+    }
+    
+    .benefit i {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      background: linear-gradient(45deg, #833AB4, #C13584);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+      display: block;
+    }
+    
+    .benefit b {
+      font-size: 18px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 8px;
+      color: #262626;
+    }
+    
+    .mut {
+      color: #8e8e8e;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    
+    .li {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    
+    .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 32px;
+      height: 32px;
+      padding: 0 12px;
+      background: linear-gradient(45deg, #833AB4, #C13584);
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 16px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    
+    /* Mobile layout for launch cards */
+    @media (max-width: 640px) {
+      .li {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .num {
+        align-self: flex-start;
+      }
+      
+      .card {
+        padding: 20px;
+      }
+    }
+    
+    .divider {
+      height: 1px;
+      background: #dbdbdb;
+      margin: 40px 0;
+    }
+    
+    /* Math Section */
+    .math-card {
+      background: linear-gradient(135deg, rgba(131, 58, 180, 0.03), rgba(225, 48, 108, 0.03));
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      position: relative;
+      padding: 32px;
+      border-radius: 24px;
+    }
+    
+    .math-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      margin: -2px;
+      border-radius: 24px;
+      background: linear-gradient(45deg, #833AB4, #C13584, #E1306C);
+      opacity: 0.15;
+    }
+    
+    .math-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(219, 219, 219, 0.5);
+      font-size: 17px;
+    }
+    
+    .math-item:last-child {
+      border-bottom: none;
+      margin-top: 8px;
+      padding-top: 20px;
+      border-top: 2px solid #dbdbdb;
+      font-weight: 700;
+      font-size: 20px;
+    }
+    
+    .math-item .value {
+      font-weight: 600;
+      color: #262626;
+    }
+    
+    .math-item:last-child .value {
+      background: linear-gradient(45deg, #833AB4, #C13584);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Pricing */
+    .price {
+      font-size: 36px;
+      font-weight: 900;
+      color: #262626;
+      margin: 16px 0;
+      letter-spacing: -1px;
+    }
+    
+    .pricing-card {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .pricing-card.featured::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(45deg, #833AB4, #C13584, #E1306C);
+    }
+    
+    /* FAQ */
+    .faq details {
+      background: white;
+      border: 1px solid #dbdbdb;
+      border-radius: 20px;
+      padding: 0;
+      margin-bottom: 16px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      overflow: hidden;
+    }
+    
+    .faq details:hover {
+      border-color: #c7c7c7;
+    }
+    
+    .faq details[open] {
+      border-color: rgba(193, 53, 132, 0.3);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+    
+    .faq summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 17px;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #262626;
+      padding: 20px 24px;
+      user-select: none;
+      -webkit-user-select: none;
+      outline: none;
+    }
+    
+    .faq summary:focus {
+      outline: none;
+    }
+    
+    .faq summary::-webkit-details-marker {
+      display: none;
+    }
+    
+    .faq summary::after {
+      content: "+";
+      font-size: 24px;
+      font-weight: 400;
+      color: #8e8e8e;
+      transition: transform 0.2s ease, color 0.2s ease;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    
+    .faq details[open] summary::after {
+      transform: rotate(45deg);
+      color: #C13584;
+    }
+    
+    .faq .content {
+      padding: 0 24px 20px;
+    }
+    
+    .faq .content p {
+      margin: 0;
+    }
+    
+    /* Footer */
+    footer {
+      background: white;
+      border-top: 1px solid #dbdbdb;
+      padding: 48px 0;
+      margin-top: 80px;
+    }
+    
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      color: #8e8e8e;
+      font-size: 14px;
+    }
+    
+    .foot a {
+      color: #8e8e8e;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    .foot a:hover {
+      color: #262626;
+    }
+    
+    .only-mobile {
+      display: none;
+    }
+    
+    /* Instagram-like button */
+    .ig-button {
+      background: linear-gradient(45deg, #833AB4, #C13584, #E1306C, #FD1D1D);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 24px;
+      font-size: 17px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 20px rgba(225, 48, 108, 0.25);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .ig-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(225, 48, 108, 0.35);
+    }
+    
+    /* Responsive */
+    @media (max-width: 968px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      
+      .g2, .g3, .g4 {
+        grid-template-columns: 1fr;
+      }
+      
+      .only-mobile {
+        display: none;
+      }
+      
+      #desktop-demo {
+        display: inline-flex !important;
+      }
+      
+      .navlinks {
+        display: none;
+      }
+      
+      h1 {
+        font-size: 32px;
+      }
+      
+      h2 {
+        font-size: 26px;
+      }
+      
+      .section {
+        padding: 60px 0;
+      }
+      
+      .hero {
+        padding: 40px 0 60px;
+      }
+      
+      .status-banner {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Ассистент для Instagram Direct",
+    "areaServed": "Global",
+    "serviceType": "IG Direct lead response and booking",
+    "provider": {"@type": "Person", "name": "Георгий Дзамуков"},
+    "description": "Умный ассистент отвечает в Instagram Direct в вашем стиле, задаёт 2–3 вопроса и даёт ссылку на ваш лендинг или оплату. Запуск за 7 дней.",
+    "offers": {"@type":"Offer","price":"149","priceCurrency":"USD"}
+  }
+  </script>
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <div class="brand">AI Direct Assistant</div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-size: 12px; color: #8e8e8e;">USD pricing</span>
+        </div>
+        <nav class="navlinks" aria-label="Якоря">
+          <a class="pill" href="#how">Как работает</a>
+          <a class="pill" href="#niche">Для кого</a>
+          <a class="pill" href="#math">Математика</a>
+          <a class="pill" href="#pricing">Тарифы</a>
+          <a class="pill" href="#faq">FAQ</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <h1>Ни один входящий в <strong>Instagram</strong> Direct не теряется</h1>
+          <p class="lead">Ассистент отвечает до 60 сек, задаёт 2–3 вопроса и ведёт к оплате.</p>
+          
+          <div class="chips" role="list">
+            <span class="chip">Запуск за 7 дней</span>
+            <span class="chip">Заявки в Google Sheets</span>
+            <span class="chip">Работает 24/7</span>
+          </div>
+          
+          <div style="display: flex; align-items: center; gap: 12px; margin: 20px 0; font-size: 13px; color: #8e8e8e;">
+            <span>Official Meta API</span>
+            <span>•</span>
+            <span>8 запусков в этом месяце</span>
+            <span>•</span>
+            <span>средний ответ 47 сек</span>
+          </div>
+          
+          <div class="actions">
+            <a class="btn btn-primary" href="https://wa.me/995571136923?text=Хочу%20старт%20за%20$99,%20мой%20Instagram:%20@" target="_blank">Старт за $99</a>
+            <a class="btn btn-ghost only-mobile" href="#demo">▶️ Смотреть демо</a>
+            <a class="btn btn-ghost" href="#demo" style="display: none;" id="desktop-demo">▶️ Смотреть демо</a>
+          </div>
+        </div>
+        
+        <div class="hero-video">
+          <div class="card">
+            <h2 style="margin-bottom: 16px; font-size: 20px;">Реальный диалог: от вопроса до оплаты за 47 секунд</h2>
+            <div id="demo" class="vid">
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VNx3DElqxfI" title="Demo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div class="list">
+              <div class="li">
+                <span class="num">1</span>
+                <div>Отвечает на вопрос и задает 2–3 встречных.</div>
+              </div>
+              <div class="li">
+                <span class="num">2</span>
+                <div>Даёт ссылку на ваш лендинг или оплату.</div>
+              </div>
+              <div class="li">
+                <span class="num">3</span>
+                <div>При необходимости один раз напомнит клиенту, что нужно оплатить.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how" class="section">
+    <div class="container">
+      <h2>Как это работает</h2>
+      <div class="grid g3">
+        <div class="benefit">
+          <i>①</i>
+          <div>
+            <b>Пишут в Direct</b>
+            <div class="mut">Ассистент отвечает коротко и по делу.</div>
+          </div>
+        </div>
+        <div class="benefit">
+          <i>②</i>
+          <div>
+            <b>2–3 вопроса</b>
+            <div class="mut">Задаём 2–3 уточняющих вопроса (например: цель, дата, формат). Настроим под вашу нишу.</div>
+          </div>
+        </div>
+        <div class="benefit">
+          <i>③</i>
+          <div>
+            <b>Ссылка на действие</b>
+            <div class="mut">Даём ссылку на ваш лендинг или оплату. Фиксируем заявку в Google Sheets.</div>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </div>
+  </section>
+
+  <!-- Niche -->
+  <section id="niche" class="section">
+    <div class="container">
+      <h2>Кому подойдёт</h2>
+      <div class="grid g3">
+        <div class="card">
+          <b style="font-size: 17px; margin-bottom: 8px; display: block;">Есть входящие в Instagram Direct</b>
+          <div class="mut">Люди пишут в личку и на сторис.</div>
+        </div>
+        <div class="card">
+          <b style="font-size: 17px; margin-bottom: 8px; display: block;">Нужно быстрое первое касание и короткий прогрев</b>
+          <div class="mut">Быстро отвечаем и ведём к действию.</div>
+        </div>
+        <div class="card">
+          <b style="font-size: 17px; margin-bottom: 8px; display: block;">Чек $100–$700</b>
+          <div class="mut">Консультации, мини‑курсы, интенсивы, физические продукты.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Launch -->
+  <section id="launch" class="section">
+    <div class="container">
+      <h2>Запуск за 7 дней</h2>
+      <div class="grid g3">
+        <div class="card">
+          <div class="li">
+            <span class="num">День 1–2</span>
+            <div>Изучаем ваш продукт и запросы клиентов. Обучаем бота отвечать на вопросы про продукт и вести к оплате.</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="li">
+            <span class="num">День 3–4</span>
+            <div>Сборка: подключаем Instagram Direct <b>за 1 звонок в Zoom, без программистов</b>, быстрый ответ на «цена/записаться/купить», ссылка на ваш лендинг/оплату.</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="li">
+            <span class="num">День 5–7</span>
+            <div>Старт: тест на живых сообщениях, правки каждый день.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Simple Math -->
+  <section id="math" class="section">
+    <div class="container">
+      <h2>Простая математика</h2>
+      <div class="grid g2">
+        <div class="math-card">
+          <div class="math-item">
+            <span>Ночных сообщений в месяц</span>
+            <span class="value">30</span>
+          </div>
+          <div class="math-item">
+            <span>Конверсия в покупку</span>
+            <span class="value">10%</span>
+          </div>
+          <div class="math-item">
+            <span>Новых клиентов</span>
+            <span class="value">3</span>
+          </div>
+          <div class="math-item">
+            <span>Средний чек</span>
+            <span class="value">$300</span>
+          </div>
+          <div class="math-item">
+            <span>Дополнительная выручка</span>
+            <span class="value">$900</span>
+          </div>
+          <div class="math-item">
+            <span>Стоимость ассистента</span>
+            <span class="value">-$149</span>
+          </div>
+          <div class="math-item">
+            <span>Ваш профит</span>
+            <span class="value">+$751/мес</span>
+          </div>
+        </div>
+        <div class="card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px;">
+          <h3 style="font-size: 24px; margin-bottom: 16px; color: #262626;">Проверим на ваших лидах за 7 дней</h3>
+          <p class="mut" style="font-size: 16px;">Окупается с первого клиента. Остальное — чистая прибыль.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <h2>Тарифы</h2>
+      <div class="grid g2">
+        <div class="card pricing-card featured">
+          <b style="font-size: 24px; margin-bottom: 16px; display: block;">Старт 7 дней</b>
+          <p class="mut">Instagram Direct, умный ответ, ссылка на ваш лендинг/оплату, учёт в таблице, 1 follow‑up.</p>
+          <div class="price">$99</div>
+          <p class="mut">Цель — проверить окупаемость на вашем трафике.</p>
+          <p class="mut" style="font-weight: 600; margin-top: 12px;">Гарантия: работает 30 дней. Нет оплат от клиентов — возвращаем $99</p>
+        </div>
+        <div class="card pricing-card">
+          <b style="font-size: 24px; margin-bottom: 16px; display: block;">Подписка</b>
+          <p class="mut">Поддержка и доработка ответов. До 1 000 входящих в месяц.</p>
+          <div class="price">$149/мес</div>
+          <p class="mut" style="font-style: italic; margin-top: 8px;">*Окупается с 1 клиента в месяц</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 48px;">
+        <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 32px; color: #262626;">
+          Начните сегодня — результат увидите завтра
+        </h3>
+        <a class="ig-button" href="https://wa.me/995571136923?text=Хочу%20старт%20за%20$99,%20мой%20Instagram:%20@" target="_blank">
+          💬 WhatsApp основателя
+        </a>
+        <p style="margin-top: 16px; color: #8e8e8e; font-size: 14px;">Отвечу за 10 минут</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section faq">
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="grid g2">
+        <details>
+          <summary>Ассистент будет отвечать вместо меня?</summary>
+          <div class="content">
+            <p class="mut">Да — на вопросы по продукту (цены, что входит, как оплатить). Ассистент представляется помощником, отвечает коротко; при необходимости задаёт 2–3 уточняющих вопроса и даёт ссылку на оплату. Нетиповые или личные вопросы <b>не трогает</b>. Отвечаем <b>до 60 сек</b>, пока интерес клиента высокий.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Клиенты поймут, что это бот?</summary>
+          <div class="content">
+            <p class="mut">Ассистент представляется честно: «Привет! Я ассистент [Имя]. Пока [Имя] не в сети, помогу подобрать формат и прислать ссылку на оплату». Это добавляет вам статуса — у вас есть помощник.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Куда ведёте клиента?</summary>
+          <div class="content">
+            <p class="mut">На ваш лендинг или оплату: Stripe, PayPal, Tilda и др.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Где хранятся контакты?</summary>
+          <div class="content">
+            <p class="mut">В вашей таблице (Google Sheets/Notion).</p>
+          </div>
+        </details>
+        <details>
+          <summary>Instagram не заблокирует?</summary>
+          <div class="content">
+            <p class="mut">Работаем через официальный Meta API. Никаких серых схем — полностью безопасно.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Как часто можно менять ответы?</summary>
+          <div class="content">
+            <p class="mut">Первую неделю дорабатываем каждый день по вашим правкам. Потом — по запросу.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Сколько занимает запуск?</summary>
+          <div class="content">
+            <p class="mut">7 дней: тексты → сборка → старт.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Если не окупится?</summary>
+          <div class="content">
+            <p class="mut">Выключаем и делаем вам возврат.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>© 2025, Георгий Дзамуков. All rights reserved. Operating globally • Remote.</div>
+        <div>
+          <p style="font-size: 12px; color: #9ca3af; margin-bottom: 8px;">Serving clients from 🇷🇺 🇰🇿 🇬🇪 🇦🇪 🇮🇱 🇺🇸</p>
+          <div class="navlinks" style="display: flex; gap: 16px;">
+            <a href="mailto:georgij.dzamukov@gmail.com">georgij.dzamukov@gmail.com</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">EN</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
