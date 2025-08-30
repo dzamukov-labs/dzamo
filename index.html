@@ -381,6 +381,31 @@
             color: var(--bg);
         }
 
+        .project-links {
+            display: grid;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .project-link-mini {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text);
+            background: rgba(255,255,255,0.03);
+            transition: all 0.2s;
+        }
+
+        .project-link-mini:hover {
+            border-color: var(--accent);
+            background: rgba(255,255,255,0.08);
+            color: var(--text);
+        }
+
         /* Journey */
         .journey-items {
             display: grid;
@@ -626,6 +651,26 @@
                                 <div class="stat-value">100%</div>
                                 <div class="stat-label">автоматизация</div>
                             </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="ai-systems/real_estate.html" class="project-link-mini" target="_blank" rel="noopener noreferrer">
+                                <span>ИИ‑продавец для недвижимости</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </a>
+                            <a href="ai-systems/education.html" class="project-link-mini" target="_blank" rel="noopener noreferrer">
+                                <span>ИИ‑продавец для онлайн‑школ</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </a>
+                            <a href="ai-systems/ai-instagram-assistant.html" class="project-link-mini" target="_blank" rel="noopener noreferrer">
+                                <span>Ассистент для Instagram Direct</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
