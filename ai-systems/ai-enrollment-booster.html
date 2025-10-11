@@ -1302,7 +1302,7 @@
             }
 
             try {
-                const res = await fetch('/api/lead', {
+                const res = await fetch('https://dzamo-lead-worker.georgij-dzamukov.workers.dev/api/lead', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ ...data, step: '1' })

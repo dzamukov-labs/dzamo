@@ -1,0 +1,21 @@
+name = "dzamo-lead-worker"
+main = "worker.js"
+compatibility_date = "2024-11-21"
+
+# Для локального превью и продакшена будем использовать один и тот же код.
+
+[vars]
+# Доп. переменные окружения можно определить здесь, но секреты кладём через wrangler secret
+
+[observability]
+enabled = true
+
+[dev]
+port = 8787
+
+# Если захотите сразу прикрутить custom route под домен
+# [routes]
+# routes = [
+#   { pattern = "dzamukov.com/api/lead", script = "dzamo-lead-worker" }
+# ]
+
