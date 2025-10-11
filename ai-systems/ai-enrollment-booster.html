@@ -56,6 +56,9 @@
         .btn-shimmer { position: relative; overflow: hidden; }
         .btn-shimmer::after { content: ""; position: absolute; inset: -1px; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.6) 50%, transparent 100%); transform: translateX(-100%); animation: shine 2.8s infinite; }
         @keyframes shine { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+        /* Hover effects for buttons */
+        .btn-fx { transition: transform .15s ease, box-shadow .2s ease, background-color .2s ease; }
+        .btn-fx:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(139,92,246,0.25); }
         /* Laconic hero */
         .hero-stage { perspective: none; }
         .hero-card { position: relative; border-radius: 28px; background: transparent; border: 0; backdrop-filter: none; transform: none; }
@@ -311,7 +314,7 @@
                     <div class="layer-3 float-in-3 pt-6">
                         <div class="relative inline-block group">
                             <div class="absolute -inset-1 bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] rounded-2xl blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <a href="#pilot" class="js-open-lead relative inline-block w-full sm:w-auto text-base md:text-lg px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl bg-gradient-to-r from-[#8B5CF6] via-[#D946EF] to-[#EC4899] text-white font-semibold shadow-[0_10px_25px_rgba(139,92,246,0.5)] hover:shadow-[0_15px_35px_rgba(139,92,246,0.6)] transition-all duration-300 overflow-hidden">
+                            <a href="#pilot" class="js-open-lead btn-fx relative inline-block w-full sm:w-auto text-base md:text-lg px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl bg-gradient-to-r from-[#8B5CF6] via-[#D946EF] to-[#EC4899] text-white font-semibold shadow-[0_10px_25px_rgba(139,92,246,0.5)] hover:shadow-[0_15px_35px_rgba(139,92,246,0.6)] transition-all duration-300 overflow-hidden">
                                 <span class="relative z-10">Получить расчёт прироста выручки</span>
                                 <span class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full hover:translate-x-full transition-transform duration-700 ease-in-out"></span>
                             </a>
@@ -343,7 +346,7 @@
                 <div class="rounded-2xl bg-[#0f1222] border border-white/10 shadow-2xl">
                     <div class="flex items-center justify-between p-6 border-b border-white/10">
                         <h3 class="text-xl md:text-2xl font-semibold">Получить расчёт прироста выручки</h3>
-                        <button id="lead-close" class="text-gray-400 hover:text-white transition" aria-label="Закрыть">✕</button>
+                        <button id="lead-close" class="btn-fx text-gray-400 hover:text-white transition" aria-label="Закрыть">✕</button>
                     </div>
                     <form id="lead-form" autocomplete="on" novalidate class="p-6 md:p-8 max-h-[70vh] overflow-y-auto">
                         <!-- Step 1: Quick estimate -->
@@ -385,7 +388,7 @@
                                     <option value="">Выберите</option>
                                     <option>Telegram</option>
                                     <option>WhatsApp</option>
-                                    <option>Почта</option>
+                                    <option selected>Почта</option>
                                 </select>
                             </label>
 
@@ -403,7 +406,7 @@
                                     <option>Реактивация базы</option>
                                     <option>Скорость первого ответа</option>
                                     <option>Апсейлы/допродажи</option>
-                                    <option>Отсуствие отдела продаж</option>
+                                    <option>Отсутствие отдела продаж</option>
                                 </select>
                             </label>
 
@@ -413,7 +416,7 @@
                             </label>
 
                             <div class="md:col-span-2 flex gap-3 pt-2">
-                                <button type="submit" id="submit-single" class="px-6 py-3 rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white font-semibold shadow-lg hover:shadow-xl transition-all">
+                                <button type="submit" id="submit-single" class="btn-fx px-6 py-3 rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white font-semibold shadow-lg hover:shadow-xl transition-all">
                                     Получить расчёт
                                 </button>
                             </div>
@@ -519,6 +522,25 @@
                             </div>
                             <div class="w-12 h-12 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] flex items-center justify-center">
                                 <span class="text-2xl">✓</span>
+                            </div>
+                        </div>
+
+                        <!-- Weekly KPI row -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                            <div class="rounded-xl bg-white/5 border border-white/10 p-4 text-center">
+                                <div class="text-xs text-gray-400">Оплаты</div>
+                                <div class="text-2xl font-bold">44</div>
+                                <div class="text-xs text-green-400">+18% к прошлой неделе</div>
+                            </div>
+                            <div class="rounded-xl bg-white/5 border border-white/10 p-4 text-center">
+                                <div class="text-xs text-gray-400">Конверсия в оплату</div>
+                                <div class="text-2xl font-bold">5.2%</div>
+                                <div class="text-xs text-green-400">+0.8 п.п.</div>
+                            </div>
+                            <div class="rounded-xl bg-white/5 border border-white/10 p-4 text-center">
+                                <div class="text-xs text-gray-400">Выручка</div>
+                                <div class="text-2xl font-bold text-transparent bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] bg-clip-text">+$15 400</div>
+                                <div class="text-xs text-green-400">+22% к прошлой неделе</div>
                             </div>
                         </div>
                         
@@ -692,7 +714,7 @@
                 </div>
                 
                 <div class="text-center mt-12">
-                    <a href="#pilot" class="js-open-lead inline-block px-8 py-4 rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                    <a href="#pilot" class="js-open-lead btn-fx inline-block px-8 py-4 rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
                         Получить расчёт прироста выручки
                     </a>
                 </div>
@@ -739,7 +761,7 @@
                         </p>
                         
                         <div class="text-center">
-                            <a href="https://t.me/dzamukov" target="_blank" class="js-open-lead inline-block px-8 py-4 rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                            <a href="#pilot" class="js-open-lead btn-fx inline-block px-8 py-4 rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
                                 Получить расчёт прироста выручки
                             </a>
                         </div>
@@ -813,7 +835,7 @@
                             </li>
                             <li class="flex items-start gap-2">
                                 <span class="text-green-400 mt-1">✓</span>
-                                <span>+ CRM-интеграция (Salesforce, HubSpot, GetCourse, AmoCRM, Bitrix24, AXL)</span>
+                                <span>+ CRM-интеграция</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <span class="text-green-400 mt-1">✓</span>
@@ -873,8 +895,8 @@
                 </div>
                 
                 <div class="text-center mt-12">
-                    <p class="text-gray-400 mb-6">Оплата возможна в любой валюте — USD, EUR, ILS, AED<br><span class="text-sm">Принимаем PayPal и SWIFT-переводы</span></p>
-                    <a href="https://t.me/dzamukov" target="_blank" class="js-open-lead inline-block px-8 py-4 rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                    <p class="text-gray-400 mb-6">Оплата возможна — USD, EUR</p>
+                    <a href="#pilot" class="js-open-lead btn-fx inline-block px-8 py-4 rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
                         Получить расчёт прироста выручки
                     </a>
                 </div>
@@ -1170,6 +1192,11 @@
                 
                 <div class="space-y-6 max-w-3xl mx-auto">
                     <div class="rounded-2xl shadow-xl bg-white/5 border border-white/10 p-8 space-y-3">
+                        <h3 class="text-xl font-semibold">Безопасность и приватность</h3>
+                        <p class="text-gray-400 leading-relaxed">Данные хранятся на защищённых серверах, доступ ограничен нашей командой по принципу необходимости. Мы используем их исключительно для выполнения работ по вашему проекту. Срок хранения — не более 90 дней после завершения договора. По вашему запросу удаляем данные полностью.</p>
+                    </div>
+
+                    <div class="rounded-2xl shadow-xl bg-white/5 border border-white/10 p-8 space-y-3">
                         <h3 class="text-xl font-semibold">А если не сработает?</h3>
                         <p class="text-gray-400 leading-relaxed">100% возврат за тест-драйв. Если в течение 14 дней нет продаж — делаем полный возврат.</p>
                     </div>
@@ -1195,8 +1222,18 @@
                     </div>
                     
                     <div class="rounded-2xl shadow-xl bg-white/5 border border-white/10 p-8 space-y-3">
-                        <h3 class="text-xl font-semibold">Безопасны ли данные?</h3>
-                        <p class="text-gray-400 leading-relaxed">Для работы системы данные временно находятся на защищенных серверах. Мы никогда не передаем их третьим лицам и используем исключительно для вашего проекта. В любой момент удаляем по запросу.</p>
+                        <h3 class="text-xl font-semibold">Работаете с WhatsApp Business/API?</h3>
+                        <p class="text-gray-400 leading-relaxed">Да. Подключаем официальный WhatsApp Business API через вашего провайдера (например, Twilio/360dialog), соблюдая правила Meta.</p>
+                    </div>
+
+                    <div class="rounded-2xl shadow-xl bg-white/5 border border-white/10 p-8 space-y-3">
+                        <h3 class="text-xl font-semibold">Сколько времени на старт?</h3>
+                        <p class="text-gray-400 leading-relaxed">Технический старт — 1 день. Подготовка и обучение агентов под вашу школу — до 14 дней. Первые результаты — в течение двух недель.</p>
+                    </div>
+
+                    <div class="rounded-2xl shadow-xl bg-white/5 border border-white/10 p-8 space-y-3">
+                        <h3 class="text-xl font-semibold">Какой доступ от меня нужен?</h3>
+                        <p class="text-gray-400 leading-relaxed">Доступ к CRM/платформе (чтение/запись для лидов), каналу связи (WhatsApp/Email/Telegram) и UTM‑источникам. Всё подключаем по принципу минимально необходимого доступа.</p>
                     </div>
                 </div>
             </div>
@@ -1217,7 +1254,7 @@
                         <p class="pt-4 text-purple-300 font-medium">→ Видите результат? Переходим на "Автопилот" — обрабатываем входящие заявки 24/7, больше не теряете ни одного лида.</p>
                     </div>
                     
-                    <a href="https://t.me/dzamukov" target="_blank" class="js-open-lead inline-block px-8 py-4 rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                    <a href="#pilot" class="js-open-lead btn-fx inline-block px-8 py-4 rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
                         Получить расчёт прироста выручки
                     </a>
                 </div>
@@ -1232,8 +1269,8 @@
                 <div class="space-y-6 text-center">
                     <h3 class="text-2xl font-bold">DZAMO AI</h3>
                     <p class="text-gray-400 leading-relaxed">
-                        Мы – команда молодых и амбициозных AI-фанатов во главе с предпринимателем. Наша цель – заработать вам деньги. Для этого мы используем самые новые решения и целую армию AI-агентов.
-                        Работаем со школами по всему миру.
+                        Мы — продуктовая команда с фокусом на выручку и SLA‑процессы. Работаем по NDA, фиксируем KPI, присылаем еженедельные отчёты и берём ответственность за цифры.
+                        Школы по всему миру, часовые пояса США/Европы.
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -1291,6 +1328,14 @@
     (function attachSubmit(){
         const form = document.getElementById('lead-form');
         if (!form) return;
+        const contactInput = form.querySelector('[name="contact"]');
+        const methodSelect = form.querySelector('[name="contact_method"]');
+        const placeholders = { 'Telegram': '@username', 'WhatsApp': '+1 (555) 123‑4567', 'Почта': 'name@domain.com' };
+        if (methodSelect && contactInput) {
+            const setPh = () => { contactInput.placeholder = placeholders[methodSelect.value] || ''; };
+            methodSelect.addEventListener('change', setPh);
+            setPh();
+        }
         form.addEventListener('submit', async (e)=>{
             e.preventDefault();
             if (form.company && form.company.value) return; // honeypot
