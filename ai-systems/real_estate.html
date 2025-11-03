@@ -37,6 +37,7 @@
    "@type": "Service",
    "name": "ИИ-продавец для агентств недвижимости",
    "description": "ИИ-продавец для агентств недвижимости: отвечает 24/7 за 30 сек, квалифицирует лиды и доводит до показа. Подключение за 5–7 дней.",
+   "image": "https://dzamukov.com/og.jpg",
    "provider": {
      "@type": "Person",
      "name": "Георгий Дзамуков",
@@ -46,6 +47,13 @@
    "serviceType": "AI Sales Assistant for Real Estate",
    "areaServed": "Worldwide",
    "availableLanguage": ["ru", "en"],
+   "potentialAction": {
+     "@type": "ReviewAction",
+     "target": {
+       "@type": "EntryPoint",
+       "urlTemplate": "https://dzamukov.com/ai-systems/real_estate.html#reviews"
+     }
+   },
    "offers": {
      "@type": "Offer",
      "price": "1199",
@@ -55,6 +63,46 @@
        "price": "1199",
        "priceCurrency": "USD",
        "name": "Разовое подключение"
+     },
+     "priceValidUntil": "2025-12-31",
+     "hasMerchantReturnPolicy": {
+       "@type": "MerchantReturnPolicy",
+       "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+       "merchantReturnDays": 14,
+       "returnMethod": "https://schema.org/ReturnByMail",
+       "returnFees": "https://schema.org/FreeReturn"
+     },
+     "shippingDetails": {
+       "@type": "OfferShippingDetails",
+       "shippingRate": {
+         "@type": "MonetaryAmount",
+         "value": "0",
+         "currency": "USD"
+       },
+       "shippingDestination": {
+         "@type": "DefinedRegion",
+         "addressCountry": "US"
+       },
+       "deliveryTime": {
+         "@type": "ShippingDeliveryTime",
+         "businessDays": {
+           "@type": "OpeningHoursSpecification",
+           "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+         },
+         "cutoffTime": "17:00",
+         "handlingTime": {
+           "@type": "QuantitativeValue",
+           "minValue": 1,
+           "maxValue": 5,
+           "unitCode": "DAY"
+         },
+         "transitTime": {
+           "@type": "QuantitativeValue",
+           "minValue": 1,
+           "maxValue": 2,
+           "unitCode": "DAY"
+         }
+       }
      }
    }
  }

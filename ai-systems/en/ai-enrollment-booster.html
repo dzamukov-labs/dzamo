@@ -132,22 +132,156 @@
       "brand": { "@type": "Brand", "name": "DZAMO AI" },
       "description": "AI agents handle inbound and reactivate your base. First payments in 14 days.",
       "url": "https://dzamukov.com/ai-systems/en/ai-enrollment-booster.html",
+      "image": "https://dzamukov.com/og.jpg",
+      "potentialAction": {
+        "@type": "ReviewAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://dzamukov.com/ai-systems/en/ai-enrollment-booster.html#reviews"
+        }
+      },
       "offers": [
-        { "@type": "Offer", "name": "Test Drive", "price": "590", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
-        { "@type": "Offer", "name": "Autopilot", "price": "990", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
-        { "@type": "Offer", "name": "Your AI Sales Department", "price": "2900", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
-      ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {"@type": "Question", "name": "Do you work with WhatsApp Business/API?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We connect the official WhatsApp Business API via a provider (e.g., Twilio/360dialog)."}},
-        {"@type": "Question", "name": "How long does launch take?", "acceptedAnswer": {"@type": "Answer", "text": "Technical setup — 1 day. Full preparation — up to 14 days."}},
-        {"@type": "Question", "name": "What access do you need from us?", "acceptedAnswer": {"@type": "Answer", "text": "Minimal access to your CRM/platform and communication channel. We connect with least‑privilege."}}
+        { 
+          "@type": "Offer", 
+          "name": "Test Drive", 
+          "price": "590", 
+          "priceCurrency": "USD", 
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2025-12-31",
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 14,
+            "returnMethod": "https://schema.org/ReturnByMail",
+            "returnFees": "https://schema.org/FreeReturn"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0",
+              "currency": "USD"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "US"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "businessDays": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+              },
+              "cutoffTime": "17:00",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 5,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 2,
+                "unitCode": "DAY"
+              }
+            }
+          }
+        },
+        { 
+          "@type": "Offer", 
+          "name": "Autopilot", 
+          "price": "990", 
+          "priceCurrency": "USD", 
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2025-12-31",
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 14,
+            "returnMethod": "https://schema.org/ReturnByMail",
+            "returnFees": "https://schema.org/FreeReturn"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0",
+              "currency": "USD"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "US"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "businessDays": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+              },
+              "cutoffTime": "17:00",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 5,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 2,
+                "unitCode": "DAY"
+              }
+            }
+          }
+        },
+        { 
+          "@type": "Offer", 
+          "name": "Your AI Sales Department", 
+          "price": "2900", 
+          "priceCurrency": "USD", 
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2025-12-31",
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 14,
+            "returnMethod": "https://schema.org/ReturnByMail",
+            "returnFees": "https://schema.org/FreeReturn"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0",
+              "currency": "USD"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "US"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "businessDays": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+              },
+              "cutoffTime": "17:00",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 5,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 2,
+                "unitCode": "DAY"
+              }
+            }
+          }
+        }
       ]
     }
     </script>
@@ -158,13 +292,21 @@
         "@type": "Service",
         "serviceType": "AI Sales Department for Online Schools",
         "name": "AI Sales Department for Online Schools",
-        "description": "Give us your dormant database or new leads — we’ll turn them into paid enrollments in 14 days. AI agents work 24/7 with a 30‑second first response.",
+        "description": "Give us your dormant database or new leads — we'll turn them into paid enrollments in 14 days. AI agents work 24/7 with a 30‑second first response.",
+        "image": "https://dzamukov.com/og.jpg",
         "provider": {
             "@type": "Organization",
             "name": "DZAMO AI"
         },
         "areaServed": "Worldwide",
         "availableLanguage": ["Russian", "English"],
+        "potentialAction": {
+          "@type": "ReviewAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://dzamukov.com/ai-systems/en/ai-enrollment-booster.html#reviews"
+          }
+        },
         "offers": [
             {
                 "@type": "Offer",
@@ -172,7 +314,47 @@
                 "price": "490",
                 "priceCurrency": "USD",
                 "description": "Reactivation of the old base + system setup. Results in 14 days or full refund.",
-                "availability": "https://schema.org/InStock"
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2025-12-31",
+                "hasMerchantReturnPolicy": {
+                  "@type": "MerchantReturnPolicy",
+                  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                  "merchantReturnDays": 14,
+                  "returnMethod": "https://schema.org/ReturnByMail",
+                  "returnFees": "https://schema.org/FreeReturn"
+                },
+                "shippingDetails": {
+                  "@type": "OfferShippingDetails",
+                  "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0",
+                    "currency": "USD"
+                  },
+                  "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                  },
+                  "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "businessDays": {
+                      "@type": "OpeningHoursSpecification",
+                      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+                    },
+                    "cutoffTime": "17:00",
+                    "handlingTime": {
+                      "@type": "QuantitativeValue",
+                      "minValue": 1,
+                      "maxValue": 5,
+                      "unitCode": "DAY"
+                    },
+                    "transitTime": {
+                      "@type": "QuantitativeValue",
+                      "minValue": 1,
+                      "maxValue": 2,
+                      "unitCode": "DAY"
+                    }
+                  }
+                }
             },
             {
                 "@type": "Offer",
@@ -180,7 +362,47 @@
                 "price": "990",
                 "priceCurrency": "USD",
                 "description": "24/7 new lead handling + base reactivation + CRM integration.",
-                "availability": "https://schema.org/InStock"
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2025-12-31",
+                "hasMerchantReturnPolicy": {
+                  "@type": "MerchantReturnPolicy",
+                  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                  "merchantReturnDays": 14,
+                  "returnMethod": "https://schema.org/ReturnByMail",
+                  "returnFees": "https://schema.org/FreeReturn"
+                },
+                "shippingDetails": {
+                  "@type": "OfferShippingDetails",
+                  "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0",
+                    "currency": "USD"
+                  },
+                  "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                  },
+                  "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "businessDays": {
+                      "@type": "OpeningHoursSpecification",
+                      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+                    },
+                    "cutoffTime": "17:00",
+                    "handlingTime": {
+                      "@type": "QuantitativeValue",
+                      "minValue": 1,
+                      "maxValue": 5,
+                      "unitCode": "DAY"
+                    },
+                    "transitTime": {
+                      "@type": "QuantitativeValue",
+                      "minValue": 1,
+                      "maxValue": 2,
+                      "unitCode": "DAY"
+                    }
+                  }
+                }
             },
             {
                 "@type": "Offer",
@@ -188,14 +410,49 @@
                 "price": "2900",
                 "priceCurrency": "USD",
                 "description": "Full AI sales department: text + voice + CRM + a dedicated manager.",
-                "availability": "https://schema.org/InStock"
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2025-12-31",
+                "hasMerchantReturnPolicy": {
+                  "@type": "MerchantReturnPolicy",
+                  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                  "merchantReturnDays": 14,
+                  "returnMethod": "https://schema.org/ReturnByMail",
+                  "returnFees": "https://schema.org/FreeReturn"
+                },
+                "shippingDetails": {
+                  "@type": "OfferShippingDetails",
+                  "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0",
+                    "currency": "USD"
+                  },
+                  "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                  },
+                  "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "businessDays": {
+                      "@type": "OpeningHoursSpecification",
+                      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+                    },
+                    "cutoffTime": "17:00",
+                    "handlingTime": {
+                      "@type": "QuantitativeValue",
+                      "minValue": 1,
+                      "maxValue": 5,
+                      "unitCode": "DAY"
+                    },
+                    "transitTime": {
+                      "@type": "QuantitativeValue",
+                      "minValue": 1,
+                      "maxValue": 2,
+                      "unitCode": "DAY"
+                    }
+                  }
+                }
             }
-        ],
-        "review": {
-            "@type": "Review",
-            "reviewRating": {"@type": "Rating", "ratingValue": "5"},
-            "author": {"@type": "Organization", "name": "Online School"}
-        }
+        ]
     }
     </script>
     
@@ -204,7 +461,10 @@
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-            {"@type": "Question", "name": "What if it doesn’t work?", "acceptedAnswer": {"@type": "Answer", "text": "If there are no sales within 14 days — we make a full refund."}},
+            {"@type": "Question", "name": "Do you work with WhatsApp Business/API?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We connect the official WhatsApp Business API via a provider (e.g., Twilio/360dialog)."}},
+            {"@type": "Question", "name": "How long does launch take?", "acceptedAnswer": {"@type": "Answer", "text": "Technical setup — 1 day. Full preparation — up to 14 days."}},
+            {"@type": "Question", "name": "What access do you need from us?", "acceptedAnswer": {"@type": "Answer", "text": "Minimal access to your CRM/platform and communication channel. We connect with least‑privilege."}},
+            {"@type": "Question", "name": "What if it doesn't work?", "acceptedAnswer": {"@type": "Answer", "text": "If there are no sales within 14 days — we make a full refund."}},
             {"@type": "Question", "name": "Is it hard to connect?", "acceptedAnswer": {"@type": "Answer", "text": "No. We take the base from your CRM or Excel. Integration is on us."}},
             {"@type": "Question", "name": "Will this replace managers?", "acceptedAnswer": {"@type": "Answer", "text": "No, it complements them. AI handles routine — base processing, quick answers. A manager closes warm leads and steers strategy."}},
             {"@type": "Question", "name": "Is it good for small schools?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. From 300 contacts in the base — the system already pays for itself. Many clients start at $490."}},

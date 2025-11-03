@@ -132,22 +132,156 @@
       "brand": { "@type": "Brand", "name": "DZAMO AI" },
       "description": "AI-агенты обрабатывают входящие и реактивируют базу. Первые оплаты в 14 дней.",
       "url": "https://dzamukov.com/ai-systems/ai-enrollment-booster.html",
+      "image": "https://dzamukov.com/og.jpg",
+      "potentialAction": {
+        "@type": "ReviewAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://dzamukov.com/ai-systems/ai-enrollment-booster.html#reviews"
+        }
+      },
       "offers": [
-        { "@type": "Offer", "name": "Тест-драйв", "price": "590", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
-        { "@type": "Offer", "name": "Автопилот", "price": "990", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
-        { "@type": "Offer", "name": "Ваш AI-отдел продаж", "price": "2900", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
-      ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {"@type": "Question", "name": "Работаете с WhatsApp Business/API?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Подключаем официальный WhatsApp Business API через провайдера (например, Twilio/360dialog)."}},
-        {"@type": "Question", "name": "Сколько времени на старт?", "acceptedAnswer": {"@type": "Answer", "text": "Технический старт — 1 день. Полная подготовка — до 14 дней."}},
-        {"@type": "Question", "name": "Какой доступ от меня нужен?", "acceptedAnswer": {"@type": "Answer", "text": "Минимальные доступы к CRM/платформе и каналу связи. Подключаемся по принципу минимально необходимого доступа."}}
+        { 
+          "@type": "Offer", 
+          "name": "Тест-драйв", 
+          "price": "590", 
+          "priceCurrency": "USD", 
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2025-12-31",
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 14,
+            "returnMethod": "https://schema.org/ReturnByMail",
+            "returnFees": "https://schema.org/FreeReturn"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0",
+              "currency": "USD"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "US"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "businessDays": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+              },
+              "cutoffTime": "17:00",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 5,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 2,
+                "unitCode": "DAY"
+              }
+            }
+          }
+        },
+        { 
+          "@type": "Offer", 
+          "name": "Автопилот", 
+          "price": "990", 
+          "priceCurrency": "USD", 
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2025-12-31",
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 14,
+            "returnMethod": "https://schema.org/ReturnByMail",
+            "returnFees": "https://schema.org/FreeReturn"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0",
+              "currency": "USD"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "US"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "businessDays": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+              },
+              "cutoffTime": "17:00",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 5,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 2,
+                "unitCode": "DAY"
+              }
+            }
+          }
+        },
+        { 
+          "@type": "Offer", 
+          "name": "Ваш AI-отдел продаж", 
+          "price": "2900", 
+          "priceCurrency": "USD", 
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2025-12-31",
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 14,
+            "returnMethod": "https://schema.org/ReturnByMail",
+            "returnFees": "https://schema.org/FreeReturn"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0",
+              "currency": "USD"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "US"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "businessDays": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+              },
+              "cutoffTime": "17:00",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 5,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 2,
+                "unitCode": "DAY"
+              }
+            }
+          }
+        }
       ]
     }
     </script>
@@ -159,12 +293,20 @@
         "serviceType": "AI Sales Department for Online Schools",
         "name": "AI-отдел продаж для онлайн-школ",
         "description": "Передайте нам спящую базу или новые лиды — мы превратим их в оплаты за 14 дней. AI-агенты работают 24/7, время ответа 30 секунд.",
+        "image": "https://dzamukov.com/og.jpg",
         "provider": {
             "@type": "Organization",
             "name": "DZAMO AI"
         },
         "areaServed": "Worldwide",
         "availableLanguage": ["Russian", "English"],
+        "potentialAction": {
+          "@type": "ReviewAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://dzamukov.com/ai-systems/ai-enrollment-booster.html#reviews"
+          }
+        },
         "offers": [
             {
                 "@type": "Offer",
@@ -172,7 +314,47 @@
                 "price": "490",
                 "priceCurrency": "USD",
                 "description": "Реактивация старой базы + настройка системы. Результат за 14 дней или возврат 100%.",
-                "availability": "https://schema.org/InStock"
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2025-12-31",
+                "hasMerchantReturnPolicy": {
+                  "@type": "MerchantReturnPolicy",
+                  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                  "merchantReturnDays": 14,
+                  "returnMethod": "https://schema.org/ReturnByMail",
+                  "returnFees": "https://schema.org/FreeReturn"
+                },
+                "shippingDetails": {
+                  "@type": "OfferShippingDetails",
+                  "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0",
+                    "currency": "USD"
+                  },
+                  "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                  },
+                  "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "businessDays": {
+                      "@type": "OpeningHoursSpecification",
+                      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+                    },
+                    "cutoffTime": "17:00",
+                    "handlingTime": {
+                      "@type": "QuantitativeValue",
+                      "minValue": 1,
+                      "maxValue": 5,
+                      "unitCode": "DAY"
+                    },
+                    "transitTime": {
+                      "@type": "QuantitativeValue",
+                      "minValue": 1,
+                      "maxValue": 2,
+                      "unitCode": "DAY"
+                    }
+                  }
+                }
             },
             {
                 "@type": "Offer",
@@ -180,7 +362,47 @@
                 "price": "990",
                 "priceCurrency": "USD",
                 "description": "Обработка новых лидов 24/7 + реактивация базы + CRM-интеграция.",
-                "availability": "https://schema.org/InStock"
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2025-12-31",
+                "hasMerchantReturnPolicy": {
+                  "@type": "MerchantReturnPolicy",
+                  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                  "merchantReturnDays": 14,
+                  "returnMethod": "https://schema.org/ReturnByMail",
+                  "returnFees": "https://schema.org/FreeReturn"
+                },
+                "shippingDetails": {
+                  "@type": "OfferShippingDetails",
+                  "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0",
+                    "currency": "USD"
+                  },
+                  "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                  },
+                  "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "businessDays": {
+                      "@type": "OpeningHoursSpecification",
+                      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+                    },
+                    "cutoffTime": "17:00",
+                    "handlingTime": {
+                      "@type": "QuantitativeValue",
+                      "minValue": 1,
+                      "maxValue": 5,
+                      "unitCode": "DAY"
+                    },
+                    "transitTime": {
+                      "@type": "QuantitativeValue",
+                      "minValue": 1,
+                      "maxValue": 2,
+                      "unitCode": "DAY"
+                    }
+                  }
+                }
             },
             {
                 "@type": "Offer",
@@ -188,20 +410,49 @@
                 "price": "2900",
                 "priceCurrency": "USD",
                 "description": "Полный AI-отдел продаж: текст + голос + CRM + персональный менеджер.",
-                "availability": "https://schema.org/InStock"
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2025-12-31",
+                "hasMerchantReturnPolicy": {
+                  "@type": "MerchantReturnPolicy",
+                  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                  "merchantReturnDays": 14,
+                  "returnMethod": "https://schema.org/ReturnByMail",
+                  "returnFees": "https://schema.org/FreeReturn"
+                },
+                "shippingDetails": {
+                  "@type": "OfferShippingDetails",
+                  "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0",
+                    "currency": "USD"
+                  },
+                  "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                  },
+                  "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "businessDays": {
+                      "@type": "OpeningHoursSpecification",
+                      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+                    },
+                    "cutoffTime": "17:00",
+                    "handlingTime": {
+                      "@type": "QuantitativeValue",
+                      "minValue": 1,
+                      "maxValue": 5,
+                      "unitCode": "DAY"
+                    },
+                    "transitTime": {
+                      "@type": "QuantitativeValue",
+                      "minValue": 1,
+                      "maxValue": 2,
+                      "unitCode": "DAY"
+                    }
+                  }
+                }
             }
-        ],
-        "review": {
-            "@type": "Review",
-            "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5"
-            },
-            "author": {
-                "@type": "Organization",
-                "name": "Online School"
-            }
-        }
+        ]
     }
     </script>
     
@@ -210,6 +461,30 @@
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Работаете с WhatsApp Business/API?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Да. Подключаем официальный WhatsApp Business API через провайдера (например, Twilio/360dialog)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Сколько времени на старт?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Технический старт — 1 день. Полная подготовка — до 14 дней."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Какой доступ от меня нужен?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Минимальные доступы к CRM/платформе и каналу связи. Подключаемся по принципу минимально необходимого доступа."
+                }
+            },
             {
                 "@type": "Question",
                 "name": "А если не сработает?",

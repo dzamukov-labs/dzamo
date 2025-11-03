@@ -37,6 +37,7 @@
       "@type": "Service",
       "name": "ИИ-продавец для онлайн-школ",
       "description": "ИИ-продавец для онлайн-школ: отвечает за 30–60 сек, ведёт к оплате и повышает конверсию с 5% до 15–20%. Подключение за 5–7 дней.",
+      "image": "https://dzamukov.com/og.jpg",
       "provider": {
         "@type": "Person",
         "name": "Георгий Дзамуков",
@@ -46,6 +47,13 @@
       "serviceType": "AI Sales Automation",
       "areaServed": "Worldwide",
       "availableLanguage": ["ru", "en"],
+      "potentialAction": {
+        "@type": "ReviewAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://dzamukov.com/ai-systems/education.html#reviews"
+        }
+      },
       "offers": {
         "@type": "Offer",
         "price": "1199",
@@ -55,12 +63,47 @@
           "price": "1199",
           "priceCurrency": "USD",
           "name": "Разовое подключение"
+        },
+        "priceValidUntil": "2025-12-31",
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 14,
+          "returnMethod": "https://schema.org/ReturnByMail",
+          "returnFees": "https://schema.org/FreeReturn"
+        },
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "USD"
+          },
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "US"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "businessDays": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+            },
+            "cutoffTime": "17:00",
+            "handlingTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 1,
+              "maxValue": 5,
+              "unitCode": "DAY"
+            },
+            "transitTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 1,
+              "maxValue": 2,
+              "unitCode": "DAY"
+            }
+          }
         }
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "2"
       }
     }
     </script>
