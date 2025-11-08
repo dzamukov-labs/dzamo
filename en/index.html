@@ -27,7 +27,7 @@
     <meta property="og:site_name" content="Georgy Dzamukov">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ru_RU">
-    <meta property="og:image" content="https://dzamukov.com/og.jpg">
+    <meta property="og:image" content="https://dzamukov.com/images/og.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
@@ -35,7 +35,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Georgy Dzamukov — Entrepreneur">
     <meta name="twitter:description" content="Founder of projects: remote sauna production, Astronomy School, AI sales agent. 11 years in business.">
-    <meta name="twitter:image" content="https://dzamukov.com/og.jpg">
+    <meta name="twitter:image" content="https://dzamukov.com/images/og.jpg">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://dzamukov.com/en/">
@@ -62,11 +62,12 @@
         "jobTitle": "Entrepreneur",
         "description": "Entrepreneur with 11 years of experience. Founder of remote sauna production, Astronomy School, creator of AI sales agent.",
         "url": "https://dzamukov.com/en/",
-        "image": "https://dzamukov.com/my_photo.jpg",
+        "image": "https://dzamukov.com/images/my_photo.jpg",
         "sameAs": [
             "https://t.me/dzamukov_channel",
             "https://t.me/dzamukov",
             "https://www.linkedin.com/in/georgy-dzamukov-331533345/",
+            "https://www.youtube.com/@dzamukov_ai",
             "https://www.instagram.com/dzamukov"
         ],
         "email": "georgij.dzamukov@gmail.com",
@@ -102,6 +103,7 @@
             "https://t.me/dzamukov_channel",
             "https://t.me/dzamukov",
             "https://www.linkedin.com/in/georgy-dzamukov-331533345/",
+            "https://www.youtube.com/@dzamukov_ai",
             "https://www.instagram.com/dzamukov"
         ]
     }
@@ -231,8 +233,8 @@
         }
 
         .profile-photo {
-            width: 150px;
-            height: 150px;
+            width: 250px;
+            height: 250px;
             margin: 0 auto 40px;
             background: var(--border);
             border-radius: 20px;
@@ -274,11 +276,89 @@
             text-decoration: none;
             color: var(--text);
             transition: all 0.2s;
+            position: relative;
         }
 
         .social-link:hover {
             border-color: var(--accent);
             transform: scale(1.05);
+        }
+
+        /* Brand colors with 30% opacity for minimalist style */
+        .social-link.telegram svg {
+            fill: #0088cc;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .social-link.telegram:hover svg {
+            opacity: 1;
+        }
+
+        .social-link.telegram-personal svg {
+            fill: #0088cc;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .social-link.telegram-personal:hover svg {
+            opacity: 1;
+        }
+
+        .social-link.linkedin svg {
+            fill: #0077b5;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .social-link.linkedin:hover svg {
+            opacity: 1;
+        }
+
+        .social-link.youtube svg {
+            fill: #FF0000;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .social-link.youtube:hover svg {
+            opacity: 1;
+        }
+
+        .social-link.instagram svg {
+            fill: url(#instagram-gradient);
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .social-link.instagram:hover svg {
+            opacity: 1;
+        }
+
+        .social-link.email svg {
+            fill: #888;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .social-link.email:hover svg {
+            opacity: 1;
+        }
+
+        .social-badge {
+            position: absolute;
+            bottom: -4px;
+            right: -4px;
+            font-size: 12px;
+            line-height: 1;
+            background: var(--bg);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--bg);
         }
 
         /* Sections */
@@ -332,37 +412,37 @@
         }
 
         .project-icon {
-            width: 48px;
-            height: 48px;
+            width: 80px;
+            height: 80px;
             background: var(--border);
-            border-radius: 12px;
-            margin-bottom: 24px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+            flex-shrink: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            perspective: 1000px;
+            transform-style: preserve-3d;
         }
 
-        .project-icon::before {
+        /* 3D Effect on all project icons */
+        .project:hover .project-icon {
+            transform: scale(1.1) rotateY(10deg) rotateX(-5deg);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.15),
+                0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project .project-icon::after {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: rotate(45deg);
-            transition: all 0.6s;
-        }
-
-        .project:hover .project-icon::before {
-            animation: shine 0.6s ease;
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            inset: -5px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            border-radius: 18px;
+            pointer-events: none;
+            transform: translateZ(10px);
         }
 
         .project-icon svg {
@@ -372,10 +452,17 @@
             z-index: 1;
             position: relative;
         }
-
-        .project h3 {
-            font-size: 24px;
+        
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
             margin-bottom: 16px;
+        }
+        
+        .project-header h3 {
+            margin: 0;
+            font-size: 24px;
         }
 
         .project p {
@@ -396,8 +483,11 @@
         }
 
         .stat-value {
-            font-size: 24px;
+            font-size: 32px;
+            color: var(--accent);
             font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            transition: all 0.3s ease;
         }
 
         .stat-label {
@@ -469,12 +559,19 @@
 
         .journey-icon {
             font-size: 32px;
-            margin-bottom: 16px;
+            flex-shrink: 0;
         }
 
-        .journey-item h3 {
-            font-size: 20px;
+        .journey-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
             margin-bottom: 12px;
+        }
+        
+        .journey-header h3 {
+            margin: 0;
+            font-size: 20px;
         }
 
         .journey-item p {
@@ -547,9 +644,86 @@
                 margin-top: 0;
             }
         }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .preloader-content {
+            text-align: center;
+            position: relative;
+        }
+        
+        .preloader-logo {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -1px;
+            margin-bottom: 40px;
+            animation: logoFade 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes logoFade {
+            0%, 100% { 
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.6;
+                transform: scale(0.98);
+            }
+        }
+        
+        .preloader-spinner {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .preloader-spinner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">Dzamukov.com</div>
+            <div class="preloader-spinner"></div>
+        </div>
+    </div>
+
     <canvas id="particles-canvas"></canvas>
 
     <!-- Notification -->
@@ -566,35 +740,53 @@
     <section class="hero">
         <div class="hero-content">
             <div class="profile-photo">
-                <img src="/my_photo.jpg" alt="Georgy Dzamukov" width="150" height="150" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                <img src="/images/my_photo.jpg" alt="Georgy Dzamukov" width="250" height="250" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
             </div>
             
             <h1>Georgy Dzamukov</h1>
             <p class="subtitle">Entrepreneur</p>
 
             <div class="social-links">
-                <a href="https://t.me/dzamukov_channel" class="social-link" target="_blank" rel="noopener noreferrer">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <!-- SVG gradient definition for Instagram -->
+                <svg width="0" height="0" style="position: absolute;">
+                    <defs>
+                        <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#E1306C;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#FD1D1D;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FCAF45;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+
+                <a href="https://t.me/dzamukov_channel" class="social-link telegram" target="_blank" rel="noopener noreferrer" title="Telegram Channel">
+                    <svg width="20" height="20" viewBox="0 0 24 24">
                         <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
                     </svg>
+                    <span class="social-badge">⭐</span>
                 </a>
-                <a href="https://t.me/dzamukov" class="social-link" target="_blank" rel="noopener noreferrer">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <a href="https://t.me/dzamukov" class="social-link telegram-personal" target="_blank" rel="noopener noreferrer" title="Personal DM">
+                    <svg width="20" height="20" viewBox="0 0 24 24">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
                     </svg>
+                    <span class="social-badge">💬</span>
                 </a>
-                <a href="https://www.linkedin.com/in/georgy-dzamukov-331533345/" class="social-link" target="_blank" rel="noopener noreferrer">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <a href="https://www.linkedin.com/in/georgy-dzamukov-331533345/" class="social-link linkedin" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                     </svg>
                 </a>
-                <a href="https://www.instagram.com/dzamukov" class="social-link" target="_blank" rel="noopener noreferrer">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+                <a href="https://www.youtube.com/@dzamukov_ai" class="social-link youtube" target="_blank" rel="noopener noreferrer" title="YouTube">
+                    <svg width="20" height="20" viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                     </svg>
                 </a>
-                <a href="mailto:georgij.dzamukov@gmail.com" class="social-link" id="email-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <a href="https://www.instagram.com/dzamukov" class="social-link instagram" target="_blank" rel="noopener noreferrer" title="Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24">
+                        <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                    </svg>
+                </a>
+                <a href="mailto:georgij.dzamukov@gmail.com" class="social-link email" id="email-link" title="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24">
                         <path d="M12 12.713l-11.985-9.713h23.971l-11.986 9.713zm-5.425-1.822l-6.575-5.329v12.501l6.575-7.172zm10.85 0l6.575 7.172v-12.501l-6.575 5.329zm-1.557 1.261l-3.868 3.135-3.868-3.135-8.11 8.848h23.956l-8.11-8.848z"/>
                     </svg>
                 </a>
@@ -608,17 +800,16 @@
             <h2 class="section-title">Projects</h2>
             <div class="projects">
                 <div class="project">
-                    <div class="project-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                            <path d="M7 10V8.5C7 7.1 8.1 6 9.5 6S12 7.1 12 8.5V9m5 1V8.5c0-1.4-1.1-2.5-2.5-2.5S12 7.1 12 8.5V9" opacity="0.5"/>
-                        </svg>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <img src="/images/bani.png" alt="Sauna icon" style="width: 100%; height: 100%; object-fit: contain;">
+                        </div>
+                        <h3>Remote Sauna Production</h3>
                     </div>
-                    <h3>Remote Sauna Production</h3>
                     <p>11 years ago, I launched a remote sauna production business — when managing everything from a distance seemed like fantasy. Especially when it came to the entire management team. Construction crews on-site, while logistics, managers, and administration work remotely. 3000 saunas in 18 regions — and not a single office.</p>
                     <div class="project-stats">
                         <div class="stat">
-                            <div class="stat-value">3000</div>
+                            <div class="stat-value" data-target="3000">0</div>
                             <div class="stat-label">saunas built</div>
                         </div>
                         <div class="stat">
@@ -635,24 +826,20 @@
                 </div>
 
                 <div class="project">
-                    <div class="project-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-                            <circle cx="8" cy="8" r="1" opacity="0.5"/>
-                            <circle cx="16" cy="8" r="1" opacity="0.5"/>
-                            <circle cx="12" cy="17" r="1" opacity="0.5"/>
-                        </svg>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <img src="/images/school.png" alt="Astronomy School icon" style="width: 100%; height: 100%; object-fit: contain;">
+                        </div>
+                        <h3>Astronomy School</h3>
                     </div>
-                    <h3>Astronomy School</h3>
                     <p>Launched the Astronomy School with Vladimir Surdin — the voice of astronomy for thousands of people and author of the "Unearthly Podcast". We gathered 900,000 subscribers and brought astronomy to YouTube trends. According to Vladimir, people started recognizing him on the streets — over 300 million views made their impact.</p>
                     <div class="project-stats">
                         <div class="stat">
-                            <div class="stat-value">900K</div>
+                            <div class="stat-value" data-target="900" data-suffix="K">0</div>
                             <div class="stat-label">subscribers</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-value">300M+</div>
+                            <div class="stat-value" data-target="300" data-suffix="M+">0</div>
                             <div class="stat-label">views</div>
                         </div>
                     </div>
@@ -665,15 +852,12 @@
                 </div>
 
                 <div class="project">
-                    <div class="project-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-                            <path d="M10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" fill="var(--bg)"/>
-                            <circle cx="12" cy="8" r="2" fill="var(--bg)" opacity="0.5"/>
-                            <path d="M8 14h8v1h-8z" fill="var(--bg)" opacity="0.5"/>
-                        </svg>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <img src="/images/ai.png" alt="AI Sales Agent icon" style="width: 100%; height: 100%; object-fit: contain;">
+                        </div>
+                        <h3>AI Sales Agent</h3>
                     </div>
-                    <h3>AI Sales Agent</h3>
                     <p>Currently developing an AI sales agent — a neural network manager that replaces humans. Already working in my business: responds, follows up, sends newsletters, and generates revenue. I'm not playing with AI — I have 11 years of real construction business behind me.</p>
                     <div class="project-stats">
                         <div class="stat">
@@ -696,18 +880,24 @@
             <h2 class="section-title">About Me</h2>
             <div class="journey-items">
                 <div class="journey-item">
-                    <div class="journey-icon">🌍</div>
-                    <h3>Travel</h3>
+                    <div class="journey-header">
+                        <div class="journey-icon">🌍</div>
+                        <h3>Travel</h3>
+                    </div>
                     <p>Looked into the eyes of wild gorillas in the jungles of Uganda, followed polar bear tracks in the Arctic, and touched the Great Barrier Reef in the depths of the Pacific Ocean, off the coast of Australia.</p>
                 </div>
                 <div class="journey-item">
-                    <div class="journey-icon">💡</div>
-                    <h3>Tools</h3>
+                    <div class="journey-header">
+                        <div class="journey-icon">💡</div>
+                        <h3>Tools</h3>
+                    </div>
                     <p>Neural networks are not a toy for me, but a daily tool. I solve through them what others delegate to employees or agencies.</p>
                 </div>
                 <div class="journey-item">
-                    <div class="journey-icon">🏠</div>
-                    <h3>Lifestyle</h3>
+                    <div class="journey-header">
+                        <div class="journey-icon">🏠</div>
+                        <h3>Lifestyle</h3>
+                    </div>
                     <p>Happily married, have a son and a cat. Over the past 3 years, we've lived in four countries. UAE is home. Georgia is home. The whole world is my home.</p>
                 </div>
             </div>
@@ -827,11 +1017,37 @@
             rootMargin: '0px 0px -50px 0px'
         };
         
+        // Animated counter function
+        const animateCounter = (element) => {
+            const target = parseInt(element.getAttribute('data-target'));
+            const suffix = element.getAttribute('data-suffix') || '';
+            const duration = 2000; // 2 seconds
+            const steps = 60;
+            const increment = target / steps;
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + suffix;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + suffix;
+                }
+            }, duration / steps);
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
+                    
+                    // Trigger counter animation for stat values
+                    if (entry.target.classList.contains('stat-value') && entry.target.hasAttribute('data-target')) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
                 }
             });
         }, observerOptions);
@@ -845,6 +1061,24 @@
                 el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(el);
             });
+            
+            // Also observe stat values with data-target attribute
+            const statValues = document.querySelectorAll('.stat-value[data-target]');
+            statValues.forEach(stat => {
+                observer.observe(stat);
+            });
+        });
+
+        // Preloader hide on page load
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+                // Remove from DOM after transition
+                setTimeout(() => {
+                    preloader.remove();
+                }, 500);
+            }, 300); // Small delay for smooth experience
         });
     </script>
 </body>
