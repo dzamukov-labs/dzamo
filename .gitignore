@@ -1,0 +1,14 @@
+# macOS system files
+.DS_Store
+**/.DS_Store
+
+# Logs
+*.log
+
+# Optional: Node modules if you use them
+node_modules/
+
+# Optional: Other common files
+.env
+.env.local
+
