@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Enrollment Booster — Dzamo</title>
+    <title>AI-отдел продаж для онлайн-школ | DZAMO AI</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -15,6 +15,7 @@
         :root {
             --white: #f8f8f8;
             --black: #0d0d0d;
+            --gray: #666;
             --accent: #e63322;
         }
 
@@ -22,7 +23,6 @@
             font-family: 'Space Grotesk', sans-serif;
             background: var(--white);
             color: var(--black);
-            min-height: 100vh;
         }
 
         /* HEADER */
@@ -65,23 +65,22 @@
         /* HERO */
         .hero {
             min-height: 100vh;
-            padding: 120px 40px 60px;
+            padding: 140px 40px 60px;
             display: grid;
-            grid-template-columns: 1fr 200px;
+            grid-template-columns: 1fr 220px;
             grid-template-rows: 1fr auto;
             gap: 40px;
         }
 
-        /* Giant Typography */
         .hero-title {
             align-self: center;
         }
 
         .hero-title h1 {
-            font-size: clamp(64px, 12vw, 160px);
+            font-size: clamp(48px, 9vw, 120px);
             font-weight: 700;
-            line-height: 0.9;
-            letter-spacing: -4px;
+            line-height: 0.95;
+            letter-spacing: -3px;
             text-transform: uppercase;
         }
 
@@ -89,12 +88,11 @@
             color: var(--accent);
         }
 
-        /* Stats Column */
         .stats-column {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 48px;
+            gap: 40px;
             border-left: 2px solid var(--black);
             padding-left: 24px;
         }
@@ -105,7 +103,7 @@
         }
 
         .stat-number {
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 700;
             line-height: 1;
             letter-spacing: -2px;
@@ -115,11 +113,10 @@
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 8px;
-            opacity: 0.6;
+            margin-top: 6px;
+            color: var(--gray);
         }
 
-        /* Bottom Bar */
         .bottom-bar {
             grid-column: 1 / -1;
             display: flex;
@@ -130,10 +127,10 @@
         }
 
         .tagline {
-            font-size: 14px;
-            max-width: 400px;
+            font-size: 15px;
+            max-width: 480px;
             line-height: 1.6;
-            opacity: 0.7;
+            color: var(--gray);
         }
 
         .cta-btn {
@@ -153,57 +150,239 @@
             transform: scale(1.02);
         }
 
+        /* SECTION: Technology */
+        .section {
+            padding: 100px 40px;
+            border-top: 2px solid var(--black);
+        }
+
+        .section-header {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .section-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray);
+        }
+
+        .section-title {
+            font-size: clamp(36px, 6vw, 72px);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: var(--black);
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 48px 32px;
+        }
+
+        .feature-number {
+            font-size: 64px;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 24px;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .feature-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--gray);
+        }
+
+        /* SECTION: How it works */
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 100px 1fr 1fr;
+            gap: 40px;
+            padding: 48px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .step:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            font-size: 72px;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--accent);
+        }
+
+        .step-title {
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            align-self: center;
+        }
+
+        .step-text {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--gray);
+            align-self: center;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            padding: 80px 40px;
+            background: var(--black);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-cta h3 {
+            font-size: 32px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-cta .cta-btn {
+            background: var(--white);
+            color: var(--black);
+        }
+
         /* Accent circle */
         .accent-circle {
             position: fixed;
-            bottom: -150px;
-            right: -150px;
-            width: 400px;
-            height: 400px;
+            bottom: -200px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
             background: var(--accent);
             border-radius: 50%;
-            opacity: 0.15;
+            opacity: 0.08;
             pointer-events: none;
+            z-index: -1;
         }
 
         /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .hero {
+        @media (max-width: 1024px) {
+            .section-header {
                 grid-template-columns: 1fr;
-                grid-template-rows: auto auto auto;
-                padding: 100px 24px 40px;
+                gap: 24px;
             }
 
-            .hero-title h1 {
-                font-size: 56px;
-                letter-spacing: -2px;
+            .features-grid {
+                grid-template-columns: 1fr;
             }
 
-            .stats-column {
-                flex-direction: row;
-                border-left: none;
-                border-top: 2px solid var(--black);
-                padding-left: 0;
-                padding-top: 24px;
+            .step {
+                grid-template-columns: 60px 1fr;
+                gap: 24px;
             }
 
-            .stat-number {
-                font-size: 32px;
+            .step-text {
+                grid-column: 2;
+            }
+
+            .step-number {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 24px;
             }
 
             nav {
                 display: none;
             }
 
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 100px 24px 40px;
+            }
+
+            .hero-title h1 {
+                font-size: 42px;
+                letter-spacing: -1px;
+            }
+
+            .stats-column {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 32px;
+                border-left: none;
+                border-top: 2px solid var(--black);
+                padding-left: 0;
+                padding-top: 32px;
+            }
+
+            .stat-number {
+                font-size: 32px;
+            }
+
             .bottom-bar {
                 flex-direction: column;
-                gap: 24px;
+                gap: 32px;
                 align-items: flex-start;
             }
 
             .cta-btn {
                 width: 100%;
                 text-align: center;
+            }
+
+            .section {
+                padding: 60px 24px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .feature-card {
+                padding: 32px 24px;
+            }
+
+            .footer-cta {
+                flex-direction: column;
+                gap: 32px;
+                text-align: center;
+                padding: 60px 24px;
+            }
+
+            .footer-cta h3 {
+                font-size: 24px;
             }
         }
     </style>
@@ -213,44 +392,134 @@
     <header>
         <a href="/" class="logo">Dzamo</a>
         <nav>
-            <a href="#work">Продукты</a>
-            <a href="#about">О нас</a>
+            <a href="#tech">Технология</a>
+            <a href="#process">Процесс</a>
+            <a href="#pricing">Тарифы</a>
             <a href="#contact">Контакт</a>
         </nav>
     </header>
 
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-title">
             <h1>
-                Набор<br>
-                студентов<br>
-                на <span>авто</span>
+                Передаёте<br>
+                лиды —<br>
+                получаете<br>
+                <span>оплаты</span>
             </h1>
         </div>
 
         <div class="stats-column">
             <div class="stat-item">
-                <span class="stat-number">89%</span>
-                <span class="stat-label">Автоматизация</span>
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">AI работает</span>
             </div>
             <div class="stat-item">
-                <span class="stat-number">×3.2</span>
-                <span class="stat-label">Рост конверсии</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">2'</span>
+                <span class="stat-number">30 сек</span>
                 <span class="stat-label">Время ответа</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">14 дней</span>
+                <span class="stat-label">До первых продаж</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Гарантия возврата</span>
             </div>
         </div>
 
         <div class="bottom-bar">
             <p class="tagline">
-                ИИ-система для учебных центров. Обрабатывает заявки,
-                квалифицирует и доводит до записи. Без менеджеров.
+                Передайте нам спящую базу или новые лиды вашей онлайн-школы —
+                мы превратим их в оплаты за 14 дней. Нет продаж — возврат 100%.
             </p>
-            <a href="#demo" class="cta-btn">Запросить демо</a>
+            <a href="#demo" class="cta-btn">Получить расчёт</a>
         </div>
     </section>
+
+    <!-- TECHNOLOGY -->
+    <section class="section" id="tech">
+        <div class="section-header">
+            <span class="section-label">Технология</span>
+            <h2 class="section-title">
+                Не бот.<br>
+                <span>Живой гибрид.</span>
+            </h2>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-number">01</div>
+                <h3 class="feature-title">AI-агенты</h3>
+                <p class="feature-text">
+                    Пишут 24/7, не теряют ни одного лида, самообучаются.
+                    Адаптируются под ваш стиль общения, продукт и аудиторию.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-number">02</div>
+                <h3 class="feature-title">Менеджер-оркестратор</h3>
+                <p class="feature-text">
+                    Контролирует систему, вмешивается при сложных возражениях
+                    и помогает дожимать заявки до оплаты.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-number">03</div>
+                <h3 class="feature-title">Прозрачные отчёты</h3>
+                <p class="feature-text">
+                    Видно: сколько ответов, оплат и какие сегменты сработали.
+                    Еженедельная аналитика с рекомендациями.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" id="process">
+        <div class="section-header">
+            <span class="section-label">Процесс</span>
+            <h2 class="section-title">
+                Как это<br>
+                <span>работает</span>
+            </h2>
+        </div>
+
+        <div class="steps-list">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Вы даёте базу</h3>
+                <p class="step-text">Из CRM или Excel — всё просто. Мы забираем контакты и начинаем работу.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Мы адаптируем AI</h3>
+                <p class="step-text">Настраиваем агентов под ваш стиль общения, продукт и аудиторию.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Запускаем дожим</h3>
+                <p class="step-text">AI-агенты пишут, напоминают, отвечают на вопросы, закрывают возражения.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3 class="step-title">Делаем отчёт</h3>
+                <p class="step-text">Показываем, кто ожил, кто оплатил, кто требует повторного касания.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <h3 class="step-title">Постоянный режим</h3>
+                <p class="step-text">Обрабатываем новые заявки и продолжаем работать с тёплой базой.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CTA -->
+    <div class="footer-cta">
+        <h3>Готовы увеличить продажи?</h3>
+        <a href="#demo" class="cta-btn">Запросить демо</a>
+    </div>
 
     <div class="accent-circle"></div>
 
