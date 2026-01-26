@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-отдел продаж для онлайн-школ | DZAMO AI</title>
+    <title>AI-гибридный отдел продаж для вашего бизнеса | DZAMO</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -229,6 +229,22 @@
             color: var(--gray);
         }
 
+        .feature-examples {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .example-msg {
+            font-size: 12px;
+            font-style: italic;
+            color: var(--gray);
+            padding: 12px;
+            background: rgba(0,0,0,0.03);
+            border-left: 2px solid var(--accent);
+        }
+
         /* Steps */
         .steps-list {
             display: flex;
@@ -390,37 +406,81 @@
             text-align: right;
         }
 
-        /* Niches */
-        .niches-grid {
+        /* Cases */
+        .cases-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 2px;
             background: var(--white);
         }
 
-        .niche-card {
+        .case-card {
             background: var(--black);
-            padding: 48px 24px;
-            text-align: center;
+            padding: 40px 32px;
         }
 
-        .niche-icon {
-            font-size: 48px;
+        .case-photo {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--gray);
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .case-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .case-niche {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .case-situation {
+            font-size: 14px;
+            color: var(--gray-light);
+            line-height: 1.5;
             margin-bottom: 24px;
         }
 
-        .niche-title {
-            font-size: 16px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
+        .case-result {
+            margin-bottom: 16px;
         }
 
-        .niche-text {
-            font-size: 13px;
+        .case-metric {
+            font-size: 36px;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+        }
+
+        .case-metric-label {
+            font-size: 12px;
             color: var(--gray-light);
-            line-height: 1.5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .case-outcome {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--green);
+            margin-bottom: 20px;
+        }
+
+        .case-quote {
+            font-size: 14px;
+            font-style: italic;
+            color: var(--gray-light);
+            line-height: 1.6;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         /* Quote */
@@ -445,39 +505,64 @@
             line-height: 1.7;
         }
 
-        /* Comparison */
-        .comparison-grid {
+        /* Comparison Table */
+        .comparison-table {
+            display: flex;
+            flex-direction: column;
+            border: 2px solid var(--black);
+        }
+
+        .comparison-row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2px;
-            background: var(--black);
+            grid-template-columns: 140px 1fr 1fr;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
 
-        .comparison-card {
-            background: var(--white);
-            padding: 48px;
+        .comparison-row:last-child {
+            border-bottom: none;
         }
 
-        .comparison-card.good {
+        .comparison-header-row {
             background: var(--black);
             color: var(--white);
+            border-bottom: 2px solid var(--black);
         }
 
-        .comparison-label {
-            font-size: 12px;
+        .comparison-cell {
+            padding: 20px 24px;
+            font-size: 14px;
+            line-height: 1.5;
+            border-right: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .comparison-cell:last-child {
+            border-right: none;
+        }
+
+        .comparison-cell.label {
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 11px;
+            letter-spacing: 1px;
             color: var(--gray);
-            margin-bottom: 24px;
+            background: rgba(0,0,0,0.03);
         }
 
-        .comparison-card.good .comparison-label {
-            color: var(--accent);
+        .comparison-cell.highlight {
+            background: var(--black);
+            color: var(--white);
+            font-weight: 500;
         }
 
-        .comparison-message {
-            font-size: 18px;
-            line-height: 1.6;
+        .comparison-header-row .comparison-cell {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .comparison-header-row .comparison-cell.highlight {
+            background: var(--accent);
         }
 
         /* FAQ */
@@ -503,38 +588,53 @@
             line-height: 1.7;
         }
 
-        /* About */
-        .about-content {
+        /* System vs Hire */
+        .system-comparison {
             display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 60px;
-            max-width: 800px;
-            margin: 0 auto;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background: var(--black);
+            margin-bottom: 48px;
         }
 
-        .about-photo {
-            width: 200px;
-            height: 200px;
-            background: var(--gray-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
+        .system-block {
+            padding: 48px;
+            background: var(--white);
+        }
+
+        .system-block.system-new {
+            background: var(--black);
             color: var(--white);
         }
 
-        .about-text {
-            font-size: 16px;
-            line-height: 1.7;
+        .system-title {
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
             color: var(--gray);
         }
 
-        .about-quote {
-            font-size: 18px;
-            font-weight: 600;
-            font-style: italic;
-            margin-top: 24px;
-            color: var(--black);
+        .system-block.system-new .system-title {
+            color: var(--accent);
+        }
+
+        .system-text {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .system-block.system-old .system-text {
+            color: var(--gray);
+        }
+
+        .system-conclusion {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* Final CTA */
@@ -634,12 +734,21 @@
 
             .features-grid,
             .pricing-grid,
-            .niches-grid {
+            .cases-grid {
                 grid-template-columns: 1fr;
             }
 
-            .comparison-grid {
+            .system-comparison {
                 grid-template-columns: 1fr;
+            }
+
+            .comparison-row {
+                grid-template-columns: 100px 1fr 1fr;
+            }
+
+            .comparison-cell {
+                padding: 16px 12px;
+                font-size: 13px;
             }
 
             .step {
@@ -713,6 +822,33 @@
                 font-size: 28px;
             }
 
+            .comparison-row {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-cell.label {
+                background: var(--black);
+                color: var(--white);
+                font-size: 12px;
+            }
+
+            .comparison-header-row {
+                display: none;
+            }
+
+            .comparison-cell {
+                border-right: none;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+            }
+
+            .comparison-cell:last-child {
+                border-bottom: none;
+            }
+
+            .system-block {
+                padding: 32px 24px;
+            }
+
             .bottom-bar {
                 flex-direction: column;
                 gap: 32px;
@@ -770,10 +906,10 @@
     <section class="hero">
         <div class="hero-title">
             <h1>
-                Передаёте<br>
-                лиды —<br>
-                получаете<br>
-                <span>оплаты</span>
+                Ни один<br>
+                лид не<br>
+                остаётся<br>
+                <span>без ответа</span>
             </h1>
         </div>
 
@@ -788,18 +924,18 @@
             </div>
             <div class="stat-item">
                 <span class="stat-number">14 дней</span>
-                <span class="stat-label">До первых продаж</span>
+                <span class="stat-label">Первые результаты в цифрах</span>
             </div>
             <div class="stat-item">
                 <span class="stat-number">100%</span>
-                <span class="stat-label">Гарантия возврата</span>
+                <span class="stat-label">Прозрачность метрик</span>
             </div>
         </div>
 
         <div class="bottom-bar">
             <p class="tagline">
-                Передайте нам спящую базу или новые лиды вашей онлайн-школы —
-                мы превратим их в оплаты за 14 дней. Нет продаж — возврат 100%.
+                Подключаем AI к вашим входящим заявкам и помогаем вернуть в диалог тех,
+                кто не дошёл до покупки — в рамках согласий и правил платформ.
             </p>
             <a href="#contact" class="cta-btn">Получить расчёт</a>
         </div>
@@ -820,9 +956,13 @@
                 <div class="feature-number">01</div>
                 <h3 class="feature-title">AI-агенты</h3>
                 <p class="feature-text">
-                    Пишут 24/7, не теряют ни одного лида, самообучаются.
-                    Адаптируются под ваш стиль общения, продукт и аудиторию.
+                    Отвечают на входящие 24/7, ведут диалог естественно.
+                    Адаптируются под ваш стиль, продукт и аудиторию.
                 </p>
+                <div class="feature-examples">
+                    <span class="example-msg">«Вы были на просмотре квартиры на Ленина — есть вопросы?»</span>
+                    <span class="example-msg">«Вы оставляли заявку на консультацию — удобно созвониться сегодня?»</span>
+                </div>
             </div>
             <div class="feature-card">
                 <div class="feature-number">02</div>
@@ -882,16 +1022,15 @@
         </div>
     </section>
 
-    <!-- PILOT -->
+    <!-- FILTER -->
     <section class="quote-section" style="border-top: 2px solid var(--black);">
         <h2 class="quote-text">
-            У каждой школы спит база.<br>
-            <span style="color: var(--accent);">Мы её пробуждаем.</span>
+            Система максимально себя раскроет<br>
+            <span style="color: var(--accent);">при объёме заявок от 300 в месяц.</span>
         </h2>
         <p class="quote-subtext">
-            До 70% лидов перестают отвечать после первой заявки.
-            Мы возвращаем их в диалог — от вашего имени, с вашими смыслами.
-            Без звонков, без давления.
+            Если у вас меньше — честно скажем, что пока не окупится.
+            Мы работаем с бизнесами, где уже есть поток входящих и понятный процесс продаж.
         </p>
     </section>
 
@@ -908,17 +1047,17 @@
         <div class="pricing-grid">
             <div class="pricing-card">
                 <span class="pricing-badge">Старт</span>
-                <h3 class="pricing-name">Тест-драйв</h3>
+                <h3 class="pricing-name">Пилот</h3>
                 <div class="pricing-price">$590</div>
                 <div class="pricing-period">14 дней</div>
                 <ul class="pricing-features">
-                    <li>Реактивация старой базы (до 5000 контактов)</li>
-                    <li>Настройка AI-агентов под ваш стиль</li>
-                    <li>14 дней работы с лидами</li>
-                    <li>Отчёт с результатами и рекомендациями</li>
+                    <li>Подключение AI к вашим входящим заявкам</li>
+                    <li>Настройка под ваш стиль общения</li>
+                    <li>14 дней работы + еженедельный отчёт</li>
+                    <li>Полная прозрачность: видите каждый диалог</li>
                 </ul>
                 <div class="pricing-roi">
-                    Пример ROI: <strong>База 4200 → 140 ответов → 7 оплат × $350 = +$2450</strong>
+                    Вы видите каждое сообщение, каждую метрику. Решаете сами — продолжать или нет.
                 </div>
             </div>
 
@@ -928,32 +1067,32 @@
                 <div class="pricing-price">$990</div>
                 <div class="pricing-period">в месяц</div>
                 <ul class="pricing-features">
-                    <li>Всё из "Тест-драйва"</li>
-                    <li>Обработка новых лидов 24/7</li>
+                    <li>Всё из «Пилота»</li>
+                    <li>Обработка входящих заявок 24/7</li>
                     <li>CRM-интеграция</li>
                     <li>Еженедельные отчёты и корректировка сценариев</li>
-                    <li>Контроль качества менеджером-оркестратором</li>
+                    <li>Живой специалист контролирует качество</li>
                 </ul>
                 <div class="pricing-roi">
-                    Пример ROI: <strong>Школа $30k/мес → $38k/мес (+$8k)</strong>
+                    Система, которая не ломается при увольнениях и масштабируется без найма.
                 </div>
             </div>
 
             <div class="pricing-card">
                 <span class="pricing-badge">Премиум</span>
-                <h3 class="pricing-name">AI-отдел продаж</h3>
+                <h3 class="pricing-name">Полный отдел</h3>
                 <div class="pricing-price">$2900</div>
                 <div class="pricing-period">в месяц</div>
                 <ul class="pricing-features">
-                    <li>Всё из "Автопилота"</li>
-                    <li>Голосовой AI (обзвон лидов)</li>
+                    <li>Всё из «Автопилота»</li>
+                    <li>Голосовой AI для входящих звонков</li>
                     <li>Прямой доступ к основателю</li>
-                    <li>A/B-тесты сообщений и воронок</li>
+                    <li>A/B-тесты сценариев</li>
                     <li>Приоритетная поддержка</li>
                     <li>Ежемесячный аудит воронки</li>
                 </ul>
                 <div class="pricing-roi">
-                    Пример ROI: <strong>Школа $50k/мес → $65k/мес (+30%)</strong>
+                    Полноценный отдел продаж без найма, обучения и текучки.
                 </div>
             </div>
         </div>
@@ -991,36 +1130,69 @@
         </div>
     </section>
 
-    <!-- NICHES -->
+    <!-- CASES -->
     <section class="section section-dark">
         <div class="section-header">
-            <span class="section-label">Ниши</span>
+            <span class="section-label">Кейсы</span>
             <h2 class="section-title">
-                Адаптируем<br>
-                <span>под любую нишу</span>
+                Результаты<br>
+                <span>клиентов</span>
             </h2>
         </div>
 
-        <div class="niches-grid">
-            <div class="niche-card">
-                <div class="niche-icon">🧠</div>
-                <h3 class="niche-title">Психология</h3>
-                <p class="niche-text">Дожим после вебинаров и консультаций</p>
+        <div class="cases-grid">
+            <div class="case-card">
+                <div class="case-photo">
+                    <img src="images/cases/case-english.jpg" alt="Онлайн-школа английского" onerror="this.style.display='none'">
+                </div>
+                <div class="case-niche">Онлайн-школа английского</div>
+                <p class="case-situation">3 менеджера не успевали отвечать на заявки с таргета</p>
+                <div class="case-result">
+                    <span class="case-metric">4 часа → 28 сек</span>
+                    <span class="case-metric-label">время ответа</span>
+                </div>
+                <div class="case-outcome">+18% к конверсии за 3 недели</div>
+                <p class="case-quote">«Раньше терял заявки ночью. Теперь AI отвечает мгновенно, я подключаюсь утром к горячим»</p>
             </div>
-            <div class="niche-card">
-                <div class="niche-icon">🧮</div>
-                <h3 class="niche-title">Языки и ЕГЭ</h3>
-                <p class="niche-text">Напоминания для родителей и реактивация</p>
+
+            <div class="case-card">
+                <div class="case-photo">
+                    <img src="images/cases/case-realty.jpg" alt="Агентство недвижимости" onerror="this.style.display='none'">
+                </div>
+                <div class="case-niche">Агентство недвижимости</div>
+                <p class="case-situation">Менеджеры забывали перезванивать, лиды остывали</p>
+                <div class="case-result">
+                    <span class="case-metric">94%</span>
+                    <span class="case-metric-label">заявок с ответом за 60 сек</span>
+                </div>
+                <div class="case-outcome">12 сделок/мес вместо 8</div>
             </div>
-            <div class="niche-card">
-                <div class="niche-icon">🎨</div>
-                <h3 class="niche-title">Детские</h3>
-                <p class="niche-text">Мягкое общение, повторные продажи</p>
+
+            <div class="case-card">
+                <div class="case-photo">
+                    <img src="images/cases/case-clinic.jpg" alt="Медицинская клиника" onerror="this.style.display='none'">
+                </div>
+                <div class="case-niche">Медицинская клиника</div>
+                <p class="case-situation">Администраторы перегружены, пациенты уходили к конкурентам</p>
+                <div class="case-result">
+                    <span class="case-metric">24/7</span>
+                    <span class="case-metric-label">автоматическая запись</span>
+                </div>
+                <div class="case-outcome">−40% нагрузки на ресепшн</div>
+                <p class="case-quote">«Пациенты записываются в 11 вечера, когда клиника закрыта»</p>
             </div>
-            <div class="niche-card">
-                <div class="niche-icon">💼</div>
-                <h3 class="niche-title">Бизнес</h3>
-                <p class="niche-text">Дожим тёплых лидов, апсейлы</p>
+
+            <div class="case-card">
+                <div class="case-photo">
+                    <img src="images/cases/case-edtech.jpg" alt="EdTech-стартап" onerror="this.style.display='none'">
+                </div>
+                <div class="case-niche">EdTech-стартап</div>
+                <p class="case-situation">1 продажник на 200 заявок/день, выгорал</p>
+                <div class="case-result">
+                    <span class="case-metric">x2</span>
+                    <span class="case-metric-label">к выручке при том же штате</span>
+                </div>
+                <div class="case-outcome">AI квалифицирует, человек закрывает</div>
             </div>
         </div>
     </section>
@@ -1028,74 +1200,96 @@
     <!-- QUOTE 2 -->
     <section class="quote-section" style="border-top: 2px solid var(--black);">
         <h2 class="quote-text">
-            Другие продают ботов.<br>
-            <span style="color: var(--accent);">Мы строим коммерческий отдел.</span>
+            AI + живой специалист.<br>
+            <span style="color: var(--accent);">Гибрид, а не просто бот.</span>
         </h2>
         <p class="quote-subtext">
             На рынке сотни AI-ботов с одинаковыми сообщениями.
-            Мы создаём систему, где ИИ и человек работают в партнёрстве.
-            Подключаем к вашей CRM, без расширения штата, без головной боли.
+            DZAMO — это система, где AI обрабатывает поток, а человек контролирует качество
+            и подключается в сложных случаях. Результат предсказуем.
         </p>
     </section>
 
-    <!-- COMPARISON -->
+    <!-- COMPARISON TABLE -->
     <section class="section">
         <div class="section-header">
             <span class="section-label">Сравнение</span>
             <h2 class="section-title">
-                Сообщения как от<br>
-                <span>менеджера</span>
+                Менеджер<br>
+                <span>vs DZAMO</span>
             </h2>
         </div>
 
-        <div class="comparison-grid">
-            <div class="comparison-card">
-                <div class="comparison-label">До (сухой бот)</div>
-                <p class="comparison-message">
-                    Купите курс?
-                </p>
+        <div class="comparison-table">
+            <div class="comparison-row comparison-header-row">
+                <div class="comparison-cell"></div>
+                <div class="comparison-cell">Нанять менеджера</div>
+                <div class="comparison-cell highlight">DZAMO</div>
             </div>
-            <div class="comparison-card good">
-                <div class="comparison-label">После (живой гибрид)</div>
-                <p class="comparison-message">
-                    Добрый вечер! Вы были на вебинаре по продюсированию.
-                    Мы подготовили пробный урок — заглянете?
-                </p>
-                <p class="comparison-message" style="margin-top: 16px; opacity: 0.8;">
-                    Понимаю, что дорого — но этот курс окупается на первом ученике.
-                    Вот история нашей ученицы…
-                </p>
+            <div class="comparison-row">
+                <div class="comparison-cell label">Старт</div>
+                <div class="comparison-cell">2-4 недели поиск + 1-2 мес обучение</div>
+                <div class="comparison-cell highlight">Запуск за 3-5 дней</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell label">Время ответа</div>
+                <div class="comparison-cell">В рабочие часы, если не занят</div>
+                <div class="comparison-cell highlight">24/7, < 30 секунд</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell label">Масштабирование</div>
+                <div class="comparison-cell">Нанять ещё (x2 затраты)</div>
+                <div class="comparison-cell highlight">Тот же тариф</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell label">Уволился</div>
+                <div class="comparison-cell">Знания ушли, начинай сначала</div>
+                <div class="comparison-cell highlight">Система осталась и стала сильнее</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell label">Стоимость</div>
+                <div class="comparison-cell">От 80-150k₽/мес + налоги</div>
+                <div class="comparison-cell highlight">Фикс от $990/мес</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell label">Контроль</div>
+                <div class="comparison-cell">Слушать звонки, читать чаты</div>
+                <div class="comparison-cell highlight">Полная аналитика в реальном времени</div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- SYSTEM VS HIRE -->
     <section class="section" style="background: rgba(0,0,0,0.03);">
         <div class="section-header">
-            <span class="section-label">О нас</span>
+            <span class="section-label">Подход</span>
             <h2 class="section-title">
-                Мы предприниматели,<br>
-                <span>не интеграторы</span>
+                Не ищите РОПа.<br>
+                <span>Постройте систему.</span>
             </h2>
         </div>
 
-        <div class="about-content">
-            <div class="about-photo">
-                <img src="images/dzamukov-photo.png" alt="Георгий Дзамуков" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div>
-                <p class="about-text">
-                    Проект создал Георгий Дзамуков — продюсер онлайн-школ и предприниматель
-                    с опытом в B2C и AI-решениях. 11 лет в бизнесе.
-                    Прошёл путь владельца школы и знает, как выгорает отдел продаж
-                    и как вытянуть выручку без найма.
+        <div class="system-comparison">
+            <div class="system-block system-old">
+                <h3 class="system-title">Типичный отдел продаж</h3>
+                <p class="system-text">
+                    Нанял менеджера → 2 месяца обучал → уволился → знания ушли с ним → начинай сначала.
                 </p>
-                <p class="about-quote">
-                    «Мы внедряем современную технологию и возвращаем жизнь вашей базе.
-                    Затем работаем с вашими входящими лидами и никогда не теряем ваши заказы»
+            </div>
+            <div class="system-block system-new">
+                <h3 class="system-title">DZAMO</h3>
+                <p class="system-text">
+                    AI работает 24/7 по накопленным скриптам. Живой специалист на нашей стороне постоянно улучшает систему: добавляет ответы на новые возражения, корректирует тон, обучает на сложных кейсах.
+                </p>
+                <p class="system-text" style="margin-top: 16px;">
+                    Уволился ваш менеджер? Система продолжает работать. Все знания, скрипты и паттерны — внутри неё, а не в чьей-то голове.
                 </p>
             </div>
         </div>
+
+        <p class="system-conclusion">
+            Каждый человек делает систему сильнее. Никто не может её сломать, уйдя.
+        </p>
     </section>
 
     <!-- FAQ -->
@@ -1110,32 +1304,32 @@
 
         <div class="faq-list">
             <div class="faq-item">
-                <h3 class="faq-question">А если не сработает?</h3>
-                <p class="faq-answer">100% возврат за тест-драйв. Если в течение 14 дней нет продаж — делаем полный возврат.</p>
+                <h3 class="faq-question">Как понять, что это работает?</h3>
+                <p class="faq-answer">Пилот 14 дней. Вы видите каждое сообщение, каждый диалог, каждую метрику в реальном времени. Решаете сами — продолжать или нет.</p>
             </div>
             <div class="faq-item">
                 <h3 class="faq-question">Сложно подключить?</h3>
-                <p class="faq-answer">Технически подключаем за 1 день. Вся настройка под школу, обучение AI и первые результаты — в течение 14 дней.</p>
+                <p class="faq-answer">Технически подключаем за 1-3 дня. Настройка под ваш бизнес и первые результаты — в течение 14 дней.</p>
             </div>
             <div class="faq-item">
                 <h3 class="faq-question">Заменит ли это менеджеров?</h3>
-                <p class="faq-answer">Мы можем работать вместе с вашими менеджерами или вместо них. Можем заменить их полностью или работать параллельно.</p>
+                <p class="faq-answer">Зависит от вашей цели. AI может работать вместе с командой (разгрузить) или взять на себя первую линию полностью. Обсудим на созвоне.</p>
             </div>
             <div class="faq-item">
-                <h3 class="faq-question">Подходит ли для небольших школ?</h3>
-                <p class="faq-answer">Да, от 200 лидов в базе.</p>
+                <h3 class="faq-question">Какой минимальный объём заявок?</h3>
+                <p class="faq-answer">Система раскрывается при 300+ входящих заявок в месяц. Если меньше — пока не окупится.</p>
             </div>
             <div class="faq-item">
-                <h3 class="faq-question">Работаете с WhatsApp Business/API?</h3>
-                <p class="faq-answer">Да. Подключаем официальный WhatsApp Business API через вашего провайдера (например, Twilio/360dialog), соблюдая правила Meta.</p>
+                <h3 class="faq-question">Работаете с WhatsApp?</h3>
+                <p class="faq-answer">Да. Используем официальный WhatsApp Business API в рамках правил Meta. Также работаем с Telegram и email.</p>
             </div>
             <div class="faq-item">
                 <h3 class="faq-question">Сколько времени на старт?</h3>
-                <p class="faq-answer">Технический старт — 1 день. Подготовка и обучение агентов под вашу школу — до 14 дней.</p>
+                <p class="faq-answer">Технический старт — 1-3 дня. Полная настройка и калибровка — до 2 недель.</p>
             </div>
             <div class="faq-item">
-                <h3 class="faq-question">Какой доступ от меня нужен?</h3>
-                <p class="faq-answer">Доступ к CRM/платформе (чтение/запись для лидов), каналу связи (WhatsApp/Email/Telegram) и UTM‑источникам.</p>
+                <h3 class="faq-question">Какой доступ нужен?</h3>
+                <p class="faq-answer">Доступ к CRM (или выгрузка заявок), каналу связи (WhatsApp/Telegram) и информация о вашем продукте для настройки сценариев.</p>
             </div>
         </div>
     </section>
