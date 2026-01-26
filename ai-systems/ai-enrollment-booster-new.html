@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-отдел продаж для онлайн-школ | DZAMO AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --white: #f8f8f8;
+            --black: #0d0d0d;
+            --gray: #666;
+            --gray-light: #999;
+            --accent: #e63322;
+            --green: #22a867;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--white);
+            color: var(--black);
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            mix-blend-mode: difference;
+        }
+
+        .logo {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--white);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            padding: 140px 40px 60px;
+            display: grid;
+            grid-template-columns: 1fr 220px;
+            grid-template-rows: 1fr auto;
+            gap: 40px;
+        }
+
+        .hero-title {
+            align-self: center;
+        }
+
+        .hero-title h1 {
+            font-size: clamp(48px, 9vw, 120px);
+            font-weight: 700;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            text-transform: uppercase;
+        }
+
+        .hero-title h1 span {
+            color: var(--accent);
+        }
+
+        .stats-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+            border-left: 2px solid var(--black);
+            padding-left: 24px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 6px;
+            color: var(--gray);
+        }
+
+        .bottom-bar {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-top: 40px;
+            border-top: 2px solid var(--black);
+        }
+
+        .tagline {
+            font-size: 15px;
+            max-width: 480px;
+            line-height: 1.6;
+            color: var(--gray);
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 20px 48px;
+            background: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.02);
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 100px 40px;
+            border-top: 2px solid var(--black);
+        }
+
+        .section-dark {
+            background: var(--black);
+            color: var(--white);
+            border-top-color: var(--white);
+        }
+
+        .section-header {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .section-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray);
+        }
+
+        .section-dark .section-label {
+            color: var(--gray-light);
+        }
+
+        .section-title {
+            font-size: clamp(36px, 6vw, 72px);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: var(--black);
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 48px 32px;
+        }
+
+        .feature-number {
+            font-size: 64px;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 24px;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .feature-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--gray);
+        }
+
+        /* Steps */
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 100px 1fr 1fr;
+            gap: 40px;
+            padding: 48px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .step:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            font-size: 72px;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--accent);
+        }
+
+        .step-title {
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            align-self: center;
+        }
+
+        .step-text {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--gray);
+            align-self: center;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: var(--white);
+        }
+
+        .pricing-card {
+            background: var(--black);
+            padding: 48px 32px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card.featured {
+            background: var(--accent);
+        }
+
+        .pricing-badge {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray-light);
+            margin-bottom: 16px;
+        }
+
+        .pricing-card.featured .pricing-badge {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .pricing-name {
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .pricing-price {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .pricing-period {
+            font-size: 14px;
+            color: var(--gray-light);
+            margin-bottom: 32px;
+        }
+
+        .pricing-card.featured .pricing-period {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            font-size: 14px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-roi {
+            font-size: 13px;
+            padding: 16px;
+            background: rgba(255,255,255,0.1);
+            margin-top: auto;
+        }
+
+        .pricing-roi strong {
+            color: var(--green);
+        }
+
+        .pricing-card.featured .pricing-roi strong {
+            color: #fff;
+        }
+
+        /* Results */
+        .results-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .result-row {
+            display: grid;
+            grid-template-columns: 1fr 60px 1fr 1fr;
+            gap: 24px;
+            padding: 32px;
+            background: rgba(0,0,0,0.03);
+            align-items: center;
+        }
+
+        .result-before {
+            color: var(--gray);
+        }
+
+        .result-arrow {
+            text-align: center;
+            font-size: 24px;
+            color: var(--accent);
+        }
+
+        .result-after {
+            font-weight: 600;
+        }
+
+        .result-outcome {
+            font-weight: 700;
+            color: var(--green);
+            text-align: right;
+        }
+
+        /* Niches */
+        .niches-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            background: var(--white);
+        }
+
+        .niche-card {
+            background: var(--black);
+            padding: 48px 24px;
+            text-align: center;
+        }
+
+        .niche-icon {
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+
+        .niche-title {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .niche-text {
+            font-size: 13px;
+            color: var(--gray-light);
+            line-height: 1.5;
+        }
+
+        /* Quote */
+        .quote-section {
+            padding: 120px 40px;
+            text-align: center;
+        }
+
+        .quote-text {
+            font-size: clamp(24px, 4vw, 42px);
+            font-weight: 700;
+            line-height: 1.3;
+            max-width: 900px;
+            margin: 0 auto 32px;
+        }
+
+        .quote-subtext {
+            font-size: 16px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Comparison */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background: var(--black);
+        }
+
+        .comparison-card {
+            background: var(--white);
+            padding: 48px;
+        }
+
+        .comparison-card.good {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .comparison-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+
+        .comparison-card.good .comparison-label {
+            color: var(--accent);
+        }
+
+        .comparison-message {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            padding: 32px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .faq-answer {
+            font-size: 15px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 60px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-photo {
+            width: 200px;
+            height: 200px;
+            background: var(--gray-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--white);
+        }
+
+        .about-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--gray);
+        }
+
+        .about-quote {
+            font-size: 18px;
+            font-weight: 600;
+            font-style: italic;
+            margin-top: 24px;
+            color: var(--black);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 120px 40px;
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 48px;
+        }
+
+        .final-steps {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 48px;
+        }
+
+        .final-step {
+            text-align: center;
+        }
+
+        .final-step-num {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .final-step-text {
+            font-size: 14px;
+            color: var(--gray-light);
+        }
+
+        .final-cta .cta-btn {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px;
+            border-top: 2px solid var(--black);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 12px;
+            color: var(--gray);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links a:hover {
+            color: var(--black);
+        }
+
+        /* Accent circle */
+        .accent-circle {
+            position: fixed;
+            bottom: -200px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.06;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .section-header {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .features-grid,
+            .pricing-grid,
+            .niches-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                grid-template-columns: 60px 1fr;
+                gap: 24px;
+            }
+
+            .step-text {
+                grid-column: 2;
+            }
+
+            .step-number {
+                font-size: 48px;
+            }
+
+            .result-row {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .result-outcome {
+                text-align: center;
+            }
+
+            .final-steps {
+                flex-direction: column;
+                gap: 32px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-photo {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 24px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 100px 24px 40px;
+            }
+
+            .hero-title h1 {
+                font-size: 42px;
+                letter-spacing: -1px;
+            }
+
+            .stats-column {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 24px;
+                border-left: none;
+                border-top: 2px solid var(--black);
+                padding-left: 0;
+                padding-top: 32px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .bottom-bar {
+                flex-direction: column;
+                gap: 32px;
+                align-items: flex-start;
+            }
+
+            .cta-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .section {
+                padding: 60px 24px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .feature-card,
+            .pricing-card,
+            .niche-card {
+                padding: 32px 24px;
+            }
+
+            .quote-section {
+                padding: 80px 24px;
+            }
+
+            .final-cta {
+                padding: 80px 24px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/" class="logo">Dzamo</a>
+        <nav>
+            <a href="#tech">Технология</a>
+            <a href="#pricing">Тарифы</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Контакт</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-title">
+            <h1>
+                Передаёте<br>
+                лиды —<br>
+                получаете<br>
+                <span>оплаты</span>
+            </h1>
+        </div>
+
+        <div class="stats-column">
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">AI работает</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">30 сек</span>
+                <span class="stat-label">Время ответа</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">14 дней</span>
+                <span class="stat-label">До первых продаж</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Гарантия возврата</span>
+            </div>
+        </div>
+
+        <div class="bottom-bar">
+            <p class="tagline">
+                Передайте нам спящую базу или новые лиды вашей онлайн-школы —
+                мы превратим их в оплаты за 14 дней. Нет продаж — возврат 100%.
+            </p>
+            <a href="#contact" class="cta-btn">Получить расчёт</a>
+        </div>
+    </section>
+
+    <!-- TECHNOLOGY -->
+    <section class="section" id="tech">
+        <div class="section-header">
+            <span class="section-label">Технология</span>
+            <h2 class="section-title">
+                Не бот.<br>
+                <span>Живой гибрид.</span>
+            </h2>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-number">01</div>
+                <h3 class="feature-title">AI-агенты</h3>
+                <p class="feature-text">
+                    Пишут 24/7, не теряют ни одного лида, самообучаются.
+                    Адаптируются под ваш стиль общения, продукт и аудиторию.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-number">02</div>
+                <h3 class="feature-title">Менеджер-оркестратор</h3>
+                <p class="feature-text">
+                    Контролирует систему, вмешивается при сложных возражениях
+                    и помогает дожимать заявки до оплаты.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-number">03</div>
+                <h3 class="feature-title">Прозрачные отчёты</h3>
+                <p class="feature-text">
+                    Видно: сколько ответов, оплат и какие сегменты сработали.
+                    Еженедельная аналитика с рекомендациями.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" id="process">
+        <div class="section-header">
+            <span class="section-label">Процесс</span>
+            <h2 class="section-title">
+                Как это<br>
+                <span>работает</span>
+            </h2>
+        </div>
+
+        <div class="steps-list">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Вы даёте базу</h3>
+                <p class="step-text">Из CRM или Excel — всё просто. Мы забираем контакты и начинаем работу.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Мы адаптируем AI</h3>
+                <p class="step-text">Настраиваем агентов под ваш стиль общения, продукт и аудиторию.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Запускаем дожим</h3>
+                <p class="step-text">AI-агенты пишут, напоминают, отвечают на вопросы, закрывают возражения.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3 class="step-title">Делаем отчёт</h3>
+                <p class="step-text">Показываем, кто ожил, кто оплатил, кто требует повторного касания.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <h3 class="step-title">Постоянный режим</h3>
+                <p class="step-text">Обрабатываем новые заявки и продолжаем работать с тёплой базой.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PILOT -->
+    <section class="quote-section" style="border-top: 2px solid var(--black);">
+        <h2 class="quote-text">
+            У каждой школы спит база.<br>
+            <span style="color: var(--accent);">Мы её пробуждаем.</span>
+        </h2>
+        <p class="quote-subtext">
+            До 70% лидов перестают отвечать после первой заявки.
+            Мы возвращаем их в диалог — от вашего имени, с вашими смыслами.
+            Без звонков, без давления.
+        </p>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section section-dark" id="pricing">
+        <div class="section-header">
+            <span class="section-label">Тарифы</span>
+            <h2 class="section-title">
+                Прозрачная<br>
+                <span>стоимость</span>
+            </h2>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <span class="pricing-badge">Старт</span>
+                <h3 class="pricing-name">Тест-драйв</h3>
+                <div class="pricing-price">$590</div>
+                <div class="pricing-period">14 дней</div>
+                <ul class="pricing-features">
+                    <li>Реактивация старой базы (до 5000 контактов)</li>
+                    <li>Настройка AI-агентов под ваш стиль</li>
+                    <li>14 дней работы с лидами</li>
+                    <li>Отчёт с результатами и рекомендациями</li>
+                </ul>
+                <div class="pricing-roi">
+                    Пример ROI: <strong>База 4200 → 140 ответов → 7 оплат × $350 = +$2450</strong>
+                </div>
+            </div>
+
+            <div class="pricing-card featured">
+                <span class="pricing-badge">Популярный</span>
+                <h3 class="pricing-name">Автопилот</h3>
+                <div class="pricing-price">$990</div>
+                <div class="pricing-period">в месяц</div>
+                <ul class="pricing-features">
+                    <li>Всё из "Тест-драйва"</li>
+                    <li>Обработка новых лидов 24/7</li>
+                    <li>CRM-интеграция</li>
+                    <li>Еженедельные отчёты и корректировка сценариев</li>
+                    <li>Контроль качества менеджером-оркестратором</li>
+                </ul>
+                <div class="pricing-roi">
+                    Пример ROI: <strong>Школа $30k/мес → $38k/мес (+$8k)</strong>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <span class="pricing-badge">Премиум</span>
+                <h3 class="pricing-name">AI-отдел продаж</h3>
+                <div class="pricing-price">$2900</div>
+                <div class="pricing-period">в месяц</div>
+                <ul class="pricing-features">
+                    <li>Всё из "Автопилота"</li>
+                    <li>Голосовой AI (обзвон лидов)</li>
+                    <li>Прямой доступ к основателю</li>
+                    <li>A/B-тесты сообщений и воронок</li>
+                    <li>Приоритетная поддержка</li>
+                    <li>Ежемесячный аудит воронки</li>
+                </ul>
+                <div class="pricing-roi">
+                    Пример ROI: <strong>Школа $50k/мес → $65k/мес (+30%)</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="section">
+        <div class="section-header">
+            <span class="section-label">Результаты</span>
+            <h2 class="section-title">
+                Что меняется<br>
+                <span>после подключения</span>
+            </h2>
+        </div>
+
+        <div class="results-grid">
+            <div class="result-row">
+                <div class="result-before">Спящие лиды (60–70%)</div>
+                <div class="result-arrow">→</div>
+                <div class="result-after">AI-реактивация</div>
+                <div class="result-outcome">+20% возвратов</div>
+            </div>
+            <div class="result-row">
+                <div class="result-before">Медленные ответы</div>
+                <div class="result-arrow">→</div>
+                <div class="result-after">Мгновенная реакция 24/7</div>
+                <div class="result-outcome">+15% конверсии</div>
+            </div>
+            <div class="result-row">
+                <div class="result-before">Перегрузка команды</div>
+                <div class="result-arrow">→</div>
+                <div class="result-after">Гибридная система</div>
+                <div class="result-outcome">+25% выручки</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NICHES -->
+    <section class="section section-dark">
+        <div class="section-header">
+            <span class="section-label">Ниши</span>
+            <h2 class="section-title">
+                Адаптируем<br>
+                <span>под любую нишу</span>
+            </h2>
+        </div>
+
+        <div class="niches-grid">
+            <div class="niche-card">
+                <div class="niche-icon">🧠</div>
+                <h3 class="niche-title">Психология</h3>
+                <p class="niche-text">Дожим после вебинаров и консультаций</p>
+            </div>
+            <div class="niche-card">
+                <div class="niche-icon">🧮</div>
+                <h3 class="niche-title">Языки и ЕГЭ</h3>
+                <p class="niche-text">Напоминания для родителей и реактивация</p>
+            </div>
+            <div class="niche-card">
+                <div class="niche-icon">🎨</div>
+                <h3 class="niche-title">Детские</h3>
+                <p class="niche-text">Мягкое общение, повторные продажи</p>
+            </div>
+            <div class="niche-card">
+                <div class="niche-icon">💼</div>
+                <h3 class="niche-title">Бизнес</h3>
+                <p class="niche-text">Дожим тёплых лидов, апсейлы</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUOTE 2 -->
+    <section class="quote-section" style="border-top: 2px solid var(--black);">
+        <h2 class="quote-text">
+            Другие продают ботов.<br>
+            <span style="color: var(--accent);">Мы строим коммерческий отдел.</span>
+        </h2>
+        <p class="quote-subtext">
+            На рынке сотни AI-ботов с одинаковыми сообщениями.
+            Мы создаём систему, где ИИ и человек работают в партнёрстве.
+            Подключаем к вашей CRM, без расширения штата, без головной боли.
+        </p>
+    </section>
+
+    <!-- COMPARISON -->
+    <section class="section">
+        <div class="section-header">
+            <span class="section-label">Сравнение</span>
+            <h2 class="section-title">
+                Сообщения как от<br>
+                <span>менеджера</span>
+            </h2>
+        </div>
+
+        <div class="comparison-grid">
+            <div class="comparison-card">
+                <div class="comparison-label">До (сухой бот)</div>
+                <p class="comparison-message">
+                    Купите курс?
+                </p>
+            </div>
+            <div class="comparison-card good">
+                <div class="comparison-label">После (живой гибрид)</div>
+                <p class="comparison-message">
+                    Добрый вечер! Вы были на вебинаре по продюсированию.
+                    Мы подготовили пробный урок — заглянете?
+                </p>
+                <p class="comparison-message" style="margin-top: 16px; opacity: 0.8;">
+                    Понимаю, что дорого — но этот курс окупается на первом ученике.
+                    Вот история нашей ученицы…
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" style="background: rgba(0,0,0,0.03);">
+        <div class="section-header">
+            <span class="section-label">О нас</span>
+            <h2 class="section-title">
+                Мы предприниматели,<br>
+                <span>не интеграторы</span>
+            </h2>
+        </div>
+
+        <div class="about-content">
+            <div class="about-photo">
+                <img src="images/dzamukov-photo.png" alt="Георгий Дзамуков" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div>
+                <p class="about-text">
+                    Проект создал Георгий Дзамуков — продюсер онлайн-школ и предприниматель
+                    с опытом в B2C и AI-решениях. 11 лет в бизнесе.
+                    Прошёл путь владельца школы и знает, как выгорает отдел продаж
+                    и как вытянуть выручку без найма.
+                </p>
+                <p class="about-quote">
+                    «Мы внедряем современную технологию и возвращаем жизнь вашей базе.
+                    Затем работаем с вашими входящими лидами и никогда не теряем ваши заказы»
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <div class="section-header">
+            <span class="section-label">FAQ</span>
+            <h2 class="section-title">
+                Частые<br>
+                <span>вопросы</span>
+            </h2>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <h3 class="faq-question">А если не сработает?</h3>
+                <p class="faq-answer">100% возврат за тест-драйв. Если в течение 14 дней нет продаж — делаем полный возврат.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">Сложно подключить?</h3>
+                <p class="faq-answer">Технически подключаем за 1 день. Вся настройка под школу, обучение AI и первые результаты — в течение 14 дней.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">Заменит ли это менеджеров?</h3>
+                <p class="faq-answer">Мы можем работать вместе с вашими менеджерами или вместо них. Можем заменить их полностью или работать параллельно.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">Подходит ли для небольших школ?</h3>
+                <p class="faq-answer">Да, от 200 лидов в базе.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">Работаете с WhatsApp Business/API?</h3>
+                <p class="faq-answer">Да. Подключаем официальный WhatsApp Business API через вашего провайдера (например, Twilio/360dialog), соблюдая правила Meta.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">Сколько времени на старт?</h3>
+                <p class="faq-answer">Технический старт — 1 день. Подготовка и обучение агентов под вашу школу — до 14 дней.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">Какой доступ от меня нужен?</h3>
+                <p class="faq-answer">Доступ к CRM/платформе (чтение/запись для лидов), каналу связи (WhatsApp/Email/Telegram) и UTM‑источникам.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta" id="contact">
+        <h2>Запуск в 3 шага</h2>
+
+        <div class="final-steps">
+            <div class="final-step">
+                <div class="final-step-num">1</div>
+                <div class="final-step-text">Оставляете заявку</div>
+            </div>
+            <div class="final-step">
+                <div class="final-step-num">2</div>
+                <div class="final-step-text">Анализируем базу</div>
+            </div>
+            <div class="final-step">
+                <div class="final-step-num">3</div>
+                <div class="final-step-text">Запускаем систему</div>
+            </div>
+        </div>
+
+        <a href="https://t.me/dzamukov" class="cta-btn" target="_blank">Получить расчёт прироста выручки</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-copy">© 2025 DZAMO AI</div>
+        <div class="footer-links">
+            <a href="https://t.me/dzamukov" target="_blank">Telegram</a>
+            <a href="/privacy.html">Политика конфиденциальности</a>
+        </div>
+    </footer>
+
+    <div class="accent-circle"></div>
+
+</body>
+</html>
