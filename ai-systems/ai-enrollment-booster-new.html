@@ -928,7 +928,7 @@
         .form-input:focus,
         .form-select:focus {
             outline: none;
-            border-color: var(--accent);
+            border-color: var(--black);
         }
 
         .form-row {
@@ -996,6 +996,51 @@
 
         .form-success-text {
             color: var(--gray);
+        }
+
+        .form-error {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .form-error-icon {
+            width: 48px;
+            height: 48px;
+            line-height: 48px;
+            margin: 0 auto 16px;
+            background: var(--accent);
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .form-error-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .form-error-text {
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+
+        .form-error-text a {
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        .form-retry {
+            padding: 12px 24px;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
         }
 
         /* Founder section */
@@ -1186,27 +1231,19 @@
                 font-size: 28px;
             }
 
+            .comparison-table {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
             .comparison-row {
-                grid-template-columns: 1fr;
-            }
-
-            .comparison-cell.label {
-                background: var(--black);
-                color: var(--white);
-                font-size: 12px;
-            }
-
-            .comparison-header-row {
-                display: none;
+                grid-template-columns: 100px 140px 140px;
+                min-width: 380px;
             }
 
             .comparison-cell {
-                border-right: none;
-                border-bottom: 1px solid rgba(0,0,0,0.1);
-            }
-
-            .comparison-cell:last-child {
-                border-bottom: none;
+                padding: 12px 10px;
+                font-size: 12px;
             }
 
             .system-block {
@@ -1298,8 +1335,8 @@
 
         <div class="bottom-bar">
             <p class="tagline">
-                Подключаем AI к вашим входящим заявкам и помогаем вернуть в диалог тех,
-                кто не дошёл до покупки — в рамках согласий и правил платформ.
+                Подключаем AI к вашим входящим заявкам и помогаем вернуть
+                в&nbsp;диалог тех, кто не дошёл до покупки — в&nbsp;рамках согласий и правил платформ.
             </p>
             <a href="#contact" class="cta-btn">Получить расчёт</a>
         </div>
@@ -1321,10 +1358,10 @@
                 <h3 class="feature-title">AI-агенты</h3>
                 <p class="feature-text">
                     Отвечают на входящие 24/7, ведут диалог естественно.
-                    Адаптируются под ваш стиль, продукт и аудиторию.
+                    Адаптируются под ваш стиль, продукт и аудиторию. Сами себя проверяют.
                 </p>
                 <div class="feature-examples">
-                    <span class="example-msg">«Вы были на просмотре квартиры на Ленина — есть вопросы?»</span>
+                    <span class="example-msg">«Вы смотрели апартаменты в Central Park — есть вопросы?»</span>
                     <span class="example-msg">«Вы оставляли заявку на консультацию — удобно созвониться сегодня?»</span>
                 </div>
             </div>
@@ -1332,7 +1369,7 @@
                 <div class="feature-number">02</div>
                 <h3 class="feature-title">Менеджер-оркестратор</h3>
                 <p class="feature-text">
-                    Контролирует систему, вмешивается при сложных возражениях
+                    Это наш живой сотрудник. Он контролирует систему, вмешивается при сложных возражениях
                     и помогает доводить заявки до следующего шага (созвон/счёт/оплата).
                 </p>
             </div>
@@ -1360,23 +1397,23 @@
         <div class="steps-list">
             <div class="step">
                 <div class="step-number">1</div>
-                <h3 class="step-title">Мы адаптируем AI</h3>
-                <p class="step-text">Настраиваем агентов под ваш стиль общения, продукт и аудиторию.</p>
+                <h3 class="step-title">Мы подключаем AI</h3>
+                <p class="step-text">Настраиваем агентов под ваш стиль общения, продукт и аудиторию. Агенты начинают отвечать на все входящие как живой человек</p>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
                 <h3 class="step-title">Запускаем дожим</h3>
-                <p class="step-text">AI-агенты пишут, напоминают, отвечают на вопросы, закрывают возражения.</p>
+                <p class="step-text">AI-агенты сами пишут осмысленные сообщения клиентам, которые перестали отвечать.</p>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
                 <h3 class="step-title">Делаем отчёт</h3>
-                <p class="step-text">Показываем, кто ожил, кто оплатил, кто требует повторного касания.</p>
+                <p class="step-text">Из отчёта вы видите эффективность работы агентов. Удобный формат для предпринимателей</p>
             </div>
             <div class="step">
                 <div class="step-number">4</div>
-                <h3 class="step-title">Постоянный режим</h3>
-                <p class="step-text">Обрабатываем новые заявки и продолжаем работать с тёплой базой.</p>
+                <h3 class="step-title">Кайдзен</h3>
+                <p class="step-text">Постоянно совершенствуем систему: улучшаем ответы агентов, работу с возражениями, отчёты</p>
             </div>
         </div>
     </section>
@@ -1600,7 +1637,7 @@
         </div>
 
         <p class="system-conclusion">
-            Каждый человек делает систему сильнее. Никто не может её сломать, уйдя.
+            Каждый человек делает систему сильнее.<br>Никто не&nbsp;может её сломать, уйдя.
         </p>
     </section>
 
@@ -1752,19 +1789,9 @@
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Куда прислать расчёт <span class="required">*</span></label>
-                            <select name="contact_method" required class="form-select">
-                                <option value="telegram">Telegram</option>
-                                <option value="whatsapp">WhatsApp</option>
-                                <option value="email">Email</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Контакт <span class="required">*</span></label>
-                            <input type="text" name="contact" required class="form-input" placeholder="@username или номер">
-                        </div>
+                    <div class="form-group">
+                        <label class="form-label">Куда прислать расчёт <span class="required">*</span></label>
+                        <input type="text" name="contact" required class="form-input" placeholder="@username, номер или email">
                     </div>
 
                     <div class="form-group">
@@ -1787,6 +1814,13 @@
                     <div class="form-success-icon">✓</div>
                     <div class="form-success-title">Заявка отправлена</div>
                     <p class="form-success-text">Свяжемся в течение 2 часов</p>
+                </div>
+
+                <div class="form-error" id="formError" style="display: none;">
+                    <div class="form-error-icon">✕</div>
+                    <div class="form-error-title">Не удалось отправить</div>
+                    <p class="form-error-text">Напишите нам напрямую: <a href="https://t.me/dzamukov" target="_blank">@dzamukov</a></p>
+                    <button type="button" class="form-retry" id="formRetry">Попробовать снова</button>
                 </div>
             </div>
         </div>
@@ -1861,15 +1895,21 @@
                     form.style.display = 'none';
                     formSuccess.style.display = 'block';
                 } else {
-                    alert('Не получилось отправить. Напишите нам в Telegram: @dzamukov');
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Попробовать снова';
+                    form.style.display = 'none';
+                    document.getElementById('formError').style.display = 'block';
                 }
             } catch (err) {
-                alert('Сеть недоступна. Напишите нам в Telegram: @dzamukov');
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Попробовать снова';
+                form.style.display = 'none';
+                document.getElementById('formError').style.display = 'block';
             }
+        });
+
+        // Retry button handler
+        document.getElementById('formRetry').addEventListener('click', () => {
+            document.getElementById('formError').style.display = 'none';
+            form.style.display = 'block';
+            form.querySelector('.form-submit').disabled = false;
+            form.querySelector('.form-submit').textContent = 'Получить расчёт';
         });
     </script>
 
