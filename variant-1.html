@@ -352,21 +352,45 @@
         }
 
         .project-icon-wrapper {
-            width: 100px;
-            height: 100px;
-            border-radius: 20px;
-            overflow: hidden;
-            transition: transform 0.5s ease;
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            overflow: visible;
+            flex-shrink: 0;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            position: relative;
         }
 
         .project-card:hover .project-icon-wrapper {
-            transform: scale(1.06);
+            transform: scale(1.1) rotateY(10deg) rotateX(-5deg);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-icon-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            background: linear-gradient(135deg, rgba(200, 169, 110, 0.1), rgba(255,255,255,0));
+            border-radius: 26px;
+            pointer-events: none;
+            transform: translateZ(10px);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .project-card:hover .project-icon-wrapper::after {
+            opacity: 1;
         }
 
         .project-icon-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            border-radius: 24px;
         }
 
         .project-stats {
@@ -462,7 +486,61 @@
         .project-link svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; transition: transform 0.3s; }
         .project-link:hover svg { transform: translateX(3px); }
 
-        /* Journey — Standalone clean cards */
+        /* AI card — highlighted */
+        .project-card.ai-card {
+            border: 1px solid rgba(200, 169, 110, 0.15);
+        }
+
+        .project-card.ai-card:hover {
+            border-color: rgba(200, 169, 110, 0.3);
+        }
+
+        .project-tag-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pulse-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(200, 169, 110, 0.4); }
+            50% { opacity: 0.6; box-shadow: 0 0 0 6px rgba(200, 169, 110, 0); }
+        }
+
+        .project-link-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            border-radius: 100px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            align-self: flex-start;
+        }
+
+        .project-link-cta:hover {
+            background: var(--text);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(200, 169, 110, 0.2);
+        }
+
+        .project-link-cta svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; transition: transform 0.3s; }
+        .project-link-cta:hover svg { transform: translateX(3px); }
+
+        /* Journey — Fact-driven cards */
         .journey-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -481,18 +559,24 @@
             background: #161514;
         }
 
-        .journey-emoji {
-            font-size: 40px;
-            margin-bottom: 24px;
+        .journey-tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-dim);
+            font-weight: 500;
+            margin-bottom: 20px;
             display: block;
         }
 
-        .journey-title {
+        .journey-fact {
             font-family: var(--font-serif);
-            font-size: 22px;
+            font-size: 32px;
             font-weight: 400;
-            margin-bottom: 14px;
+            color: var(--accent);
             letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .journey-text {
@@ -679,7 +763,7 @@
         <div class="hero-text">
             <div class="hero-label">Предприниматель</div>
             <h1 class="hero-name">Георгий<br>Дзамуков</h1>
-            <p class="hero-subtitle">Предприниматель</p>
+            <p class="hero-subtitle">11 лет строю бизнесы. От стройки до ИИ.</p>
 
             <div class="social-row">
                 <a href="https://t.me/dzamukov_channel" class="social-link telegram" target="_blank" rel="noopener noreferrer" title="Telegram Канал">
@@ -772,7 +856,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal">
+                <div class="project-card ai-card reveal">
                     <div class="project-visual">
                         <div class="project-icon-wrapper">
                             <img src="images/ai.png" alt="ИИ">
@@ -789,10 +873,10 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <div class="project-tag">AI-Продукт</div>
+                        <div class="project-tag project-tag-live"><span class="pulse-dot"></span> AI-Продукт</div>
                         <h3 class="project-title">ИИ отделы продаж</h3>
                         <p class="project-desc">Сейчас создаём ИИ отделы продаж — серия ИИ-менеджеров и агентов которые повышают продажи. А также другие продукты на базе AI‑систем.</p>
-                        <a href="ai-systems/ai-enrollment-booster-new.html" class="project-link" target="_blank">
+                        <a href="ai-systems/ai-enrollment-booster-new.html" class="project-link-cta" target="_blank">
                             Подробнее
                             <svg width="14" height="14" viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2"/></svg>
                         </a>
@@ -811,18 +895,18 @@
             </div>
             <div class="journey-grid">
                 <div class="journey-card reveal reveal-delay-1">
-                    <span class="journey-emoji">🌍</span>
-                    <h3 class="journey-title">Путешествия</h3>
+                    <span class="journey-tag">Путешествия</span>
+                    <div class="journey-fact">3 континента</div>
                     <p class="journey-text">Смотрел в глаза диким гориллам в джунглях Уганды, шёл по следу белого медведя в Арктике и касался Большого Барьерного рифа в глубинах Тихого океана, у берегов Австралии.</p>
                 </div>
                 <div class="journey-card reveal reveal-delay-2">
-                    <span class="journey-emoji">💡</span>
-                    <h3 class="journey-title">Инструменты</h3>
+                    <span class="journey-tag">Инструменты</span>
+                    <div class="journey-fact">AI daily</div>
                     <p class="journey-text">Нейросети для меня не игрушка, а ежедневный инструмент. Решаю через них то, что другие отдают сотрудникам или агентствам.</p>
                 </div>
                 <div class="journey-card reveal reveal-delay-3">
-                    <span class="journey-emoji">🏠</span>
-                    <h3 class="journey-title">Образ жизни</h3>
+                    <span class="journey-tag">Образ жизни</span>
+                    <div class="journey-fact">4 страны</div>
                     <p class="journey-text">Счастливо женат, есть сын и кот. За последние 3 года жили в четырёх странах. ОАЭ — дом. Грузия — дом. Весь мир — мой дом.</p>
                 </div>
             </div>
