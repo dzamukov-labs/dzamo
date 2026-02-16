@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-49Q95G33CJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-49Q95G33CJ');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+
+    <!-- SEO -->
+    <meta name="description" content="Кейс: как ИИ-продавец сам закрыл сделку на 416 900 рублей без участия человека. Полный разбор диалога с клиентом.">
+    <meta name="author" content="Георгий Дзамуков">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Кейс: ИИ-продавец закрыл сделку на 416 900 руб. без человека">
+    <meta property="og:description" content="Полный разбор диалога с клиентом. Без звонков, без менеджеров — ИИ всё сделал сам.">
+    <meta property="og:url" content="https://dzamukov.com/blog/ai-prodavec-zakryl-sdelku/">
+    <meta property="og:site_name" content="Георгий Дзамуков">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:image" content="https://dzamukov.com/blog/ai-prodavec-zakryl-sdelku/images/13-result.webp">
+    <meta property="article:published_time" content="2025-10-01">
+    <meta property="article:author" content="Георгий Дзамуков">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Кейс: ИИ-продавец закрыл сделку на 416 900 руб. без человека">
+    <meta name="twitter:description" content="Полный разбор диалога с клиентом. Без звонков, без менеджеров.">
+    <meta name="twitter:image" content="https://dzamukov.com/blog/ai-prodavec-zakryl-sdelku/images/13-result.webp">
+
+    <link rel="canonical" href="https://dzamukov.com/blog/ai-prodavec-zakryl-sdelku/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <title>Кейс: ИИ-продавец закрыл сделку на 416 900 руб. — Георгий Дзамуков</title>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Кейс: как ИИ-продавец сам закрыл сделку на 416 900 рублей без человека",
+        "author": {
+            "@type": "Person",
+            "name": "Георгий Дзамуков",
+            "url": "https://dzamukov.com/"
+        },
+        "datePublished": "2025-10-01",
+        "publisher": {
+            "@type": "Person",
+            "name": "Георгий Дзамуков"
+        },
+        "mainEntityOfPage": "https://dzamukov.com/blog/ai-prodavec-zakryl-sdelku/"
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #000;
+            --bg-secondary: #0a0a0a;
+            --accent: #fff;
+            --text: #fff;
+            --text-dim: #888;
+            --border: #222;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 40px;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .nav-back:hover { color: var(--text); }
+
+        .nav-home {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            color: var(--text-dim);
+            font-size: 14px;
+        }
+
+        .article-source {
+            color: var(--text-dim);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .article-source:hover {
+            color: var(--text);
+            border-color: var(--text);
+        }
+
+        .article h1 {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+        }
+
+        .article-lead {
+            font-size: 18px;
+            color: var(--text-dim);
+            line-height: 1.7;
+            margin-bottom: 48px;
+            border-left: 3px solid var(--border);
+            padding-left: 20px;
+        }
+
+        .article h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin: 56px 0 24px;
+            letter-spacing: -0.3px;
+        }
+
+        .article p {
+            margin-bottom: 20px;
+            color: #ccc;
+            font-size: 17px;
+        }
+
+        .article strong { color: var(--text); }
+
+        .article img {
+            width: 100%;
+            border-radius: 12px;
+            margin: 24px 0;
+            border: 1px solid var(--border);
+        }
+
+        .article ul, .article ol {
+            margin: 20px 0;
+            padding-left: 24px;
+            color: #ccc;
+        }
+
+        .article li {
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+
+        .article hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 48px 0;
+        }
+
+        .img-caption {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 14px;
+            margin-top: -16px;
+            margin-bottom: 24px;
+        }
+
+        .article-result {
+            margin: 48px 0;
+            padding: 32px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .article-result h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .article-result p {
+            margin-bottom: 8px;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--border);
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+
+        .step-heading {
+            display: flex;
+            align-items: center;
+            margin: 32px 0 16px;
+        }
+
+        .step-heading p {
+            margin: 0;
+            font-size: 17px;
+        }
+
+        .article-cta {
+            margin: 48px 0;
+            padding: 32px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .article-cta p { color: var(--text-dim); margin-bottom: 16px; }
+
+        .article-cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            border-radius: 100px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .article-cta a:hover { transform: scale(1.05); }
+
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-text {
+            color: var(--text-dim);
+            font-size: 14px;
+        }
+
+        .author-intro {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 32px;
+            padding: 24px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .author-intro img {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        .author-intro p {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .nav { padding: 16px 20px; }
+            .article { padding: 100px 16px 60px; }
+            .article h1 { font-size: 28px; }
+            .article h2 { font-size: 22px; }
+            .article p, .article li { font-size: 16px; }
+            .author-intro { flex-direction: column; align-items: center; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/blog/" class="nav-back">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m7-7l-7 7 7 7"/></svg>
+            Блог
+        </a>
+        <a href="/" class="nav-home">Dzamukov.com</a>
+    </nav>
+
+    <article class="article">
+        <div class="article-meta">
+            <time datetime="2025-10-01">1 октября 2025</time>
+            <span>·</span>
+            <a href="https://vc.ru/ai/2246402-kak-ii-prodavets-zakryl-sdelku-na-416900-rubley-bez-cheloveka" class="article-source" target="_blank" rel="noopener noreferrer">vc.ru</a>
+        </div>
+
+        <h1>Кейс: как ИИ-продавец сам закрыл сделку на 416 900 рублей без человека</h1>
+
+        <div class="article-lead">
+            Без звонков, без менеджеров. Клиент дошёл до сделки. ИИ-продавец всё сделал сам: уточнил детали, показал видео, ответил на вопросы, посчитал доставку и оформил заказ. Ниже – весь диалог покадрово. С пояснениями, где продавец реально хорош.
+        </div>
+
+        <div class="author-intro">
+            <img src="images/01-author.webp" alt="Георгий Дзамуков" loading="lazy">
+            <div>
+                <p>Меня зовут Дзамуков Георгий, я предприниматель. Один из моих бизнесов – строительство бань (<a href="https://sparom.ru" style="color:var(--text);text-decoration:underline" target="_blank">sparom.ru</a>). Именно там я первым внедрил такого ИИ-продавца и это дало мне преимущество перед конкурентами.</p>
+                <p>Сейчас мой продавец уже работает не только в банях. Я тестирую его в недвижимости, онлайн-образовании, услугах и консалтинге.</p>
+            </div>
+        </div>
+
+        <p>Результаты тестов показывают: ИИ ускоряет обработку лидов и повышает конверсию без роста штата. Если в вашем бизнесе клиенты пишут в мессенджеры – скорее всего, ИИ-продавец подойдёт.</p>
+
+        <p><strong>Ниже – разбор сделки, шаг за шагом.</strong></p>
+
+        <!-- Steps 1-3 -->
+        <p>Поступил входящий лид с лендинга. Сообщение №1 шаблонное, которое отправляет ИИ-продавец автоматически. Обратите внимание, подчеркнул красным, <strong>API Admin</strong> – это означает, что отвечает робот через API. То есть мой ИИ-продавец.</p>
+
+        <p>Человек отвечает положительно и ИИ отправляет шаблонное сообщение №2.</p>
+
+        <p>№3 – на ответ клиента "На 1 или 2" ИИ чётко понимает, что речь о количестве человек в бане и легко отвечает на этот вопрос, и сразу же задаёт встречный!</p>
+
+        <img src="images/02-dialog-1.webp" alt="Скрин переписки 1-3" loading="lazy">
+        <p class="img-caption">Сообщения №1-3: входящий лид, шаблонный ответ, уточняющий вопрос</p>
+
+        <!-- Steps 4-5 -->
+        <p>№4. ИИ-продавец отвечает на сообщение клиента. Легко вытягивает цены на интересующий товар из базы. И снова задаёт встречный вопрос.</p>
+
+        <p>№5. Расписывает отличия комплектаций. То есть он сам навёл клиента на то, чтобы клиент задал вопрос. И затем ответил на этот вопрос. <strong>Фантастика!</strong> Никакой живой менеджер не будет столько заморачиваться без строгого контроля РОПа.</p>
+
+        <img src="images/03-dialog-2.webp" alt="Скрин переписки 4-5" loading="lazy">
+        <p class="img-caption">Сообщения №4-5: цены из базы и расписанные отличия комплектаций</p>
+
+        <!-- Steps 6-7 -->
+        <p>№6. ИИ отвечает про состав материала.</p>
+
+        <p>№7. ИИ отвечает на два вопроса: про комплектацию и отправляет <strong>конкретное видео конкретного товара</strong>. При этом он помнит, что клиент спрашивал Базовую комплектацию и держит это в памяти!</p>
+
+        <img src="images/04-dialog-3.webp" alt="Скрин переписки 6-7" loading="lazy">
+        <p class="img-caption">Сообщения №6-7: состав материала и видео товара</p>
+
+        <!-- Steps 8-9 -->
+        <p>№8 и №9. Чёткий ответ по электрике. А также полное понимание ИИ-продавца, что бани 4-метровые бывают как с крылечком, так и без крылечка. И он не путается!</p>
+
+        <img src="images/05-dialog-4.webp" alt="Скрин переписки 8-9" loading="lazy">
+        <p class="img-caption">Сообщения №8-9: электрика и варианты с крылечком</p>
+
+        <!-- Steps 10-11 -->
+        <p>№10. Нестандартный и редкий запрос на баню с крылечком 2м. Ответ отличный, расчёт верный.</p>
+
+        <p>№11. Клиент ожидает оплату после установки объекта. ИИ аккуратно и нежно объясняет клиенту, что предоплата составляет 10% и <strong>подталкивает его к сделке: "Можем приступить к оформлению договора"</strong>.</p>
+
+        <img src="images/06-dialog-5.webp" alt="Скрин переписки 10-11" loading="lazy">
+        <p class="img-caption">Сообщения №10-11: расчёт нестандартного запроса и подталкивание к сделке</p>
+
+        <!-- Step 12 -->
+        <p>№12. Вот тут уже пошла просто рассылка, которую клиент получает в любом случае. При желании её можно отключить. Но так как заказ клиент ещё не оформил, мы продолжаем делать рассылки.</p>
+
+        <img src="images/07-dialog-6.webp" alt="Скрин переписки 12" loading="lazy">
+
+        <!-- Step 13 -->
+        <p>№13. Продолжение рассылки, через заданное время.</p>
+
+        <img src="images/08-dialog-7.webp" alt="Скрин переписки 13" loading="lazy">
+
+        <!-- Steps 14-15 -->
+        <p>№14. Клиент снова пишет вопрос и ИИ легко подхватывает. Объясняет вопросы эксплуатации.</p>
+
+        <p>№15. Продолжение рассылки.</p>
+
+        <img src="images/09-dialog-8.webp" alt="Скрин переписки 14-15" loading="lazy">
+
+        <!-- Step 16 - THE ORDER -->
+        <h2>ЗАКАЗ!</h2>
+
+        <p><strong>№16. Клиент получил быстрые и грамотные ответы; посмотрел фото и видео, получил рекомендацию по эксплуатации и всё это ОПЕРАТИВНО. Так почему бы не заказать баню прямо сейчас?!</strong></p>
+
+        <p>ИИ мгновенно в эту же минуту (а в такие моменты медлить нельзя!):</p>
+
+        <ul>
+            <li>подтверждает цену, повторяет её</li>
+            <li>указывает сроки</li>
+            <li>запрашивает список данных для оформления</li>
+            <li>считает стоимость доставки!</li>
+        </ul>
+
+        <img src="images/10-dialog-9.webp" alt="Скрин переписки 16 — оформление заказа" loading="lazy">
+        <p class="img-caption">Сообщение №16: ИИ мгновенно подтверждает цену, сроки и считает доставку</p>
+
+        <!-- Step 17 -->
+        <p>№17. Внимание на скрин, мы получаем данные клиента для оформления! <strong>БЕЗ ЕДИНОГО КАСАНИЯ ЧЕЛОВЕКА!!!</strong></p>
+
+        <img src="images/11-dialog-10.webp" alt="Скрин переписки 17 — данные клиента" loading="lazy">
+        <p class="img-caption">Сообщение №17: клиент отправляет данные для оформления</p>
+
+        <!-- Step 18 -->
+        <p>№18. И <strong>только тут подключается человек</strong>. После того, как клиент отправил данные, менеджер получил уведомление в Телеграм и подключился.</p>
+
+        <p>Я подчеркнул красным, указано: <strong>amoCRM Иван</strong>, это означает, что отвечает уже настоящий Иван!</p>
+
+        <img src="images/12-dialog-11.webp" alt="Скрин переписки 18 — подключение менеджера" loading="lazy">
+        <p class="img-caption">Сообщение №18: менеджер подключается только после получения данных</p>
+
+        <!-- Result -->
+        <div class="article-result">
+            <h3>Сделка закрыта!</h3>
+            <p><strong>Предоплата получена и заказ отдан в производство!</strong></p>
+        </div>
+
+        <img src="images/13-result.webp" alt="Результат сделки" loading="lazy">
+        <p class="img-caption">Предоплата получена, заказ в производстве</p>
+
+        <hr>
+
+        <p><strong>Результат:</strong> рост заказов на 30% за месяц, без дополнительных затрат на менеджеров. Это не единичный случай – в других нишах ИИ увеличивает количество заказов на 50% и более.</p>
+
+        <p>Без ИИ я терял до 20% лидов из-за задержек в ответах — менеджеры не справлялись в пики. Теперь у нас не бывает задержек в ответах и продажи идут стабильно.</p>
+
+        <p>Я поделился отзывом о своей разработке. Это ИИ-решение я создал для себя с нуля на Python с двумя программистами за несколько месяцев и теперь готов адаптировать для других.</p>
+
+        <p>Что мне больше всего нравится, что в любое время, в любой месяц я получаю <strong>одинаковые</strong> ответы ИИ-продавца. Я уже знаю его баги, знаю что исправить. И когда исправляю: <strong>эти косяки больше не всплывают!</strong></p>
+
+        <p>Если у вас:</p>
+
+        <ul>
+            <li>есть прайс (PDF, Excel, сканы – не важно)</li>
+            <li>есть переписки с клиентами (Telegram, WhatsApp, CRM)</li>
+            <li>есть типовые вопросы (что спрашивают 90% людей)</li>
+            <li>есть примеры, как вы обычно отвечаете (даже голосом)</li>
+            <li>есть желание сэкономить на менеджерах и масштабироваться без роста штата</li>
+        </ul>
+
+        <p><strong>Этого уже достаточно, чтобы собрать первую рабочую версию.</strong></p>
+
+        <p>Я уже внедрил это в нескольких проектах и вижу, как это меняет продажи. Если у вас похожая ниша, подумайте, как адаптировать: начните с анализа прайсов, переписок и типовых вопросов.</p>
+
+        <hr>
+
+        <div class="article-cta">
+            <p>Подписывайтесь на мой TG-канал. Там моя жизнь и мой опыт, без воды и теорий.</p>
+            <a href="https://t.me/dzamukov" target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
+                Telegram-канал
+            </a>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div style="max-width:720px;margin:0 auto;padding:0 24px;">
+            <p class="footer-text">&copy; 2025 Георгий Дзамуков</p>
+        </div>
+    </footer>
+</body>
+</html>

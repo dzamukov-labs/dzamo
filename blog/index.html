@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-49Q95G33CJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-49Q95G33CJ');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+
+    <!-- SEO -->
+    <meta name="description" content="Блог Георгия Дзамукова — статьи про ИИ-продавцов, автоматизацию продаж и бизнес.">
+    <meta name="author" content="Георгий Дзамуков">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Блог — Георгий Дзамуков">
+    <meta property="og:description" content="Статьи про ИИ-продавцов, автоматизацию продаж и бизнес.">
+    <meta property="og:url" content="https://dzamukov.com/blog/">
+    <meta property="og:site_name" content="Георгий Дзамуков">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:image" content="https://dzamukov.com/images/og.jpg">
+
+    <link rel="canonical" href="https://dzamukov.com/blog/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <title>Блог — Георгий Дзамуков</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #000;
+            --bg-secondary: #0a0a0a;
+            --accent: #fff;
+            --text: #fff;
+            --text-dim: #888;
+            --border: #222;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 40px;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .nav-back:hover { color: var(--text); }
+
+        .nav-home {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 48px;
+        }
+
+        .posts {
+            display: grid;
+            gap: 24px;
+        }
+
+        .post-card {
+            display: block;
+            padding: 32px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .post-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .post-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .post-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: var(--text-dim);
+            font-size: 14px;
+        }
+
+        .post-source {
+            padding: 3px 10px;
+            background: var(--border);
+            border-radius: 100px;
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+
+        .post-card h2 {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+
+        .post-card p {
+            color: var(--text-dim);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .post-arrow {
+            position: absolute;
+            right: 32px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-dim);
+            transition: all 0.2s;
+        }
+
+        .post-card:hover .post-arrow {
+            color: var(--text);
+            transform: translateY(-50%) translateX(4px);
+        }
+
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-text {
+            color: var(--text-dim);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .nav { padding: 16px 20px; }
+            .container { padding: 100px 16px 60px; }
+            h1 { font-size: 32px; }
+            .post-card h2 { font-size: 20px; }
+            .post-card { padding: 24px; }
+            .post-arrow { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/" class="nav-back">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m7-7l-7 7 7 7"/></svg>
+            Главная
+        </a>
+        <a href="/" class="nav-home">Dzamukov.com</a>
+    </nav>
+
+    <div class="container">
+        <h1>Блог</h1>
+
+        <div class="posts">
+            <a href="/blog/ai-prodavec-zakryl-sdelku/" class="post-card">
+                <div class="post-meta">
+                    <time datetime="2025-10-01">1 октября 2025</time>
+                    <span class="post-source">vc.ru</span>
+                </div>
+                <h2>Кейс: как ИИ-продавец сам закрыл сделку на 416 900 рублей без человека</h2>
+                <p>Полный разбор диалога с клиентом. Без звонков, без менеджеров — ИИ всё сделал сам: уточнил детали, показал видео, ответил на вопросы, посчитал доставку и оформил заказ.</p>
+                <div class="post-arrow">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                </div>
+            </a>
+
+            <a href="/blog/ai-prodavec-na-praktike/" class="post-card">
+                <div class="post-meta">
+                    <time datetime="2025-05-13">13 мая 2025</time>
+                    <span class="post-source">teletype.in</span>
+                </div>
+                <h2>ИИ-продавец на практике: как он обрабатывает заявки, продаёт и дожимает клиентов</h2>
+                <p>Промежуточный лог: что уже умеет ИИ-продавец, как работает в связке с живым менеджером, какие ошибки были и что сработало. Скрины реальных переписок.</p>
+                <div class="post-arrow">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div style="max-width:900px;margin:0 auto;padding:0 24px;">
+            <p class="footer-text">&copy; 2025 Георгий Дзамуков</p>
+        </div>
+    </footer>
+</body>
+</html>
