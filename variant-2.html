@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Георгий Дзамуков — Вариант 2</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #050510;
+            --card: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-hover: rgba(255, 255, 255, 0.08);
+            --accent-1: #6366f1;
+            --accent-2: #8b5cf6;
+            --accent-3: #a855f7;
+            --glow: rgba(99, 102, 241, 0.15);
+            --text: #f1f0ff;
+            --text-dim: rgba(241, 240, 255, 0.45);
+            --font: 'Space Grotesk', -apple-system, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated gradient mesh background */
+        .gradient-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            animation: orbFloat 20s ease-in-out infinite;
+        }
+
+        .gradient-orb:nth-child(1) {
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.2), transparent 70%);
+            top: -10%; left: -10%;
+            animation-delay: 0s;
+        }
+
+        .gradient-orb:nth-child(2) {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 70%);
+            top: 40%; right: -10%;
+            animation-delay: -7s;
+            animation-duration: 25s;
+        }
+
+        .gradient-orb:nth-child(3) {
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.1), transparent 70%);
+            bottom: -20%; left: 30%;
+            animation-delay: -14s;
+            animation-duration: 30s;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -80px) scale(1.1); }
+            50% { transform: translate(-30px, 50px) scale(0.9); }
+            75% { transform: translate(60px, 30px) scale(1.05); }
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 24px; left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            background: rgba(5, 5, 16, 0.6);
+            backdrop-filter: blur(24px) saturate(1.5);
+            border: 1px solid var(--card-border);
+            border-radius: 100px;
+        }
+
+        .nav-logo {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0 12px;
+        }
+
+        .nav-divider {
+            width: 1px;
+            height: 24px;
+            background: var(--card-border);
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 2px;
+            padding: 2px;
+        }
+
+        .lang-btn {
+            padding: 6px 14px;
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 100px;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-family: var(--font);
+        }
+
+        .lang-btn.active {
+            background: var(--accent-1);
+            color: #fff;
+        }
+
+        .lang-btn:hover { color: var(--text); }
+
+        .llm-link {
+            padding: 6px 14px;
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            font-size: 12px;
+            font-weight: 500;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-family: var(--font);
+        }
+
+        .llm-link:hover { color: var(--text); }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+        }
+
+        .hero-content { max-width: 640px; }
+
+        .avatar-ring {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 48px;
+        }
+
+        .avatar-ring::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: conic-gradient(var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-1));
+            animation: ringRotate 4s linear infinite;
+        }
+
+        @keyframes ringRotate {
+            to { transform: rotate(360deg); }
+        }
+
+        .avatar-ring::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: var(--bg);
+            z-index: 0;
+        }
+
+        .avatar-ring img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--bg);
+        }
+
+        .hero-name {
+            font-size: clamp(40px, 6vw, 64px);
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--text), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-dim);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 48px; height: 48px;
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .social-link:hover {
+            background: var(--card-hover);
+            border-color: var(--accent-1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px var(--glow);
+        }
+
+        .social-badge {
+            position: absolute;
+            bottom: -3px; right: -3px;
+            font-size: 10px;
+            background: var(--bg);
+            border-radius: 50%;
+            width: 18px; height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--bg);
+        }
+
+        .social-link svg { opacity: 0.5; transition: opacity 0.3s; }
+        .social-link:hover svg { opacity: 1; }
+        .social-link.telegram svg, .social-link.telegram-personal svg { fill: #0088cc; }
+        .social-link.linkedin svg { fill: #0077b5; }
+        .social-link.youtube svg { fill: #FF0000; }
+        .social-link.instagram svg { fill: url(#instagram-gradient); }
+        .social-link.email svg { fill: #94a3b8; }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 120px 0;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 100px;
+            font-size: 13px;
+            color: var(--accent-2);
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .section-label-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--accent-1);
+        }
+
+        .section-title {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 64px;
+        }
+
+        /* Projects — Floating Glass Cards */
+        .projects-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .glass-card {
+            background: var(--card);
+            backdrop-filter: blur(20px) saturate(1.2);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 48px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 24px 64px rgba(99, 102, 241, 0.08);
+        }
+
+        .card-inner {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 32px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-icon-glass {
+            width: 80px; height: 80px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--card-border);
+            flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+
+        .glass-card:hover .project-icon-glass {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .project-icon-glass img {
+            width: 100%; height: 100%;
+            object-fit: contain;
+        }
+
+        .card-text h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .card-text p {
+            color: var(--text-dim);
+            font-size: 14px;
+            line-height: 1.7;
+            max-width: 520px;
+        }
+
+        .card-stats {
+            display: flex;
+            gap: 32px;
+            flex-shrink: 0;
+        }
+
+        .stat { text-align: center; }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+            border-radius: 100px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px var(--glow);
+        }
+
+        .project-link svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+        /* Journey — Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .bento-card {
+            background: var(--card);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px 32px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 2px;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-3));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .bento-card:hover::before { opacity: 1; }
+
+        .bento-card:hover {
+            border-color: rgba(99, 102, 241, 0.2);
+            background: var(--card-hover);
+        }
+
+        .bento-emoji {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .bento-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .bento-text {
+            color: var(--text-dim);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 48px 0;
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--text-dim);
+            font-size: 13px;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .notification.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .card-inner {
+                grid-template-columns: auto 1fr;
+            }
+            .card-stats {
+                grid-column: 1 / -1;
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav { top: 12px; padding: 6px 10px; }
+            .container { padding: 0 20px; }
+            .section { padding: 80px 0; }
+            .glass-card { padding: 28px; }
+            .card-inner { grid-template-columns: 1fr; gap: 20px; }
+            .project-icon-glass { width: 64px; height: 64px; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .hero { padding-top: 100px; }
+            .card-stats { gap: 20px; }
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .preloader.hidden { opacity: 0; visibility: hidden; }
+
+        .preloader-content { text-align: center; }
+
+        .preloader-logo {
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--text), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: logoGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { opacity: 1; filter: brightness(1); }
+            50% { opacity: 0.6; filter: brightness(1.3); }
+        }
+
+        .preloader-dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
+        .preloader-dots span {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--accent-1);
+            animation: dotBounce 1.4s ease-in-out infinite;
+        }
+
+        .preloader-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .preloader-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes dotBounce {
+            0%, 80%, 100% { transform: scale(0.4); opacity: 0.3; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">Dzamukov.com</div>
+            <div class="preloader-dots">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gradient Background -->
+    <div class="gradient-bg">
+        <div class="gradient-orb"></div>
+        <div class="gradient-orb"></div>
+        <div class="gradient-orb"></div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">E-mail скопирован</div>
+
+    <!-- SVG defs -->
+    <svg width="0" height="0" style="position: absolute;">
+        <defs>
+            <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#E1306C" />
+                <stop offset="50%" style="stop-color:#FD1D1D" />
+                <stop offset="100%" style="stop-color:#FCAF45" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- Floating Nav Pill -->
+    <nav class="nav">
+        <a href="/" class="nav-logo">D.</a>
+        <div class="nav-divider"></div>
+        <a href="/index.ai.html" class="llm-link">LLM</a>
+        <div class="lang-switcher">
+            <a href="/" class="lang-btn active">RU</a>
+            <a href="/en/" class="lang-btn">EN</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="avatar-ring">
+                <img src="/images/my_photo.jpg" alt="Георгий Дзамуков" loading="eager">
+            </div>
+            <h1 class="hero-name">Георгий Дзамуков</h1>
+            <p class="hero-subtitle">Предприниматель</p>
+
+            <div class="social-row">
+                <a href="https://t.me/dzamukov_channel" class="social-link telegram" target="_blank" rel="noopener noreferrer" title="Telegram Канал">
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
+                    <span class="social-badge">⭐</span>
+                </a>
+                <a href="https://t.me/dzamukov" class="social-link telegram-personal" target="_blank" rel="noopener noreferrer" title="Личные сообщения">
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
+                    <span class="social-badge">💬</span>
+                </a>
+                <a href="https://www.linkedin.com/in/georgy-dzamukov-331533345/" class="social-link linkedin" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@dzamukov_ai" class="social-link youtube" target="_blank" rel="noopener noreferrer" title="YouTube">
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/dzamukov" class="social-link instagram" target="_blank" rel="noopener noreferrer" title="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 5 5 .1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.2 3.3-1.7 4.8-5 5-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.2-4.9-1.7-5-5-.1-1.3-.1-1.6-.1-4.8 0-3.2 0-3.6.1-4.8.2-3.3 1.7-4.9 5-5 1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1c-4.4.2-6.8 2.6-7 7C0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8c-3.4 0-6.2 2.8-6.2 6.2s2.8 6.2 6.2 6.2 6.2-2.8 6.2-6.2-2.8-6.2-6.2-6.2zM12 16c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm6.4-11.8c-.8 0-1.4.6-1.4 1.4s.6 1.4 1.4 1.4 1.4-.6 1.4-1.4-.6-1.4-1.4-1.4z"/></svg>
+                </a>
+                <a href="mailto:georgij.dzamukov@gmail.com" class="social-link email" id="email-link" title="Email">
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.971l-11.986 9.713zm-5.425-1.822l-6.575-5.329v12.501l6.575-7.172zm10.85 0l6.575 7.172v-12.501l-6.575 5.329zm-1.557 1.261l-3.868 3.135-3.868-3.135-8.11 8.848h23.956l-8.11-8.848z"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label">
+                    <span class="section-label-dot"></span>
+                    Портфолио
+                </div>
+                <h2 class="section-title">Проекты</h2>
+            </div>
+
+            <div class="projects-stack">
+                <div class="glass-card reveal">
+                    <div class="card-inner">
+                        <div class="project-icon-glass">
+                            <img src="images/bani.png" alt="Бани">
+                        </div>
+                        <div class="card-text">
+                            <h3>Удалённое производство бань</h3>
+                            <p>11 лет назад запустил удалённое производство бань — когда управлять всем на расстоянии казалось фантастикой. Особенно если речь шла о всей управленческой команде. Бригады на месте, а логисты, менеджеры, админка — удалённо. 3000 бань в 18 регионах — и ни одного офиса.</p>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat">
+                                <div class="stat-value" data-target="3000">0</div>
+                                <div class="stat-label">бань</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value" data-target="18">0</div>
+                                <div class="stat-label">регионов</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://sparom.ru" class="project-link" target="_blank" rel="noopener noreferrer">
+                            Перейти на сайт
+                            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="glass-card reveal">
+                    <div class="card-inner">
+                        <div class="project-icon-glass">
+                            <img src="images/school.png" alt="Школа Астрономии">
+                        </div>
+                        <div class="card-text">
+                            <h3>Школа Астрономии</h3>
+                            <p>Запустил Школу Астрономии с Владимиром Сурдиным — голосом астрономии для тысяч людей и автором «Неземного подкаста». Собрали 900 000 подписчиков и вывели астрономию в тренды YouTube. По словам Владимира, его стали узнавать на улицах — более 300 млн просмотров сделали своё дело.</p>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat">
+                                <div class="stat-value" data-target="900" data-suffix="K">0</div>
+                                <div class="stat-label">подписчиков</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value" data-target="300" data-suffix="M+">0</div>
+                                <div class="stat-label">просмотров</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://astronomyschool.online" class="project-link" target="_blank" rel="noopener noreferrer">
+                            Перейти на сайт
+                            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="glass-card reveal">
+                    <div class="card-inner">
+                        <div class="project-icon-glass">
+                            <img src="images/ai.png" alt="ИИ">
+                        </div>
+                        <div class="card-text">
+                            <h3>ИИ отделы продаж</h3>
+                            <p>Сейчас создаём ИИ отделы продаж — серия ИИ-менеджеров и агентов которые повышают продажи. А также другие продукты на базе AI‑систем.</p>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat">
+                                <div class="stat-value">24/7</div>
+                                <div class="stat-label">работает</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">100%</div>
+                                <div class="stat-label">автоматизация</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="ai-systems/ai-enrollment-booster-new.html" class="project-link" target="_blank">
+                            Подробнее
+                            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey — Bento -->
+    <section class="section">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label">
+                    <span class="section-label-dot"></span>
+                    Личное
+                </div>
+                <h2 class="section-title">О себе</h2>
+            </div>
+            <div class="bento-grid">
+                <div class="bento-card reveal">
+                    <span class="bento-emoji">🌍</span>
+                    <h3 class="bento-title">Путешествия</h3>
+                    <p class="bento-text">Смотрел в глаза диким гориллам в джунглях Уганды, шёл по следу белого медведя в Арктике и касался Большого Барьерного рифа в глубинах Тихого океана, у берегов Австралии.</p>
+                </div>
+                <div class="bento-card reveal">
+                    <span class="bento-emoji">💡</span>
+                    <h3 class="bento-title">Инструменты</h3>
+                    <p class="bento-text">Нейросети для меня не игрушка, а ежедневный инструмент. Решаю через них то, что другие отдают сотрудникам или агентствам.</p>
+                </div>
+                <div class="bento-card reveal">
+                    <span class="bento-emoji">🏠</span>
+                    <h3 class="bento-title">Образ жизни</h3>
+                    <p class="bento-text">Счастливо женат, есть сын и кот. За последние 3 года жили в четырёх странах. ОАЭ — дом. Грузия — дом. Весь мир — мой дом.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2025 Георгий Дзамуков</p>
+        </div>
+    </footer>
+
+    <script>
+        // Email copy
+        document.getElementById('email-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            navigator.clipboard.writeText('georgij.dzamukov@gmail.com').then(() => {
+                const n = document.getElementById('notification');
+                n.classList.add('show');
+                setTimeout(() => n.classList.remove('show'), 3000);
+            });
+        });
+
+        // Reveal observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    entry.target.querySelectorAll('.stat-value[data-target]').forEach(el => {
+                        const target = parseInt(el.getAttribute('data-target'));
+                        const suffix = el.getAttribute('data-suffix') || '';
+                        let current = 0;
+                        const increment = target / 60;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                el.textContent = target + suffix;
+                                clearInterval(timer);
+                            } else {
+                                el.textContent = Math.floor(current) + suffix;
+                            }
+                        }, 33);
+                    });
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+                setTimeout(() => document.getElementById('preloader').remove(), 600);
+            }, 400);
+        });
+    </script>
+</body>
+</html>
