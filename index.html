@@ -632,6 +632,70 @@
         .project-link-cta svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; transition: transform 0.3s; }
         .project-link-cta:hover svg { transform: translateX(3px); }
 
+        /* AI Articles */
+        .ai-articles {
+            display: grid;
+            gap: 8px;
+        }
+
+        .ai-article-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: var(--bg-card);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .ai-article-card:hover {
+            background: #161514;
+            transform: translateX(4px);
+        }
+
+        .ai-article-tag {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .ai-article-title {
+            font-size: 14px;
+            color: var(--text-dim);
+            flex: 1;
+            line-height: 1.4;
+        }
+
+        .ai-article-card:hover .ai-article-title { color: var(--text); }
+
+        .ai-article-card svg {
+            flex-shrink: 0;
+            color: var(--text-dim);
+            transition: all 0.3s;
+        }
+
+        .ai-article-card:hover svg {
+            color: var(--accent);
+            transform: translateX(3px);
+        }
+
+        .ai-articles-more {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--text-dim);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .ai-articles-more:hover { color: var(--accent); }
+
         /* Journey */
         .journey-grid {
             display: grid;
@@ -825,7 +889,6 @@
     <nav class="nav" id="nav">
         <a href="/" class="nav-logo">Dzamukov</a>
         <div class="nav-right">
-            <a href="/blog/" class="llm-link">Блог</a>
             <a href="/index.ai.html" class="llm-link">LLM</a>
             <div class="lang-switcher">
                 <a href="/" class="lang-btn active">RU</a>
@@ -975,6 +1038,21 @@
                         </a>
                     </div>
                 </div>
+            </div>
+
+            <!-- AI Articles -->
+            <div class="ai-articles reveal" style="margin-top: 24px;">
+                <a href="/blog/ai-prodavec-zakryl-sdelku/" class="ai-article-card">
+                    <span class="ai-article-tag">Кейс</span>
+                    <span class="ai-article-title">ИИ-продавец сам закрыл сделку на 416 900₽ без человека</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                </a>
+                <a href="/blog/ai-prodavec-na-praktike/" class="ai-article-card">
+                    <span class="ai-article-tag">Кейс</span>
+                    <span class="ai-article-title">Один менеджер вместо шести: ИИ-система продаёт бани на 700К+</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                </a>
+                <a href="/blog/" class="ai-articles-more">Все статьи &rarr;</a>
             </div>
         </div>
     </section>
