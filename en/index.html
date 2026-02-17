@@ -557,7 +557,6 @@
             height: 100%;
             object-fit: cover;
             border-radius: 10px;
-            filter: grayscale(10%) contrast(1.02);
         }
 
         .gallery-caption {
@@ -653,6 +652,82 @@
             stroke: currentColor;
             stroke-width: 2;
         }
+
+        /* === ICON VARIANTS (A/B/C/D) — remove unused after choosing === */
+
+        /* Variant A: icon inline with title */
+        .icon-variant-a .project-icon-wrapper {
+            display: none;
+        }
+
+        .icon-inline {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .icon-inline img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .title-with-icon {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        /* Variant B: icon badge over photo */
+        .icon-variant-b .project-icon-wrapper {
+            display: none;
+        }
+
+        .icon-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            overflow: hidden;
+            z-index: 3;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+        }
+
+        .icon-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        /* Variant C: icon above tag in content column */
+        .icon-variant-c .project-icon-wrapper {
+            display: none;
+        }
+
+        .icon-content {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .icon-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 14px;
+        }
+
+        /* Variant D: default (icon in visual column) — no extra CSS needed */
+
+        /* === END ICON VARIANTS === */
 
         .project-content {
             padding: 56px;
@@ -1148,7 +1223,8 @@
             </div>
 
             <div class="projects-grid">
-                <div class="project-card reveal">
+                <!-- Variant A: icon inline with title -->
+                <div class="project-card icon-variant-a reveal">
                     <div class="project-visual">
                         <div class="project-icon-wrapper">
                             <img src="/images/bani.webp" alt="Sauna">
@@ -1189,7 +1265,10 @@
                     </div>
                     <div class="project-content">
                         <div class="project-tag">Production</div>
-                        <h3 class="project-title">Remote Sauna Production</h3>
+                        <div class="title-with-icon">
+                            <div class="icon-inline"><img src="/images/bani.webp" alt="Sauna"></div>
+                            <h3 class="project-title">Remote Sauna Production</h3>
+                        </div>
                         <p class="project-desc">11 years ago, I launched a remote sauna production business — when managing everything from a distance seemed like fantasy. Especially when it came to the entire management team. Construction crews on-site, while logistics, managers, and administration work remotely. 3000 saunas in 18 regions — and not a single office.</p>
                         <a href="https://sparom.ru" class="project-link" target="_blank" rel="noopener noreferrer">
                             Visit website
@@ -1198,7 +1277,8 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal">
+                <!-- Variant B: icon badge over photo -->
+                <div class="project-card icon-variant-b reveal">
                     <div class="project-visual">
                         <div class="project-icon-wrapper">
                             <img src="/images/school.webp" alt="Astronomy School">
@@ -1214,6 +1294,7 @@
                             </div>
                         </div>
                         <div class="project-gallery">
+                            <div class="icon-badge"><img src="/images/school.webp" alt="Astronomy School"></div>
                             <div class="gallery-track">
                                 <div class="gallery-slide active">
                                     <img src="/images/photos/astronomy-surdin.webp" alt="Georgy Dzamukov and Vladimir Surdin at observatory" loading="lazy" width="800" height="600">
@@ -1233,7 +1314,8 @@
                     </div>
                 </div>
 
-                <div class="project-card ai-card reveal">
+                <!-- Variant C: icon above tag in content column -->
+                <div class="project-card ai-card icon-variant-c reveal">
                     <div class="project-visual">
                         <div class="project-icon-wrapper">
                             <img src="/images/ai.webp" alt="AI">
@@ -1258,6 +1340,7 @@
                         </div>
                     </div>
                     <div class="project-content">
+                        <div class="icon-content"><img src="/images/ai.webp" alt="AI"></div>
                         <div class="project-tag project-tag-live"><span class="pulse-dot"></span> AI Product</div>
                         <h3 class="project-title">AI Sales Departments</h3>
                         <p class="project-desc">AI business automation. Building AI sales departments, dashboards, analytics. AI takes over the routine — people focus on priority tasks.</p>
@@ -1268,6 +1351,7 @@
                     </div>
                 </div>
 
+                <!-- Variant D: default (icon stays in visual column) -->
                 <div class="project-card reveal">
                     <div class="project-visual">
                         <div class="project-icon-wrapper">
