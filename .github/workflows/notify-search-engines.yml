@@ -1,0 +1,65 @@
+name: Notify Search Engines
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - 'sitemap.xml'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Ping Google sitemap
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://www.google.com/ping?sitemap=https://dzamukov.com/sitemap.xml")
+          echo "Google sitemap ping: $STATUS"
+
+      - name: Ping Yandex sitemap
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://webmaster.yandex.ru/ping?sitemap=https://dzamukov.com/sitemap.xml")
+          echo "Yandex sitemap ping: $STATUS"
+
+      - name: IndexNow for changed pages
+        run: |
+          INDEXNOW_KEY="bf9ded352825a55992fd2b1eef729b20"
+          SITE="https://dzamukov.com"
+
+          # Find changed HTML files
+          CHANGED=$(git diff --name-only HEAD~1 HEAD -- '*.html' | grep -v '\.ai\.html$' | grep -v 'yandex_' || true)
+
+          if [ -z "$CHANGED" ]; then
+            echo "No HTML pages changed, skipping IndexNow"
+            exit 0
+          fi
+
+          # Convert file paths to URLs
+          URLS=""
+          for FILE in $CHANGED; do
+            # index.html -> /
+            URL=$(echo "$FILE" | sed 's|index\.html$||')
+            FULL_URL="$SITE/$URL"
+            echo "Changed: $FULL_URL"
+            if [ -n "$URLS" ]; then
+              URLS="$URLS,"
+            fi
+            URLS="$URLS\"$FULL_URL\""
+          done
+
+          JSON="{\"host\":\"dzamukov.com\",\"key\":\"$INDEXNOW_KEY\",\"urlList\":[$URLS]}"
+
+          echo ""
+          echo "Sending IndexNow..."
+
+          for ENGINE in "yandex.com" "www.bing.com"; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+              -X POST "https://$ENGINE/indexnow" \
+              -H "Content-Type: application/json" \
+              -d "$JSON")
+            echo "$ENGINE: $STATUS"
+          done
