@@ -602,6 +602,58 @@
             opacity: 0.7;
         }
 
+        .gallery-dot:focus {
+            outline: none;
+        }
+
+        .gallery-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0,0,0,0.4);
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 2;
+            backdrop-filter: blur(4px);
+        }
+
+        .gallery-arrow:focus {
+            outline: none;
+        }
+
+        .project-gallery:hover .gallery-arrow {
+            opacity: 1;
+        }
+
+        .gallery-arrow:hover {
+            background: rgba(0,0,0,0.6);
+        }
+
+        .gallery-arrow--prev {
+            left: 8px;
+        }
+
+        .gallery-arrow--next {
+            right: 8px;
+        }
+
+        .gallery-arrow svg {
+            width: 14px;
+            height: 14px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
         .project-content {
             padding: 56px;
             display: flex;
@@ -1114,18 +1166,20 @@
                         <div class="project-gallery" data-gallery>
                             <div class="gallery-track">
                                 <div class="gallery-slide active">
-                                    <img src="/images/photos/saunas-drone.webp" alt="Aerial drone view of wooden saunas in winter landscape" loading="lazy" width="800" height="447">
-                                    <span class="gallery-caption">Production from above</span>
-                                </div>
-                                <div class="gallery-slide">
                                     <img src="/images/photos/saunas-team.webp" alt="Georgy Dzamukov with construction crew" loading="lazy" width="800" height="600">
                                     <span class="gallery-caption">With the construction crew</span>
                                 </div>
                                 <div class="gallery-slide">
+                                    <img src="/images/photos/saunas-drone.webp" alt="Aerial drone view of wooden saunas in winter landscape" loading="lazy" width="800" height="447">
+                                    <span class="gallery-caption">Production from above</span>
+                                </div>
+                                <div class="gallery-slide">
                                     <img src="/images/photos/saunas-owner.webp" alt="Georgy Dzamukov in front of modern log sauna" loading="lazy" width="800" height="856">
-                                    <span class="gallery-caption">On site</span>
+                                    <span class="gallery-caption">Next to the sauna</span>
                                 </div>
                             </div>
+                            <button class="gallery-arrow gallery-arrow--prev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+                            <button class="gallery-arrow gallery-arrow--next" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
                             <div class="gallery-dots">
                                 <button class="gallery-dot active" aria-label="Photo 1"></button>
                                 <button class="gallery-dot" aria-label="Photo 2"></button>
@@ -1240,6 +1294,8 @@
                                     <span class="gallery-caption">Product display</span>
                                 </div>
                             </div>
+                            <button class="gallery-arrow gallery-arrow--prev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+                            <button class="gallery-arrow gallery-arrow--next" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
                             <div class="gallery-dots">
                                 <button class="gallery-dot active" aria-label="Photo 1"></button>
                                 <button class="gallery-dot" aria-label="Photo 2"></button>
@@ -1248,8 +1304,8 @@
                     </div>
                     <div class="project-content">
                         <div class="project-tag">Tea & Coffee</div>
-                        <h3 class="project-title">Dear Robert</h3>
-                        <p class="project-desc">Opened a premium tea and coffee shop in the heart of Tbilisi with my wife. Built from zero in 2 months — premises, shelves, European imports, brand. Built the website myself using AI: cart, 3 languages, QR codes on jars, Telegram notifications, instant page loads. Website budget — $20.</p>
+                        <h3 class="project-title">Dear Robert,</h3>
+                        <p class="project-desc">Opened a tea and coffee shop in the center of Tbilisi with my wife. Built from zero in 2 months — premises, shelves, brand, imports from Europe, South America and China. Built the website myself using AI: cart, 3 languages, QR codes on products, Telegram notifications, instant page loads, end-to-end business analytics.</p>
                         <a href="https://dearrobert.ge" class="project-link" target="_blank" rel="noopener noreferrer">
                             Visit website
                             <svg width="14" height="14" viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2"/></svg>
@@ -1403,6 +1459,8 @@
         document.querySelectorAll('[data-gallery]').forEach(gallery => {
             const slides = gallery.querySelectorAll('.gallery-slide');
             const dots = gallery.querySelectorAll('.gallery-dot');
+            const prevBtn = gallery.querySelector('.gallery-arrow--prev');
+            const nextBtn = gallery.querySelector('.gallery-arrow--next');
             if (slides.length <= 1) return;
 
             let current = 0;
@@ -1418,6 +1476,7 @@
             }
 
             function next() { goTo(current + 1); }
+            function prev() { goTo(current - 1); }
 
             function startAutoplay() {
                 stopAutoplay();
@@ -1435,6 +1494,9 @@
                 });
             });
 
+            if (prevBtn) prevBtn.addEventListener('click', () => { prev(); startAutoplay(); });
+            if (nextBtn) nextBtn.addEventListener('click', () => { next(); startAutoplay(); });
+
             gallery.addEventListener('touchstart', (e) => {
                 touchStartX = e.changedTouches[0].screenX;
                 stopAutoplay();
@@ -1443,7 +1505,7 @@
             gallery.addEventListener('touchend', (e) => {
                 const diff = touchStartX - e.changedTouches[0].screenX;
                 if (Math.abs(diff) > 50) {
-                    diff > 0 ? next() : goTo(current - 1);
+                    diff > 0 ? next() : prev();
                 }
                 startAutoplay();
             }, { passive: true });
