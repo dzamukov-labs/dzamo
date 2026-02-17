@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://dzamukov.com/</loc>
-    <lastmod>2025-11-08</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <xhtml:link rel="alternate" hreflang="ru" href="https://dzamukov.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://dzamukov.com/en/"/>
   </url>
@@ -11,6 +11,22 @@
     <lastmod>2025-11-08</lastmod>
     <xhtml:link rel="alternate" hreflang="ru" href="https://dzamukov.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://dzamukov.com/en/"/>
+  </url>
+  <url>
+    <loc>https://dzamukov.com/blog/</loc>
+    <lastmod>2026-02-17</lastmod>
+  </url>
+  <url>
+    <loc>https://dzamukov.com/blog/ai-prodavec-zakryl-sdelku/</loc>
+    <lastmod>2026-02-17</lastmod>
+  </url>
+  <url>
+    <loc>https://dzamukov.com/blog/ai-prodavec-na-praktike/</loc>
+    <lastmod>2026-02-17</lastmod>
+  </url>
+  <url>
+    <loc>https://dzamukov.com/ai-systems/ai-enrollment-booster-new.html</loc>
+    <lastmod>2025-11-03</lastmod>
   </url>
   <url>
     <loc>https://dzamukov.com/ai-systems/ai-enrollment-booster.html</loc>
@@ -47,14 +63,6 @@
     <lastmod>2025-11-03</lastmod>
     <xhtml:link rel="alternate" hreflang="ru" href="https://dzamukov.com/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://dzamukov.com/en/privacy.html"/>
-  </url>
-  <url>
-    <loc>https://dzamukov.com/index.ai.html</loc>
-    <lastmod>2025-11-08</lastmod>
-  </url>
-  <url>
-    <loc>https://dzamukov.com/en/index.ai.html</loc>
-    <lastmod>2025-11-08</lastmod>
   </url>
   <url>
     <loc>https://dzamukov.com/tg_socials.html</loc>

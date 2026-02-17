@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-49Q95G33CJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-49Q95G33CJ');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0c0b0a">
+
+    <meta name="description" content="Статьи Георгия Дзамукова — кейсы про ИИ-продавцов, автоматизацию продаж и бизнес.">
+    <meta name="author" content="Георгий Дзамуков">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Статьи — Георгий Дзамуков">
+    <meta property="og:description" content="Статьи про ИИ-продавцов, автоматизацию продаж и бизнес.">
+    <meta property="og:url" content="https://dzamukov.com/blog/">
+    <meta property="og:site_name" content="Георгий Дзамуков">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:image" content="https://dzamukov.com/images/og.jpg">
+
+    <link rel="canonical" href="https://dzamukov.com/blog/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <title>Статьи — Георгий Дзамуков</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0c0b0a;
+            --bg-card: #131211;
+            --accent: #c8a96e;
+            --accent-dim: rgba(200, 169, 110, 0.08);
+            --text: #f0ece4;
+            --text-dim: #7a746a;
+            --border: #1e1c1a;
+            --font-serif: 'DM Serif Display', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.7;
+            letter-spacing: 0.2px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.045;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+
+        /* Nav */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 28px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(12, 11, 10, 0.92);
+            backdrop-filter: blur(24px);
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .nav-back:hover { color: var(--text); }
+
+        .nav-logo {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        /* Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 140px 48px 80px;
+        }
+
+        .page-header {
+            margin-bottom: 64px;
+        }
+
+        .page-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(36px, 4vw, 48px);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* Post cards */
+        .posts {
+            display: grid;
+            gap: 20px;
+        }
+
+        .post-card {
+            display: block;
+            padding: 48px;
+            background: var(--bg-card);
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .post-card:hover {
+            background: #161514;
+            transform: translateY(-2px);
+            box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .post-date {
+            font-size: 12px;
+            color: var(--text-dim);
+            letter-spacing: 0.5px;
+        }
+
+        .post-source {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .post-card h2 {
+            font-family: var(--font-serif);
+            font-size: 26px;
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .post-card p {
+            color: var(--text-dim);
+            font-size: 14px;
+            line-height: 1.75;
+            letter-spacing: 0.15px;
+        }
+
+        .post-arrow {
+            position: absolute;
+            right: 48px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-dim);
+            transition: all 0.3s;
+        }
+
+        .post-card:hover .post-arrow {
+            color: var(--accent);
+            transform: translateY(-50%) translateX(4px);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 64px 0;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--text-dim);
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.15s; }
+
+        @media (max-width: 768px) {
+            .nav { padding: 20px 20px; }
+            .container { padding: 100px 20px 60px; }
+            .post-card { padding: 32px; }
+            .post-card h2 { font-size: 22px; }
+            .post-arrow { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/" class="nav-back">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m7-7l-7 7 7 7"/></svg>
+            Главная
+        </a>
+        <a href="/" class="nav-logo">Dzamukov</a>
+    </nav>
+
+    <div class="container">
+        <div class="page-header reveal">
+            <div class="page-label">Кейсы и статьи</div>
+            <h1>Статьи</h1>
+        </div>
+
+        <div class="posts">
+            <a href="/blog/ai-prodavec-zakryl-sdelku/" class="post-card reveal">
+                <div class="post-meta">
+                    <time class="post-date" datetime="2025-10-01">1 октября 2025</time>
+                </div>
+                <h2>ИИ-продавец закрыл сделку на 416 900₽ без единого звонка — полный разбор переписки</h2>
+                <p>Клиент написал в WhatsApp — через 18 сообщений отправил фото паспорта для договора. ИИ назвал цены, показал видео, рассчитал доставку и оформил заказ.</p>
+                <div class="post-arrow">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                </div>
+            </a>
+
+            <a href="/blog/ai-prodavec-na-praktike/" class="post-card reveal reveal-delay-1">
+                <div class="post-meta">
+                    <time class="post-date" datetime="2025-05-13">13 мая 2025</time>
+                </div>
+                <h2>Один менеджер вместо шести: как ИИ-система продаёт бани на 700К+ и дожимает базу почти без людей</h2>
+                <p>Как ИИ-система сократила отдел продаж с 6 до 1 человека и закрыла сделку на 703 000₽ в 10 вечера. Реальные скрины переписок из строительного бизнеса.</p>
+                <div class="post-arrow">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div style="max-width:900px;margin:0 auto;padding:0 48px;">
+            <p class="footer-text">&copy; 2026 Георгий Дзамуков</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
