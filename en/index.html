@@ -973,19 +973,22 @@
             .section { padding: 80px 0; }
             .hero-text { padding: 40px 20px; }
             .photo-frame { width: 240px; height: 300px; }
-            .journey-grid { grid-template-columns: 1fr; }
+            .journey-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
             .journey-card--expedition { grid-row: auto; }
             .project-visual { padding: 32px; min-height: 200px; }
             .project-gallery { max-width: 100%; }
             .gallery-track { aspect-ratio: 16 / 10; }
             .project-content { padding: 32px; }
-            .project-stats { gap: 24px; }
+            .project-stats { gap: 16px; flex-wrap: wrap; }
+            .stat-value { font-size: 24px; }
+            .gallery-arrow { opacity: 0.7; }
             .section-header { flex-direction: column; gap: 8px; margin-bottom: 48px; }
             .section-number { font-size: 36px; }
             .scroll-indicator { display: none; }
-            .pub-source { min-width: auto; }
+            .pub-card { padding: 16px 20px; flex-wrap: wrap; gap: 8px; }
+            .pub-source { min-width: auto; width: 100%; }
+            .pub-title { width: 100%; }
             .pub-year { display: none; }
-            .pub-card { padding: 16px 20px; }
         }
 
         /* Preloader */
