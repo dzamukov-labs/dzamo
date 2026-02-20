@@ -169,6 +169,7 @@ body::after {
 
 .article figure {
     margin: 32px 0;
+    text-align: center;
 }
 
 .article figure img {
