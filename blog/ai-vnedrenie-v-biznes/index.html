@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-49Q95G33CJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-49Q95G33CJ');
+    </script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106909672', 'ym');
+        ym(106909672, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106909672" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0c0b0a">
+
+    <meta name="description" content="Реальные кейсы внедрения AI: AI-продавец для бань, интернет-магазин с нуля, сквозная аналитика, интеграция с банком. Личный опыт предпринимателя.">
+    <meta name="keywords" content="внедрение AI в бизнес, AI продавец, искусственный интеллект для бизнеса, автоматизация продаж, вайбкодинг">
+    <meta name="author" content="Георгий Дзамуков">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Внедрение AI в бизнес: 4 реальных кейса — от продавца до интернет-магазина">
+    <meta property="og:description" content="Реальные кейсы внедрения AI: AI-продавец для бань, интернет-магазин с нуля, сквозная аналитика, интеграция с банком. Личный опыт предпринимателя.">
+    <meta property="og:url" content="https://dzamukov.com/blog/ai-vnedrenie-v-biznes/">
+    <meta property="og:site_name" content="Георгий Дзамуков">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:image" content="https://dzamukov.com/blog/ai-vnedrenie-v-biznes/images/admin-sales-revenue-charts.webp">
+    <meta property="article:published_time" content="2026-02-20">
+    <meta property="article:author" content="Георгий Дзамуков">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Внедрение AI в бизнес: 4 реальных кейса — от продавца до интернет-магазина">
+    <meta name="twitter:image" content="https://dzamukov.com/blog/ai-vnedrenie-v-biznes/images/admin-sales-revenue-charts.webp">
+
+    <link rel="canonical" href="https://dzamukov.com/blog/ai-vnedrenie-v-biznes/">
+    <link rel="alternate" hreflang="ru" href="https://dzamukov.com/blog/ai-vnedrenie-v-biznes/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <title>Внедрение AI в бизнес: 4 реальных кейса — от продавца до интернет-магазина | Георгий Дзамуков</title>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Внедрение AI в бизнес: 4 реальных кейса — от продавца до интернет-магазина",
+        "description": "Реальные кейсы внедрения AI: AI-продавец для бань, интернет-магазин с нуля, сквозная аналитика, интеграция с банком. Личный опыт предпринимателя.",
+        "author": { "@type": "Person", "name": "Георгий Дзамуков", "url": "https://dzamukov.com/" },
+        "datePublished": "2026-02-20",
+        "publisher": { "@type": "Person", "name": "Георгий Дзамуков" },
+        "mainEntityOfPage": "https://dzamukov.com/blog/ai-vnedrenie-v-biznes/",
+        "image": "https://dzamukov.com/blog/ai-vnedrenie-v-biznes/images/admin-sales-revenue-charts.webp"
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0c0b0a;
+            --bg-card: #131211;
+            --accent: #c8a96e;
+            --accent-dim: rgba(200, 169, 110, 0.08);
+            --text: #f0ece4;
+            --text-dim: #7a746a;
+            --border: #1e1c1a;
+            --font-serif: 'DM Serif Display', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+            letter-spacing: 0.2px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.045;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 28px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(12, 11, 10, 0.92);
+            backdrop-filter: blur(24px);
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .nav-back:hover { color: var(--text); }
+
+        .nav-logo {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 140px 24px 80px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .article-meta time { color: var(--text-dim); }
+
+        .article h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(30px, 4vw, 40px);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+            margin-bottom: 28px;
+        }
+
+        .article-lead {
+            font-size: 17px;
+            color: var(--text-dim);
+            line-height: 1.75;
+            margin-bottom: 48px;
+            border-left: 2px solid var(--accent);
+            padding-left: 24px;
+            font-weight: 300;
+        }
+
+        .article h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(22px, 3vw, 28px);
+            font-weight: 400;
+            margin: 64px 0 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .article h3 {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 400;
+            margin: 48px 0 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .article p {
+            margin-bottom: 20px;
+            color: var(--text-dim);
+            font-size: 15px;
+            line-height: 1.8;
+            letter-spacing: 0.15px;
+        }
+
+        .article strong { color: var(--text); }
+
+        .article a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+            transition: opacity 0.3s;
+        }
+
+        .article a:hover { opacity: 0.75; }
+
+        .article img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .article figure {
+            margin: 32px 0;
+        }
+
+        .article figure img {
+            margin: 0;
+        }
+
+        .article figcaption {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 13px;
+            margin-top: 12px;
+            letter-spacing: 0.15px;
+            line-height: 1.5;
+        }
+
+        .article ul, .article ol {
+            margin: 20px 0;
+            padding-left: 24px;
+        }
+
+        .article li {
+            margin-bottom: 10px;
+            color: var(--text-dim);
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .article li strong { color: var(--text); }
+
+        .article hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 56px 0;
+        }
+
+        /* Chat & receipt images — not full width */
+        .img-chat {
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .img-chat img { width: 100%; }
+
+        .img-receipt {
+            max-width: 280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .img-receipt img { width: 100%; }
+
+        /* Gallery / Carousel */
+        .gallery {
+            margin: 32px 0;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .gallery-slides {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-slide {
+            display: none;
+        }
+
+        .gallery-slide.active {
+            display: block;
+        }
+
+        .gallery-slide img {
+            width: 100%;
+            display: block;
+            border-radius: 0;
+        }
+
+        .gallery-caption {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 13px;
+            padding: 12px 16px 4px;
+            letter-spacing: 0.15px;
+            line-height: 1.5;
+        }
+
+        .gallery-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 12px 16px 16px;
+        }
+
+        .gallery-arrow {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .gallery-arrow:hover {
+            color: var(--text);
+            border-color: var(--accent);
+        }
+
+        .gallery-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .gallery-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .gallery-dot.active {
+            background: var(--accent);
+        }
+
+        /* Article result box */
+        .article-result {
+            margin: 48px 0;
+            padding: 36px;
+            background: var(--bg-card);
+            border-radius: 12px;
+        }
+
+        .article-result h3 {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            margin-top: 0;
+            color: var(--accent);
+        }
+
+        .article-result p { margin-bottom: 8px; }
+
+        /* CTA */
+        .article-cta {
+            margin: 48px 0;
+            padding: 40px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .article-cta h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(22px, 3vw, 28px);
+            font-weight: 400;
+            color: var(--accent);
+            margin: 0 0 16px;
+        }
+
+        .article-cta p {
+            color: var(--text-dim);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .article-cta .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            text-decoration: none;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+        }
+
+        .article-cta .cta-btn:hover {
+            background: var(--accent);
+            color: var(--bg);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(200, 169, 110, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 64px 0;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--text-dim);
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .nav { padding: 20px 20px; }
+            .article { padding: 100px 16px 60px; }
+            .article h1 { font-size: 28px; }
+            .img-chat { max-width: 100%; }
+            .img-receipt { max-width: 220px; }
+            .article-cta { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/blog/" class="nav-back">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m7-7l-7 7 7 7"/></svg>
+            Статьи
+        </a>
+        <a href="/" class="nav-logo">Dzamukov</a>
+    </nav>
+
+    <article class="article">
+        <div class="article-meta">
+            <time datetime="2026-02-20">20 февраля 2026</time>
+        </div>
+
+        <h1>Внедрение AI в бизнес: 4 реальных кейса</h1>
+
+        <div class="article-lead">
+            11 лет строил бизнес по производству бань. 3000 бань, 18 регионов, вся команда удалённо. Потом запустил Школу астрономии с Владимиром Сурдиным — 900K подписчиков на YouTube.
+        </div>
+
+        <p>В конце 2024 года понял: AI меняет всё. Я увидел разрыв — AI продвинулся невероятно, а бизнес с точки зрения внедрения не продвинулся вообще. Это окно возможностей.</p>
+
+        <p>Начал внедрять. Сначала в свои проекты, потом — в другие компании.</p>
+
+        <p>Ниже — конкретные кейсы. Что делал, как работает, какие результаты.</p>
+
+        <hr>
+
+        <h2>Кейс 1: AI-продавец для строительства бань</h2>
+
+        <p>Ушёл ключевой менеджер. Нанимать нового не хотел. Обучать — тем более.</p>
+
+        <p>Собрал команду из двух разработчиков. Глубоко проработал инструкции и базу знаний. Внедрил AI-продавца.</p>
+
+        <p>Что он делает:</p>
+
+        <ul>
+            <li>Отвечает на сообщения 24/7</li>
+            <li>Отправляет фото и видео проектов</li>
+            <li>Распознаёт голосовые сообщения клиентов</li>
+            <li>Считает стоимость и доставку</li>
+            <li>Уведомляет менеджера в сложных ситуациях</li>
+            <li>Не пропускает ни одной заявки</li>
+        </ul>
+
+        <p>Результат: один менеджер + AI вместо нескольких. Даже в сезон дополнительные сотрудники теперь не нужны. Заказы выросли на 30% за первый месяц.</p>
+
+        <p>Были случаи, когда клиент скидывал паспорт и писал "оформляйте договор" — без участия человека. Клиенты, которые писали ночью, точно бы ушли к конкурентам без мгновенного ответа.</p>
+
+        <p>Сейчас не захожу в переписки, я знаю, что всё работает. Я купил своё спокойствие.</p>
+
+        <p>Подробный разбор одной сделки на 416 900 рублей — <a href="https://www.dzamukov.com/blog/ai-prodavec-zakryl-sdelku/">покадрово весь диалог с клиентом</a>.</p>
+
+        <figure class="img-chat">
+            <img src="images/ai-seller-greeting-price-dialog.webp" alt="Переписка AI-продавца: приветствие, прайс, уточнение размера бани" loading="lazy" width="1200" height="1026">
+            <figcaption>AI-продавец: приветствие, прайс и уточнение за 3 минуты</figcaption>
+        </figure>
+
+        <figure class="img-chat">
+            <img src="images/ai-seller-context-video-response.webp" alt="AI-продавец отправил видеообзор базовой комплектации" loading="lazy" width="1200" height="1005">
+            <figcaption>AI помнит контекст и отправляет релевантное видео</figcaption>
+        </figure>
+
+        <figure class="img-receipt">
+            <img src="images/ai-seller-payment-receipt-sberbank.webp" alt="Чек: предоплата 41 900₽ — платёж выполнен" loading="lazy" width="800" height="2560">
+            <figcaption>Результат: предоплата получена, заказ в производстве</figcaption>
+        </figure>
+
+        <hr>
+
+        <h2>Кейс 2: Интернет-магазин с нуля</h2>
+
+        <p>Открыл магазин чая и кофе в Тбилиси — Dear Robert,. Нужен был интернет-магазин.</p>
+
+        <p>Варианты: WordPress, Shopify, готовые CMS. Или заказать у разработчиков.</p>
+
+        <p>Сделал сам. Полностью с нуля через AI-агентов. Не готовый движок, не CMS — код под мои задачи. Уровень интернет-магазина я оцениваю в $10000-30000 если заказывать у разработчиков.</p>
+
+        <p>Что внутри:</p>
+
+        <ol>
+            <li><strong>Дизайн ваби-саби.</strong> Японская эстетика — приглушённые тона, натуральные текстуры.</li>
+            <li><strong>Три языка автоматически.</strong> Сайт определяет язык телефона → показывает русский, английский или грузинский. Каждый язык индексируется поисковиками отдельно.</li>
+            <li><strong>QR-коды на банках.</strong> Сканируешь QR на физической банке в магазине → открывается страница товара на твоём языке с составом и инструкцией.</li>
+            <li><strong>Звук при добавлении в корзину.</strong> Приятный деревянный стук. Мелочь, но запоминается.</li>
+            <li><strong>Выбор веса и помола.</strong> Цена пересчитывается автоматически.</li>
+            <li><strong>Корзина сохраняется.</strong> Закрыл браузер, вернулся через неделю — товары на месте.</li>
+            <li><strong>Подарочная упаковка.</strong> Галочка в корзине — и заказ упакуют как подарок.</li>
+            <li><strong>Заказ мгновенно в Telegram.</strong> Оформили → собственник сразу видит. Никаких пропущенных заказов.</li>
+            <li><strong>Мгновенная загрузка.</strong> Статическая генерация, страницы открываются моментально.</li>
+            <li><strong>SEO на максимум.</strong> Добавил товар → поисковики узнают сразу через IndexNow.</li>
+        </ol>
+
+        <p>Сайт: <a href="https://dearrobert.ge?utm_source=dzamukov_ai_article" target="_blank" rel="noopener noreferrer">dearrobert.ge</a></p>
+
+        <figure>
+            <img src="images/dearrobert-homepage-tea-coffee.webp" alt="Главная страница интернет-магазина Dear Robert, — чай и кофе" loading="lazy" width="800" height="500">
+            <figcaption>Главная страница dearrobert.ge — дизайн ваби-саби</figcaption>
+        </figure>
+
+        <hr>
+
+        <h2>Кейс 3: Админка для оффлайн-магазина</h2>
+
+        <p>Нужна аналитика для магазина. Сколько продали, когда пик, что покупают чаще.</p>
+
+        <p>Сделал админ-панель. Назвал её "Мастерская". Оформил в стиле магазина, чтобы туда хотелось заходить.</p>
+
+        <p><strong>Раздел "Продажи":</strong></p>
+
+        <ul>
+            <li>Выручка за любой период + мини-тренд</li>
+            <li>Доли оплат: наличные vs карта</li>
+            <li>График по дням — видно, какой день выстрелил</li>
+            <li>Пик продаж по часам</li>
+            <li>Топ товаров за период</li>
+            <li>Клик по продаже → товары, себестоимость, маржа</li>
+            <li>Каждая продажа улетает в Telegram + ежедневный автоотчёт</li>
+        </ul>
+
+        <div class="gallery" data-gallery>
+            <div class="gallery-slides">
+                <div class="gallery-slide active">
+                    <img src="images/admin-sales-revenue-charts.webp" alt="Раздел Продажи — выручка за период, графики продаж по дням, доли наличных и карт" loading="lazy" width="800" height="500">
+                    <div class="gallery-caption">Выручка, графики, доли оплат</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="images/admin-sales-peak-hours.webp" alt="Раздел Продажи — пик продаж по часам дня" loading="lazy" width="800" height="500">
+                    <div class="gallery-caption">Пик продаж по часам</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="images/admin-sales-top-products.webp" alt="Раздел Продажи — топ товаров по сумме продаж за период" loading="lazy" width="800" height="500">
+                    <div class="gallery-caption">Топ товаров за период</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="images/admin-sale-detail-view.webp" alt="Раздел Продажи — детальный просмотр конкретной продажи с товарами и маржой" loading="lazy" width="800" height="754">
+                    <div class="gallery-caption">Детали продажи: товары, маржа</div>
+                </div>
+            </div>
+            <div class="gallery-nav">
+                <button class="gallery-arrow gallery-arrow--prev" aria-label="Предыдущий слайд">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m7-7l-7 7 7 7"/></svg>
+                </button>
+                <div class="gallery-dots"></div>
+                <button class="gallery-arrow gallery-arrow--next" aria-label="Следующий слайд">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <p><strong>Раздел "Товары":</strong></p>
+
+        <ul>
+            <li>Дашборд: сколько товаров, в наличии, по категориям</li>
+            <li>Поиск и фильтры</li>
+            <li>Быстрое редактирование цены и наличия прямо в списке</li>
+            <li>Карточка товара на трёх языках</li>
+            <li>При сохранении — поисковики уведомляются автоматически</li>
+        </ul>
+
+        <div class="gallery" data-gallery>
+            <div class="gallery-slides">
+                <div class="gallery-slide active">
+                    <img src="images/admin-products-catalog-filters.webp" alt="Раздел Товары — каталог с фильтрами по категориям, наличию и цене" loading="lazy" width="800" height="450">
+                    <div class="gallery-caption">Каталог с фильтрами</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="images/admin-products-cards.webp" alt="Раздел Товары — карточки товаров с ценами и фото" loading="lazy" width="800" height="450">
+                    <div class="gallery-caption">Карточки товаров</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="images/admin-product-quick-view.webp" alt="Раздел Товары — быстрый просмотр товара с описанием" loading="lazy" width="800" height="450">
+                    <div class="gallery-caption">Быстрый просмотр товара</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="images/admin-product-edit-form.webp" alt="Раздел Товары — форма редактирования товара" loading="lazy" width="800" height="450">
+                    <div class="gallery-caption">Редактирование товара</div>
+                </div>
+            </div>
+            <div class="gallery-nav">
+                <button class="gallery-arrow gallery-arrow--prev" aria-label="Предыдущий слайд">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m7-7l-7 7 7 7"/></svg>
+                </button>
+                <div class="gallery-dots"></div>
+                <button class="gallery-arrow gallery-arrow--next" aria-label="Следующий слайд">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <p>Адаптировано под смартфон. Удобно смотреть на ходу.</p>
+
+        <hr>
+
+        <h2>Кейс 4: Интеграция с банком</h2>
+
+        <p>Проблема: по кассе одна цифра, по банку — другая. Терминал Bank of Georgia берёт комиссию, она плавает в зависимости от типа карты. Свести вручную — нереально.</p>
+
+        <p>Влез в API банка. Собрал дашборд, который тянет данные напрямую.</p>
+
+        <p>Что показывает:</p>
+
+        <ul>
+            <li>Баланс счёта</li>
+            <li>Итоги за любой период</li>
+            <li>Раскладка: сколько заплатил клиент, сколько забрал банк, сколько пришло тебе</li>
+            <li>Разбивка по типам карт: Visa, MasterCard, American Express — и комиссия по каждому</li>
+            <li>Каждая операция раскрывается: точная комиссия, дата, маска карты</li>
+        </ul>
+
+        <div class="gallery" data-gallery>
+            <div class="gallery-slides">
+                <div class="gallery-slide active">
+                    <img src="images/bank-dashboard-balance-cards.webp" alt="Дашборд Bank of Georgia — баланс счёта, типы карт, график оплат по дням" loading="lazy" width="800" height="450">
+                    <div class="gallery-caption">Баланс, комиссии, типы карт</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="images/bank-dashboard-weekly-operations.webp" alt="Дашборд Bank of Georgia — операции за неделю с фильтрами" loading="lazy" width="800" height="450">
+                    <div class="gallery-caption">Операции за неделю</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="images/bank-sale-detail-view.webp" alt="Дашборд Bank of Georgia — детали продажи с комиссией и маской карты" loading="lazy" width="800" height="640">
+                    <div class="gallery-caption">Детали продажи: комиссия, карта</div>
+                </div>
+            </div>
+            <div class="gallery-nav">
+                <button class="gallery-arrow gallery-arrow--prev" aria-label="Предыдущий слайд">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m7-7l-7 7 7 7"/></svg>
+                </button>
+                <div class="gallery-dots"></div>
+                <button class="gallery-arrow gallery-arrow--next" aria-label="Следующий слайд">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <p>Получилось удобнее, чем приложение самого банка.</p>
+
+        <hr>
+
+        <h2>Что вижу у других предпринимателей</h2>
+
+        <p>Обзваниваю собственников компаний. Спрашиваю про AI.</p>
+
+        <p>Из всех, с кем говорил, только один реально внедрил AI на полную. Это мой друг который занимается продажей стройматериалов, оборот $50 млн. Он сократил команду на 40 человек и выстроил полный контроль в компании через AI.</p>
+
+        <p>Остальные:</p>
+
+        <ul>
+            <li>Либо вообще не пользуются AI</li>
+            <li>Либо заходят в ChatGPT и пользуются им как гуглом</li>
+            <li>Некоторые пытаются обучить сотрудников использовать тот же ChatGPT и как правило это не получается</li>
+        </ul>
+
+        <h3>Почему бизнес буксует с AI</h3>
+
+        <p>Главная проблема: бизнес занят бизнесом, айтишники — технологиями. Они не пересекаются.</p>
+
+        <p>Айтишник не мыслит категориями ROI, конверсия, прибыль. Для него успех — сервер работает, бот отвечает. А что там с продажами — не его зона.</p>
+
+        <p>Бизнесмен мыслит показателями, но не может сам всё настроить. Он не должен разбираться в промптах и API.</p>
+
+        <p>Хороший программист тут не поможет. Нужен человек, который и предприниматель, и шарит в AI. Таких пока мало.</p>
+
+        <h2>Типичные ошибки</h2>
+
+        <p><strong>Страх непонятного ROI</strong></p>
+
+        <p>Вложу деньги — получу что? AI это не CRM, непонятно как считать. Люди сидят и ждут. Пока конкуренты сделают.</p>
+
+        <p><strong>Не понимают что покупают</strong></p>
+
+        <p>Бот за $300. Бот за $3000. В чём разница? Предприниматель не гик, он не должен разбираться в архитектуре. Но разницу никто не объясняет.</p>
+
+        <p><strong>Не пробуют сами</strong></p>
+
+        <p>ChatGPT, Claude, Gemini — надо покрутить руками. Посмотреть как работает, насколько быстро, что умеет. Иначе не поймёшь, что вообще возможно.</p>
+
+        <h2>Какие инструменты я использую каждый день</h2>
+
+        <p>ChatGPT — платная подписка за $20/месяц, большинство вопросов решаю там. Claude и Claude Code — проекты, бизнес-внедрения, подписка за $100/месяц. Cursor — кодинг. Gemini — иногда решает то, что другие не вытягивают.</p>
+
+        <p>Плачу за все подписки. Использую всегда лучшие модели. Чувствую разницу между ними и понимаю, какая для чего подходит.</p>
+
+        <h2>Что будет через год</h2>
+
+        <p>Уже очевидно, что в 2026-2027 году белые воротнички пойдут под нож. Всё, что можно делать за компьютером, особенно рутинные задачи AI возьмет на себя. Он будет способен заменить целые отделы. Лучшие сотрудники будут заняты приоритетными задачами. Остальные – потеряют работу. Для предпринимателей это означает снижение ФОТ и повышение эффективности бизнеса. Только в том случае, если внедрять AI.</p>
+
+        <p>В какой-то момент волна внедрений будет такая — как когда-то в каждый дом проводили интернет. Только AI это не одна функция. Это замена целых отделов.</p>
+
+        <p>Мой совет всем и самому себе: бросать всё и нырять в AI как можно скорее. Когда ты не в теме — годы летят незаметно. Не занимаешься AI, потом через год ставишь ChatGPT, а ты уже позади всех.</p>
+
+        <p>Сейчас вижу предпринимателей, которые не отличают оригинальное приложение ChatGPT от реплики. Ищут специалиста по чат-ботам — а конструкторы уже не актуальны. Ищут дизайнера и верстальщика для сайта — а AI делает это быстрее, чем напишешь для них ТЗ.</p>
+
+        <hr>
+
+        <div class="article-cta">
+            <h2>Хотите понять, что можно внедрить в ваш бизнес?</h2>
+            <p>Провожу платные 30-минутные разборы — $100. Смотрю на процессы, говорю что можно автоматизировать и какой будет результат.</p>
+            <p>Я сам предприниматель, не айтишник. Поэтому смотрю на то, как увеличить прибыль, а не на то, работает ли сервер.</p>
+            <a href="https://t.me/dzamukov" target="_blank" rel="noopener noreferrer" class="cta-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
+                Написать в Telegram
+            </a>
+            <p style="margin-top: 20px;">Веду канал, где показываю новые кейсы:</p>
+            <a href="https://t.me/dzamukov_channel" target="_blank" rel="noopener noreferrer" class="cta-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
+                Telegram-канал
+            </a>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div style="max-width:720px;margin:0 auto;padding:0 24px;">
+            <p class="footer-text">&copy; 2026 Георгий Дзамуков</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('[data-gallery]').forEach(gallery => {
+            const slides = gallery.querySelectorAll('.gallery-slide');
+            const dotsContainer = gallery.querySelector('.gallery-dots');
+            const prevBtn = gallery.querySelector('.gallery-arrow--prev');
+            const nextBtn = gallery.querySelector('.gallery-arrow--next');
+            let current = 0;
+
+            slides.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+                dot.addEventListener('click', () => goTo(i));
+                dotsContainer.appendChild(dot);
+            });
+
+            function goTo(index) {
+                slides[current].classList.remove('active');
+                dotsContainer.children[current].classList.remove('active');
+                current = (index + slides.length) % slides.length;
+                slides[current].classList.add('active');
+                dotsContainer.children[current].classList.add('active');
+            }
+
+            prevBtn.addEventListener('click', () => goTo(current - 1));
+            nextBtn.addEventListener('click', () => goTo(current + 1));
+
+            let startX = 0;
+            gallery.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive: true});
+            gallery.addEventListener('touchend', e => {
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+            }, {passive: true});
+        });
+    </script>
+</body>
+</html>
