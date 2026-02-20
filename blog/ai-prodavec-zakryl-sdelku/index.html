@@ -64,262 +64,7 @@
     }
     </script>
 
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --bg: #0c0b0a;
-            --bg-card: #131211;
-            --accent: #c8a96e;
-            --accent-dim: rgba(200, 169, 110, 0.08);
-            --text: #f0ece4;
-            --text-dim: #7a746a;
-            --border: #1e1c1a;
-            --font-serif: 'DM Serif Display', Georgia, serif;
-            --font-sans: 'Inter', -apple-system, sans-serif;
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: var(--font-sans);
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.8;
-            overflow-x: hidden;
-            letter-spacing: 0.2px;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.045;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            background-repeat: repeat;
-            background-size: 512px 512px;
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-        }
-
-        .nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            padding: 28px 48px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(12, 11, 10, 0.92);
-            backdrop-filter: blur(24px);
-        }
-
-        .nav-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-dim);
-            text-decoration: none;
-            font-size: 13px;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
-        }
-
-        .nav-back:hover { color: var(--text); }
-
-        .nav-logo {
-            font-family: var(--font-serif);
-            font-size: 20px;
-            font-weight: 400;
-            color: var(--text);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-
-        .article {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 140px 24px 80px;
-        }
-
-        .article-meta {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 32px;
-            font-size: 12px;
-            letter-spacing: 0.5px;
-        }
-
-        .article-meta time { color: var(--text-dim); }
-
-        .article h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(30px, 4vw, 40px);
-            font-weight: 400;
-            line-height: 1.2;
-            letter-spacing: 0.5px;
-            margin-bottom: 28px;
-        }
-
-        .article-lead {
-            font-size: 17px;
-            color: var(--text-dim);
-            line-height: 1.75;
-            margin-bottom: 48px;
-            border-left: 2px solid var(--accent);
-            padding-left: 24px;
-            font-weight: 300;
-        }
-
-        .article h2 {
-            font-family: var(--font-serif);
-            font-size: clamp(22px, 3vw, 28px);
-            font-weight: 400;
-            margin: 64px 0 24px;
-            letter-spacing: 0.5px;
-        }
-
-        .article p {
-            margin-bottom: 20px;
-            color: var(--text-dim);
-            font-size: 15px;
-            line-height: 1.8;
-            letter-spacing: 0.15px;
-        }
-
-        .article strong { color: var(--text); }
-
-        .article img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .article figure {
-            margin: 32px 0;
-        }
-
-        .article figure img {
-            margin: 0;
-        }
-
-        .article figcaption {
-            text-align: center;
-            color: var(--text-dim);
-            font-size: 13px;
-            margin-top: 12px;
-            letter-spacing: 0.15px;
-            line-height: 1.5;
-        }
-
-        .article ul, .article ol {
-            margin: 20px 0;
-            padding-left: 24px;
-        }
-
-        .article li {
-            margin-bottom: 10px;
-            color: var(--text-dim);
-            font-size: 15px;
-            line-height: 1.75;
-        }
-
-        .article hr {
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: 56px 0;
-        }
-
-        .article-result {
-            margin: 48px 0;
-            padding: 36px;
-            background: var(--bg-card);
-            border-radius: 12px;
-        }
-
-        .article-result h3 {
-            font-family: var(--font-serif);
-            font-size: 22px;
-            font-weight: 400;
-            margin-bottom: 16px;
-            color: var(--accent);
-        }
-
-        .article-result p { margin-bottom: 8px; }
-
-        .author-intro {
-            display: flex;
-            gap: 24px;
-            align-items: flex-start;
-            margin-bottom: 36px;
-            padding: 32px;
-            background: var(--bg-card);
-            border-radius: 12px;
-        }
-
-        .author-intro p {
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
-
-        .article-cta {
-            margin: 48px 0;
-            padding: 40px;
-            background: var(--bg-card);
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .article-cta p {
-            color: var(--text-dim);
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
-
-        .article-cta a {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 28px;
-            background: var(--accent);
-            color: var(--bg);
-            text-decoration: none;
-            border-radius: 100px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: all 0.3s;
-        }
-
-        .article-cta a:hover {
-            background: var(--text);
-            transform: translateY(-1px);
-            box-shadow: 0 8px 24px rgba(200, 169, 110, 0.2);
-        }
-
-        .footer {
-            padding: 64px 0;
-            text-align: center;
-        }
-
-        .footer-text {
-            color: var(--text-dim);
-            font-size: 13px;
-            letter-spacing: 0.5px;
-        }
-
-        @media (max-width: 768px) {
-            .nav { padding: 20px 20px; }
-            .article { padding: 100px 16px 60px; }
-            .article h1 { font-size: 28px; }
-            .author-intro { flex-direction: column; align-items: center; text-align: center; }
-        }
-    </style>
+    <link rel="stylesheet" href="/blog/article.css">
 </head>
 <body>
     <nav class="nav">
@@ -478,14 +223,14 @@
         <hr>
 
         <div class="article-cta">
-            <h3 style="font-family: var(--font-serif); font-size: 22px; font-weight: 400; color: var(--accent); margin-bottom: 16px;">Хотите так же?</h3>
+            <h3>Хотите так же?</h3>
             <p>Нужна подобная система под ваш бизнес — напишите, обсудим задачу.</p>
-            <a href="https://t.me/dzamukov" target="_blank" rel="noopener noreferrer" style="background: transparent; color: var(--accent); border: 1px solid var(--accent);">
+            <a href="https://t.me/dzamukov" target="_blank" rel="noopener noreferrer" >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
                 Написать в Telegram
             </a>
             <p style="margin-top: 20px;">Также веду Telegram-канал, где рассказываю о своих проектах в сфере AI:</p>
-            <a href="https://t.me/dzamukov_channel" target="_blank" rel="noopener noreferrer" style="background: transparent; color: var(--accent); border: 1px solid var(--accent);">
+            <a href="https://t.me/dzamukov_channel" target="_blank" rel="noopener noreferrer" >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
                 Telegram-канал
             </a>
@@ -497,5 +242,6 @@
             <p class="footer-text">&copy; 2026 Георгий Дзамуков</p>
         </div>
     </footer>
+    <script src="/blog/article.js" defer></script>
 </body>
 </html>
