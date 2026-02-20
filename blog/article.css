@@ -176,7 +176,7 @@ body::after {
 }
 
 .article figure img {
-    margin: 0;
+    margin: 0 auto;
 }
 
 .article figcaption {
