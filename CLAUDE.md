@@ -8,6 +8,9 @@
 - `images/photos/` — оптимизированные фото для сайта (WebP)
 - `images/originals/` — исходные фото (не коммитятся, в .gitignore)
 - `ai-systems/` — страницы AI-продуктов
+- `blog/` — статьи блога
+- `blog/article.css` — общие стили для всех статей блога
+- `blog/article.js` — общий JS для статей (галерея, лайтбокс, свайп)
 
 ## Двуязычность
 
@@ -34,13 +37,67 @@
 - Включают контекст, локацию, действие
 - Пример: «Георгий Дзамуков в 1200 км от Северного полюса — селфи в арктической экипировке»
 
-## Галереи / карусели
+## Блог (статьи)
+
+### Структура статьи
+
+Каждая статья — `blog/<slug>/index.html`. Изображения статьи — `blog/<slug>/images/`.
+
+### Общие файлы
+
+- **`blog/article.css`** — единый CSS для всех статей. НЕ дублировать стили в `<style>` внутри статей.
+- **`blog/article.js`** — единый JS: галереи, лайтбокс (клик по фото → полноэкран), фикс свайпа.
+- При создании новой статьи подключать оба файла:
+  ```html
+  <link rel="stylesheet" href="/blog/article.css">          <!-- в <head> -->
+  <script src="/blog/article.js" defer></script>             <!-- перед </body> -->
+  ```
+
+### Шаблон новой статьи
+
+В `<head>` статьи ОБЯЗАТЕЛЬНО:
+1. Google Analytics + Яндекс Метрика (как на всех страницах)
+2. Мета-теги: description, og:title, og:description, og:image, og:url, twitter:card
+3. JSON-LD (`@type: Article`) с headline, author, datePublished, publisher
+4. Google Fonts (Inter + DM Serif Display)
+5. `<link rel="stylesheet" href="/blog/article.css">`
+
+HTML-структура `<body>`:
+```
+<nav class="nav"> — фиксированная навигация (Статьи / Dzamukov)
+<article class="article"> — основной контент
+  .article-meta — дата публикации
+  h1 — заголовок
+  .article-lead — лид-абзац с золотой линией слева
+  контент: p, h2, h3, figure, ul/ol, .gallery, .article-result
+  .article-cta — блок призыва к действию
+</article>
+<footer class="footer">
+<script src="/blog/article.js" defer>
+```
+
+### Галереи / карусели
 
 - Используют атрибут `data-gallery` на контейнере
 - Слайды: `.gallery-slide` (первый с классом `.active`)
 - Навигация: `.gallery-dots` + `.gallery-arrow--prev` / `.gallery-arrow--next`
-- Подписи: `.gallery-caption` (короткие, 3-7 слов)
-- JS уже есть в конце страницы — автоплей, свайп, точки, стрелки
+- Подписи: `data-caption` на каждом `.gallery-slide` (короткие, 3-7 слов)
+- `.gallery-caption` — пустой div, заполняется из JS
+- JS в `blog/article.js` — свайп с защитой от browser-back, точки, стрелки
+
+### Лайтбокс
+
+- Автоматически работает на всех `<img>` внутри `.article`
+- Клик → полноэкранный просмотр, ESC или клик → закрытие
+- Стили и JS уже в общих файлах, ничего дополнительно подключать не нужно
+
+### Изменение стилей статей
+
+Все стили статей — ТОЛЬКО в `blog/article.css`. Изменения автоматически применяются ко всем статьям. Не добавлять `<style>` в отдельные статьи.
+
+### Список статей
+
+Страница `blog/index.html` — список всех статей. При добавлении новой статьи обновить этот список.
 
 ## Счётчики аналитики
 
