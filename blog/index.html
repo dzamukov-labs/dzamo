@@ -38,9 +38,7 @@
 
     <link rel="canonical" href="https://dzamukov.com/blog/">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/fonts/fonts.css">
 
     <title>Статьи и кейсы об ИИ-автоматизации продаж — Георгий Дзамуков</title>
 
@@ -181,6 +179,25 @@
             margin-bottom: 16px;
         }
 
+        .post-tag {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 4px;
+        }
+
+        .post-tag--case {
+            color: var(--accent);
+            background: rgba(200, 169, 110, 0.1);
+        }
+
+        .post-tag--article {
+            color: var(--text-dim);
+            background: rgba(122, 116, 106, 0.1);
+        }
+
         .post-date {
             font-size: 12px;
             color: var(--text-dim);
@@ -271,13 +288,13 @@
 
     <div class="container">
         <div class="page-header reveal">
-            <div class="page-label">Кейсы и статьи</div>
             <h1>Статьи</h1>
         </div>
 
         <div class="posts">
             <a href="/blog/ai-vnedrenie-v-biznes/" class="post-card reveal">
                 <div class="post-meta">
+                    <span class="post-tag post-tag--article">Статья</span>
                     <time class="post-date" datetime="2026-02-20">20 февраля 2026</time>
                 </div>
                 <h2>Внедрение AI в бизнес: 4 реальных кейса — от продавца до интернет-магазина</h2>
@@ -289,6 +306,7 @@
 
             <a href="/blog/ai-prodavec-zakryl-sdelku/" class="post-card reveal reveal-delay-1">
                 <div class="post-meta">
+                    <span class="post-tag post-tag--case">Кейс</span>
                     <time class="post-date" datetime="2025-10-01">1 октября 2025</time>
                 </div>
                 <h2>ИИ-продавец закрыл сделку на 416 900₽ без единого звонка — полный разбор переписки</h2>
@@ -300,6 +318,7 @@
 
             <a href="/blog/ai-prodavec-na-praktike/" class="post-card reveal">
                 <div class="post-meta">
+                    <span class="post-tag post-tag--case">Кейс</span>
                     <time class="post-date" datetime="2025-05-13">13 мая 2025</time>
                 </div>
                 <h2>Один менеджер вместо шести: как ИИ-система продаёт бани на 700К+ и дожимает базу почти без людей</h2>
