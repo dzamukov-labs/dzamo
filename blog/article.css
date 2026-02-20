@@ -161,10 +161,13 @@ body::after {
 .article a:hover { opacity: 0.75; }
 
 .article img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: 8px;
     cursor: zoom-in;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .article figure {
