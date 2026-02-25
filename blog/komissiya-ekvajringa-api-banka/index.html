@@ -60,15 +60,32 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://dzamukov.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Статьи", "item": "https://dzamukov.com/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "Комиссия эквайринга: подключил API банка и впервые увидел реальные цифры" }
+        ]
+    }
+    </script>
+
     <link rel="stylesheet" href="/blog/article.css">
 </head>
 <body>
     <nav class="nav">
-        <a href="/blog/" class="nav-back">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m7-7l-7 7 7 7"/></svg>
-            Статьи
-        </a>
         <a href="/" class="nav-logo">Dzamukov</a>
+        <a href="/blog/" class="nav-back">Статьи</a>
+    </nav>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <a href="/">Главная</a>
+        <span class="breadcrumbs-sep">/</span>
+        <a href="/blog/">Статьи</a>
+        <span class="breadcrumbs-sep">/</span>
+        <span class="breadcrumbs-current">Комиссия эквайринга</span>
     </nav>
 
     <article class="article">
@@ -121,7 +138,7 @@
 
         <hr>
 
-        <p>Я Георгий Дзамуков. Занимаюсь AI-автоматизацией для бизнеса. Один из моих проектов — оффлайн-магазин в Тбилиси (<a href="https://dearrobert.ge" target="_blank" rel="noopener noreferrer">Dear Robert,</a>). Здесь я тестирую всё, что потом внедряю предпринимателям: от аналитики продаж до <a href="/blog/ai-prodavec-zakryl-sdelku/" target="_blank" rel="noopener noreferrer">ИИ-продавца</a>. Банковская аналитика — один из таких экспериментов.</p>
+        <p>Я Георгий Дзамуков. Занимаюсь AI-автоматизацией для бизнеса. Один из моих проектов — оффлайн-магазин в Тбилиси (<a href="https://dearrobert.ge" target="_blank" rel="noopener noreferrer">Dear Robert,</a>). Здесь я тестирую всё, что потом внедряю предпринимателям: от аналитики продаж до <a href="/blog/ai-prodavec-zakryl-sdelku/">ИИ-продавца</a>. Банковская аналитика — один из таких экспериментов.</p>
 
         <hr>
 
@@ -175,7 +192,7 @@
 
         <p>Но пересчитайте на бизнес с оборотом через терминал 500 000 лари в месяц. 1% разницы — это 5 000 лари. В год — 60 000 лари. В Грузии это зарплата трёх сотрудников.</p>
 
-        <p>Принцип тот же, что и с <a href="/blog/ai-prodavec-na-praktike/" target="_blank" rel="noopener noreferrer">AI-отделом продаж</a>. Когда в компании 5 человек и сократили двоих — это одна экономия. А когда 80 и сократили 40 — это совсем другие деньги.</p>
+        <p>Принцип тот же, что и с <a href="/blog/ai-prodavec-na-praktike/">AI-отделом продаж</a>. Когда в компании 5 человек и сократили двоих — это одна экономия. А когда 80 и сократили 40 — это совсем другие деньги.</p>
 
         <p>Чем крупнее бизнес, тем дороже обходится незнание своих цифр.</p>
 
@@ -200,6 +217,22 @@
                 Telegram-канал
             </a>
         </div>
+
+        <section class="related-articles">
+            <h2>Читайте также</h2>
+            <div class="related-articles-grid">
+                <a href="/blog/ai-vnedrenie-v-biznes/" class="related-article-card">
+                    <span class="related-article-tag">Статья</span>
+                    <span class="related-article-title">Внедрение AI в бизнес: 4 реальных кейса — от продавца до интернет-магазина</span>
+                    <span class="related-article-desc">AI-продавец, интернет-магазин, аналитика, интеграция с банком. Кейс 4 — расширенная версия этой темы.</span>
+                </a>
+                <a href="/blog/ai-prodavec-zakryl-sdelku/" class="related-article-card">
+                    <span class="related-article-tag">Кейс</span>
+                    <span class="related-article-title">ИИ-продавец закрыл сделку на 416 900₽ без единого звонка</span>
+                    <span class="related-article-desc">Покадровый разбор переписки от заявки до предоплаты — 18 сообщений без участия менеджера.</span>
+                </a>
+            </div>
+        </section>
     </article>
 
     <footer class="footer">
