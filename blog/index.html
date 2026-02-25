@@ -42,6 +42,17 @@
 
     <title>Статьи и кейсы об ИИ-автоматизации продаж — Георгий Дзамуков</title>
 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://dzamukov.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Статьи" }
+        ]
+    }
+    </script>
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -120,11 +131,33 @@
             letter-spacing: 1px;
         }
 
+        /* Breadcrumbs */
+        .breadcrumbs {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 48px 0;
+            font-size: 13px;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .breadcrumbs a {
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumbs a:hover { color: var(--accent); }
+        .breadcrumbs-sep { color: var(--border); }
+        .breadcrumbs-current { color: var(--text-dim); opacity: 0.6; }
+
         /* Content */
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 140px 48px 80px;
+            padding: 48px 48px 80px;
         }
 
         .page-header {
@@ -270,7 +303,8 @@
 
         @media (max-width: 768px) {
             .nav { padding: 20px 20px; }
-            .container { padding: 100px 20px 60px; }
+            .breadcrumbs { padding: 80px 20px 0; font-size: 12px; }
+            .container { padding: 32px 20px 60px; }
             .post-card { padding: 32px; }
             .post-card h2 { font-size: 22px; }
             .post-arrow { display: none; }
@@ -279,11 +313,14 @@
 </head>
 <body>
     <nav class="nav">
-        <a href="/" class="nav-back">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m7-7l-7 7 7 7"/></svg>
-            Главная
-        </a>
         <a href="/" class="nav-logo">Dzamukov</a>
+        <a href="/" class="nav-back">Главная</a>
+    </nav>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <a href="/">Главная</a>
+        <span class="breadcrumbs-sep">/</span>
+        <span class="breadcrumbs-current">Статьи</span>
     </nav>
 
     <div class="container">

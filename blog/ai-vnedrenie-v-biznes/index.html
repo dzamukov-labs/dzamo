@@ -64,15 +64,32 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://dzamukov.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Статьи", "item": "https://dzamukov.com/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "Внедрение ИИ в бизнес: 4 реальных кейса" }
+        ]
+    }
+    </script>
+
     <link rel="stylesheet" href="/blog/article.css">
 </head>
 <body>
     <nav class="nav">
-        <a href="/blog/" class="nav-back">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m7-7l-7 7 7 7"/></svg>
-            Статьи
-        </a>
         <a href="/" class="nav-logo">Dzamukov</a>
+        <a href="/blog/" class="nav-back">Статьи</a>
+    </nav>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <a href="/">Главная</a>
+        <span class="breadcrumbs-sep">/</span>
+        <a href="/blog/">Статьи</a>
+        <span class="breadcrumbs-sep">/</span>
+        <span class="breadcrumbs-current">Внедрение ИИ в бизнес: 4 реальных кейса</span>
     </nav>
 
     <article class="article">
@@ -117,7 +134,7 @@
 
         <p>Сейчас не захожу в переписки, я знаю, что всё работает. Я купил своё спокойствие.</p>
 
-        <p>Подробный разбор одной сделки на $5 400 — <a href="https://dzamukov.com/blog/ai-prodavec-zakryl-sdelku/" target="_blank" rel="noopener noreferrer">покадрово весь диалог с клиентом</a>.</p>
+        <p>Подробный разбор одной сделки на $5 400 — <a href="/blog/ai-prodavec-zakryl-sdelku/">покадрово весь диалог с клиентом</a>.</p>
 
         <figure class="img-chat">
             <img src="images/ai-seller-greeting-price-dialog.webp" alt="Переписка AI-продавца: приветствие, прайс, уточнение размера бани" loading="lazy" width="1200" height="1026">
@@ -368,6 +385,22 @@
                 Telegram-канал
             </a>
         </div>
+
+        <section class="related-articles">
+            <h2>Читайте также</h2>
+            <div class="related-articles-grid">
+                <a href="/blog/ai-prodavec-na-praktike/" class="related-article-card">
+                    <span class="related-article-tag">Кейс</span>
+                    <span class="related-article-title">Один менеджер вместо шести: ИИ-система продаёт бани на 700К+</span>
+                    <span class="related-article-desc">Глубокий разбор системы из Кейса 1 — скрины переписок, реактивация базы, сделка на 703 000₽.</span>
+                </a>
+                <a href="/blog/komissiya-ekvajringa-api-banka/" class="related-article-card">
+                    <span class="related-article-tag">Статья</span>
+                    <span class="related-article-title">Комиссия эквайринга: подключил API банка и впервые увидел реальные цифры</span>
+                    <span class="related-article-desc">Глубокий разбор Кейса 4 — дашборд Bank of Georgia, комиссии по каждой карте.</span>
+                </a>
+            </div>
+        </section>
     </article>
 
     <footer class="footer">

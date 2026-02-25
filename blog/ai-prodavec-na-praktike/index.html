@@ -62,15 +62,32 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://dzamukov.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Статьи", "item": "https://dzamukov.com/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "Один менеджер вместо шести: ИИ-система продаж на практике" }
+        ]
+    }
+    </script>
+
     <link rel="stylesheet" href="/blog/article.css">
 </head>
 <body>
     <nav class="nav">
-        <a href="/blog/" class="nav-back">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m7-7l-7 7 7 7"/></svg>
-            Статьи
-        </a>
         <a href="/" class="nav-logo">Dzamukov</a>
+        <a href="/blog/" class="nav-back">Статьи</a>
+    </nav>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <a href="/">Главная</a>
+        <span class="breadcrumbs-sep">/</span>
+        <a href="/blog/">Статьи</a>
+        <span class="breadcrumbs-sep">/</span>
+        <span class="breadcrumbs-current">Один менеджер вместо шести</span>
     </nav>
 
     <article class="article">
@@ -238,7 +255,7 @@
 
         <h2>Выводы</h2>
 
-        <p>Не буду приписывать ИИ-системе весь рост — на продажи влияет сезон, реклама, продукт. Но вот что изменилось объективно:</p>
+        <p>Не буду приписывать ИИ-системе весь рост — на продажи влияет сезон, реклама, продукт. Подробный покадровый разбор одной такой сделки на 416 900₽ — <a href="/blog/ai-prodavec-zakryl-sdelku/">в отдельном кейсе</a>. Но вот что изменилось объективно:</p>
 
         <ol>
             <li><strong>Отдел продаж сократился с 6 до 1 человека</strong> — и справляется. Экономия на ФОТ — в разы. Это прямая прибыль.</li>
@@ -265,6 +282,22 @@
                 Telegram-канал
             </a>
         </div>
+
+        <section class="related-articles">
+            <h2>Читайте также</h2>
+            <div class="related-articles-grid">
+                <a href="/blog/ai-prodavec-zakryl-sdelku/" class="related-article-card">
+                    <span class="related-article-tag">Кейс</span>
+                    <span class="related-article-title">ИИ-продавец закрыл сделку на 416 900₽ без единого звонка</span>
+                    <span class="related-article-desc">Покадровый разбор одной сделки — 18 сообщений от заявки до предоплаты.</span>
+                </a>
+                <a href="/blog/ai-vnedrenie-v-biznes/" class="related-article-card">
+                    <span class="related-article-tag">Статья</span>
+                    <span class="related-article-title">Внедрение AI в бизнес: 4 реальных кейса — от продавца до интернет-магазина</span>
+                    <span class="related-article-desc">Обзор всех AI-проектов: продавец, магазин, аналитика, банковская интеграция.</span>
+                </a>
+            </div>
+        </section>
     </article>
 
     <footer class="footer">

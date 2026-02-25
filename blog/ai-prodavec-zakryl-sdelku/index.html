@@ -62,15 +62,32 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://dzamukov.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Статьи", "item": "https://dzamukov.com/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "ИИ-продавец закрыл сделку на 416 900₽ — разбор переписки" }
+        ]
+    }
+    </script>
+
     <link rel="stylesheet" href="/blog/article.css">
 </head>
 <body>
     <nav class="nav">
-        <a href="/blog/" class="nav-back">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m7-7l-7 7 7 7"/></svg>
-            Статьи
-        </a>
         <a href="/" class="nav-logo">Dzamukov</a>
+        <a href="/blog/" class="nav-back">Статьи</a>
+    </nav>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <a href="/">Главная</a>
+        <span class="breadcrumbs-sep">/</span>
+        <a href="/blog/">Статьи</a>
+        <span class="breadcrumbs-sep">/</span>
+        <span class="breadcrumbs-current">ИИ-продавец закрыл сделку на 416 900₽</span>
     </nav>
 
     <article class="article">
@@ -214,7 +231,7 @@
 
         <p>До внедрения я терял до 20% лидов из-за задержек — менеджеры не справлялись в пиковые часы. Сейчас ответ уходит за минуту, круглосуточно.</p>
 
-        <p>Эту систему я разработал с нуля — архитектура на Python, два разработчика, несколько месяцев. Сначала для своего бизнеса, теперь адаптирую для других.</p>
+        <p>Эту систему я разработал с нуля — архитектура на Python, два разработчика, несколько месяцев. Сначала для своего бизнеса, теперь адаптирую для других. Подробнее о том, как система работает в ежедневном режиме — в статье <a href="/blog/ai-prodavec-na-praktike/">один менеджер вместо шести</a>.</p>
 
         <p>Главное преимущество — стабильность. ИИ отвечает одинаково в любое время суток, в любой месяц. Я знаю его слабые места, исправляю — и они больше не повторяются.</p>
 
@@ -233,6 +250,22 @@
                 Telegram-канал
             </a>
         </div>
+
+        <section class="related-articles">
+            <h2>Читайте также</h2>
+            <div class="related-articles-grid">
+                <a href="/blog/ai-prodavec-na-praktike/" class="related-article-card">
+                    <span class="related-article-tag">Кейс</span>
+                    <span class="related-article-title">Один менеджер вместо шести: ИИ-система продаёт бани на 700К+</span>
+                    <span class="related-article-desc">Продолжение темы — как система работает каждый день, реактивация базы, масштаб автоматизации.</span>
+                </a>
+                <a href="/blog/ai-vnedrenie-v-biznes/" class="related-article-card">
+                    <span class="related-article-tag">Статья</span>
+                    <span class="related-article-title">Внедрение AI в бизнес: 4 реальных кейса — от продавца до интернет-магазина</span>
+                    <span class="related-article-desc">Обзор всех AI-проектов: продавец, магазин, аналитика, банковская интеграция.</span>
+                </a>
+            </div>
+        </section>
     </article>
 
     <footer class="footer">
