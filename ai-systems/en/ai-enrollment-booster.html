@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-49Q95G33CJ"></script>
     <script>
@@ -22,7 +23,6 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/106909672" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
@@ -61,9 +61,11 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/ai-systems/tailwind.css">
     <link rel="stylesheet" href="/fonts/fonts.css">
     <style>
+        *:focus { outline: none; -webkit-tap-highlight-color: transparent; }
+        button:focus, a:focus { box-shadow: none; }
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -1757,11 +1759,11 @@
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="https://t.me/dzamukov" target="_blank" class="inline-flex items-center justify-center gap-3 px-6 py-3 rounded-xl bg-white/10 backdrop-blur border border-white/20 text-white font-medium hover:bg-white/20 transition-all">
+                        <a href="https://t.me/dzamukov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 px-6 py-3 rounded-xl bg-white/10 backdrop-blur border border-white/20 text-white font-medium hover:bg-white/20 transition-all">
                             <img src="../logos/telegram.svg" alt="Telegram" class="w-5 h-5">
                             <span>Telegram</span>
                         </a>
-                        <a href="https://dzamukov.com" target="_blank" class="inline-flex items-center justify-center gap-3 px-6 py-3 rounded-xl bg-white/10 backdrop-blur border border-white/20 text-white font-medium hover:bg-white/20 transition-all">
+                        <a href="https://dzamukov.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 px-6 py-3 rounded-xl bg-white/10 backdrop-blur border border-white/20 text-white font-medium hover:bg-white/20 transition-all">
                             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
