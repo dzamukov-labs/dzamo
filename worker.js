@@ -1,3 +1,28 @@
+// Rate limiting: max 5 requests per IP per 60 seconds
+const rateLimitMap = new Map();
+const RATE_LIMIT = 5;
+const RATE_WINDOW = 60000;
+
+function isRateLimited(ip) {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+  if (!entry || now - entry.start > RATE_WINDOW) {
+    rateLimitMap.set(ip, { start: now, count: 1 });
+    return false;
+  }
+  entry.count++;
+  if (entry.count > RATE_LIMIT) return true;
+  return false;
+}
+
+// Cleanup old entries periodically
+function cleanupRateLimit() {
+  const now = Date.now();
+  for (const [ip, entry] of rateLimitMap) {
+    if (now - entry.start > RATE_WINDOW) rateLimitMap.delete(ip);
+  }
+}
+
 export default {
   async fetch(request, env, ctx) {
     const allowedOrigins = new Set([
@@ -20,6 +45,13 @@ export default {
     if (request.method !== 'POST') {
       return json({ error: 'Method not allowed' }, 405, request, allowedOrigins);
     }
+
+    // Rate limiting by IP
+    const clientIP = request.headers.get('CF-Connecting-IP') || 'unknown';
+    if (isRateLimited(clientIP)) {
+      return json({ error: 'Too many requests' }, 429, request, allowedOrigins);
+    }
+    ctx.waitUntil(Promise.resolve().then(cleanupRateLimit));
 
     try {
       const data = await request.json();
