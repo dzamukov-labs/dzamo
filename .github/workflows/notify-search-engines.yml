@@ -15,11 +15,6 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Ping Google sitemap
-        run: |
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://www.google.com/ping?sitemap=https://dzamukov.com/sitemap.xml")
-          echo "Google sitemap ping: $STATUS"
-
       - name: Ping Yandex sitemap
         run: |
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://webmaster.yandex.ru/ping?sitemap=https://dzamukov.com/sitemap.xml")
